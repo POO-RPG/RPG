@@ -426,10 +426,10 @@ public class RPG_Janela_Prinicpal extends FrameView {
         @Action
         public void bt_travar_todas_fichas ()
         {
-                /*
+                
                tes = concatena(tes,JOptionPane.showInputDialog("digite o nome"));
                lista_jogadores.setListData(tes);
-                */
+                
 
 
         }

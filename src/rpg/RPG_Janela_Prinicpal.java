@@ -432,14 +432,11 @@ public class RPG_Janela_Prinicpal extends FrameView {
         @Action
         public void bt_travar_todas_fichas ()
         {
-                
                tes = concatena(tes,JOptionPane.showInputDialog("digite o nome"));
                lista_jogadores.setListData(tes);
-                
-
-
         }
 
+        //Método para colocar uma string no final de um vetor de strings
         public String[] concatena(String[] v, String s)
         {
                 String[] vv = new String[v.length + 1];
@@ -451,6 +448,7 @@ public class RPG_Janela_Prinicpal extends FrameView {
                 return vv;
         }
 
+        //Método responsável por iniciar o servidor
         @Action
         public void mestrar ()
         {
@@ -476,6 +474,7 @@ public class RPG_Janela_Prinicpal extends FrameView {
                 mestre.start();
         }
 
+        //Método responsável por iniciar o modo jogador
         @Action
         public void jogar ()
         {

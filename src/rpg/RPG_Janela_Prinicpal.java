@@ -31,6 +31,7 @@ public class RPG_Janela_Prinicpal extends FrameView {
         String[] jogadores = {};
         ArrayList<Ficha> fichas = new ArrayList<Ficha>();
 
+        //Auto explcativo
         private void Inicializa_componentes()
         {
                 lista_jogadores.setListData(jogadores);
@@ -358,6 +359,7 @@ public class RPG_Janela_Prinicpal extends FrameView {
                     bt_enviar();
     }//GEN-LAST:event_txt_enviarKeyReleased
 
+        //Chamado quando o botão enviar é pressionado
         @Action
         public void bt_enviar ()
         {
@@ -369,6 +371,7 @@ public class RPG_Janela_Prinicpal extends FrameView {
                 txt_enviar.grabFocus();
         }
 
+        //Chamado quando o botão rolar dado é pressionado
         @Action
         public void bt_rolar_dado ()
         {
@@ -408,6 +411,7 @@ public class RPG_Janela_Prinicpal extends FrameView {
            
         }
 
+        //Chamado quando o botão limpar é pressionado
         @Action
         public void bt_Limpar ()
         {
@@ -417,12 +421,14 @@ public class RPG_Janela_Prinicpal extends FrameView {
                 txt_num_dados.setText("1");
         }
 
+        //Chamado quando o botão ver ficha é presionado
         @Action
         public void bt_ver_ficha ()
         {
                 JOptionPane.showMessageDialog(null ,lista_jogadores.getSelectedIndex());
         }
 
+        //Chamado quando o botão travar todas as fichas é presionado
         @Action
         public void bt_travar_todas_fichas ()
         {
@@ -448,6 +454,26 @@ public class RPG_Janela_Prinicpal extends FrameView {
         @Action
         public void mestrar ()
         {
+                Servidor mestre;
+                int porta;
+                while(true)
+                {
+                        try
+                        {
+                                porta = Integer.parseInt(JOptionPane.showInputDialog("Digite a porta:"));
+                                if (porta < 1)
+                                        JOptionPane.showMessageDialog(null, "A porta deve ser um número inteiro e positivo!");
+                                else
+                                        break;
+                        }
+                        catch(NumberFormatException e)
+                        {
+                                JOptionPane.showMessageDialog(null, "A porta deve ser um número inteiro e positivo!");
+                        }
+                }
+
+                mestre = new Servidor(porta, txt_chat);
+                mestre.start();
         }
 
         @Action

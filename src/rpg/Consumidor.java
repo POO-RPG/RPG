@@ -46,9 +46,11 @@ public class Consumidor extends Thread
 
                         //Escreve a mensagem na área de chat
 			System.out.printf("%s\n", m.getMensagem());
-                        texto = txt_chat.getText();
-                        texto += "\n" + m.getMensagem();
-                        txt_chat.setText(texto);
+                        //texto = txt_chat.getText();
+                        //texto += "\n" + m.getMensagem();
+                        //txt_chat.setText(texto);
+                        txt_chat.append("\n" + m.getMensagem());
+                        txt_chat.setCaretPosition(txt_chat.getText().length());
 
                         //Envia a mensagem para todos os clientes
 			for(Conecxao_Cliente c: clientes)

@@ -10,6 +10,7 @@ package rpg;
  * @author belimawr
  */
 import java.io.*;
+import javax.swing.JOptionPane;
 import javax.swing.JTextArea;
 
 public class Escrevedor extends Thread
@@ -34,11 +35,17 @@ public class Escrevedor extends Thread
 			{
                                 mensagem = in.readUTF();
 				System.out.printf("\n%s", mensagem);
-                                texto = txt_chat.getText();
-                                texto += "\n" + mensagem;
-                                txt_chat.setText(texto);
-                                
+                                //texto = txt_chat.getText();
+                                //texto += mensagem;
+                                //txt_chat.setText(texto);
+                                txt_chat.append(mensagem);
+                                txt_chat.setCaretPosition(txt_chat.getText().length()); 
 			}
+                        catch(EOFException e)
+                        {
+                                JOptionPane.showMessageDialog(null, "A conexão com o servidor foi interrompida.");
+                                System.exit(1);
+                        }
 			catch(Exception e)
 			{
 				e.printStackTrace();

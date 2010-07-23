@@ -28,8 +28,11 @@ public class RPG_Janela_Prinicpal extends FrameView {
         String[] tes= {};
 
         //Atribuos
+        boolean mestrando = false;
         String[] jogadores = {};
         ArrayList<Ficha> fichas = new ArrayList<Ficha>();
+        Cliente cliente;
+        Servidor mestre;
 
         //Auto explcativo
         private void Inicializa_componentes()
@@ -363,12 +366,20 @@ public class RPG_Janela_Prinicpal extends FrameView {
         @Action
         public void bt_enviar ()
         {
-                txt_chat.setEditable(false);
+                if (mestrando)
+                        mestre.Enviar_mensagem(txt_enviar.getText());
+                else
+                        cliente.Escrever_mensagem(txt_enviar.getText());
+
+                txt_enviar.setText("");
+
+/*                txt_chat.setEditable(false);
                 String t = txt_chat.getText();
                 t = t + "\n" + txt_enviar.getText();
                 txt_chat.setText(t);
                 txt_enviar.setText("");
                 txt_enviar.grabFocus();
+ * */
         }
 
         //Chamado quando o botão rolar dado é pressionado
@@ -452,7 +463,7 @@ public class RPG_Janela_Prinicpal extends FrameView {
         @Action
         public void mestrar ()
         {
-                Servidor mestre;
+                mestrando = true;
                 int porta;
                 while(true)
                 {
@@ -478,6 +489,7 @@ public class RPG_Janela_Prinicpal extends FrameView {
         @Action
         public void jogar ()
         {
+                cliente = new Cliente(txt_chat);
         }
 
         // Variables declaration - do not modify//GEN-BEGIN:variables

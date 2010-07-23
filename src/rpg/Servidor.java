@@ -27,6 +27,7 @@ public class Servidor extends Thread
         private ArrayList<Conecxao_Cliente> clientes;
         private Consumidor c;
         private JTextArea txt_chat;
+        private String nick = "Mestre";
 
         Servidor(int porta, JTextArea txt_chat)
         {
@@ -53,6 +54,18 @@ public class Servidor extends Thread
                 return clientes;
         }
 
+        public void Enviar_mensagem(String s)
+        {
+                try
+                {
+                        f.insere(new Mensagem("<" + nick + "> " + s));
+                }
+                catch(Exception e)
+                {
+                        e.printStackTrace();
+                }
+        }
+        
         @Override
         public void run()
         {

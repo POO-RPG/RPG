@@ -11,7 +11,6 @@
 
 package rpg;
 
-import java.awt.Color;
 import javax.swing.JOptionPane;
 import org.jdesktop.application.Action;
 
@@ -799,7 +798,7 @@ public class Frame_Ficha extends javax.swing.JFrame {
     @Action
     public void BT_Add_VAntagem() {
         String[] s = ficha.getVantagens();
-        JOptionPane.showInputDialog(this, "teste", null, WIDTH)
+        JOptionPane.showInputDialog(this, "teste", null, WIDTH);
     }
 
 }

@@ -1,8 +1,17 @@
+/*
+ * To change this template, choose Tools | Templates
+ * and open the template in the editor.
+ */
+
 package rpg;
 
 import java.io.IOException;
 
-public class Erro_Ficha extends IOException
+/**
+ *
+ * @author fenix
+ */
+class Erro_Ficha extends IOException
 {
 	private String erro;
 

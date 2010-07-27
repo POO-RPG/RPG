@@ -16,7 +16,7 @@ public class RPG extends SingleFrameApplication {
      * At startup create and show the main frame of the application.
      */
     @Override protected void startup() {
-        show(new RPG_Janela_Prinicpal(this));
+        show(new Frame_Ficha());
     }
 
     /**

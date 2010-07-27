@@ -11,7 +11,6 @@ import org.jdesktop.application.FrameView;
 import org.jdesktop.application.TaskMonitor;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.ArrayList;
 import javax.swing.Timer;
 import javax.swing.Icon;
 import javax.swing.JDialog;
@@ -24,21 +23,13 @@ import static java.lang.Math.*;
  */
 public class RPG_Janela_Prinicpal extends FrameView {
 
-        //Coisas para testes
-        String[] tes= {};
+        //String[] v = {"S1", "S2"};
 
-        //Atribuos
-        boolean mestrando = false;
-        String[] jogadores = {};
-        ArrayList<Ficha> fichas = new ArrayList<Ficha>();
-        Cliente cliente;
-        Servidor mestre;
-
-        //Auto explcativo
         private void Inicializa_componentes()
         {
-                lista_jogadores.setListData(jogadores);
-                txt_chat.setEditable(false);
+                String[] s = {"teste", "teste1", "teste22"};
+                jList1.setListData(s);
+                jTextArea1.setEditable(false);
         }
 
     public RPG_Janela_Prinicpal(SingleFrameApplication app) {
@@ -124,25 +115,22 @@ public class RPG_Janela_Prinicpal extends FrameView {
 
                 mainPanel = new javax.swing.JPanel();
                 jScrollPane1 = new javax.swing.JScrollPane();
-                txt_chat = new javax.swing.JTextArea();
-                txt_enviar = new javax.swing.JTextField();
-                bt_enviar = new javax.swing.JButton();
+                jTextArea1 = new javax.swing.JTextArea();
+                jTextField1 = new javax.swing.JTextField();
+                jButton1 = new javax.swing.JButton();
                 jScrollPane2 = new javax.swing.JScrollPane();
-                lista_jogadores = new javax.swing.JList();
+                jList1 = new javax.swing.JList();
                 jLabel1 = new javax.swing.JLabel();
-                bt_rolar_dados = new javax.swing.JButton();
+                jButton2 = new javax.swing.JButton();
                 jLabel2 = new javax.swing.JLabel();
-                txt_modificador = new javax.swing.JTextField();
+                jTextField2 = new javax.swing.JTextField();
                 jLabel3 = new javax.swing.JLabel();
-                txt_num_dados = new javax.swing.JTextField();
-                bt_Enviar = new javax.swing.JButton();
-                bt_ve_ficha = new javax.swing.JButton();
-                bt_trava_ficha = new javax.swing.JButton();
-                lbl_status = new javax.swing.JLabel();
+                jTextField3 = new javax.swing.JTextField();
+                jButton3 = new javax.swing.JButton();
+                jButton4 = new javax.swing.JButton();
+                jButton5 = new javax.swing.JButton();
                 menuBar = new javax.swing.JMenuBar();
                 javax.swing.JMenu fileMenu = new javax.swing.JMenu();
-                menu_metrar = new javax.swing.JMenuItem();
-                menu_jogar = new javax.swing.JMenuItem();
                 javax.swing.JMenuItem exitMenuItem = new javax.swing.JMenuItem();
                 javax.swing.JMenu helpMenu = new javax.swing.JMenu();
                 javax.swing.JMenuItem aboutMenuItem = new javax.swing.JMenuItem();
@@ -156,67 +144,59 @@ public class RPG_Janela_Prinicpal extends FrameView {
 
                 jScrollPane1.setName("jScrollPane1"); // NOI18N
 
-                txt_chat.setColumns(20);
-                txt_chat.setRows(5);
-                txt_chat.setName("txt_chat"); // NOI18N
-                jScrollPane1.setViewportView(txt_chat);
+                jTextArea1.setColumns(20);
+                jTextArea1.setRows(5);
+                jTextArea1.setName("jTextArea1"); // NOI18N
+                jScrollPane1.setViewportView(jTextArea1);
 
                 org.jdesktop.application.ResourceMap resourceMap = org.jdesktop.application.Application.getInstance(rpg.RPG.class).getContext().getResourceMap(RPG_Janela_Prinicpal.class);
-                txt_enviar.setText(resourceMap.getString("txt_enviar.text")); // NOI18N
-                txt_enviar.setName("txt_enviar"); // NOI18N
-                txt_enviar.addKeyListener(new java.awt.event.KeyAdapter() {
-                        public void keyReleased(java.awt.event.KeyEvent evt) {
-                                txt_enviarKeyReleased(evt);
-                        }
-                });
+                jTextField1.setText(resourceMap.getString("jTextField1.text")); // NOI18N
+                jTextField1.setName("jTextField1"); // NOI18N
 
                 javax.swing.ActionMap actionMap = org.jdesktop.application.Application.getInstance(rpg.RPG.class).getContext().getActionMap(RPG_Janela_Prinicpal.class, this);
-                bt_enviar.setAction(actionMap.get("bt_enviar")); // NOI18N
-                bt_enviar.setText(resourceMap.getString("bt_enviar.text")); // NOI18N
-                bt_enviar.setName("bt_enviar"); // NOI18N
+                jButton1.setAction(actionMap.get("bt_enviar")); // NOI18N
+                jButton1.setText(resourceMap.getString("jButton1.text")); // NOI18N
+                jButton1.setName("jButton1"); // NOI18N
 
                 jScrollPane2.setName("jScrollPane2"); // NOI18N
 
-                lista_jogadores.setModel(new javax.swing.AbstractListModel() {
+                jList1.setModel(new javax.swing.AbstractListModel() {
                         String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
                         public int getSize() { return strings.length; }
                         public Object getElementAt(int i) { return strings[i]; }
                 });
-                lista_jogadores.setName("lista_jogadores"); // NOI18N
-                jScrollPane2.setViewportView(lista_jogadores);
+                jList1.setName("jList1"); // NOI18N
+                jScrollPane2.setViewportView(jList1);
 
                 jLabel1.setName("jLabel1"); // NOI18N
 
-                bt_rolar_dados.setAction(actionMap.get("bt_rolar_dado")); // NOI18N
-                bt_rolar_dados.setText(resourceMap.getString("bt_rolar_dados.text")); // NOI18N
-                bt_rolar_dados.setName("bt_rolar_dados"); // NOI18N
+                jButton2.setAction(actionMap.get("bt_rolar_dado")); // NOI18N
+                jButton2.setText(resourceMap.getString("jButton2.text")); // NOI18N
+                jButton2.setName("jButton2"); // NOI18N
 
                 jLabel2.setText(resourceMap.getString("jLabel2.text")); // NOI18N
                 jLabel2.setName("jLabel2"); // NOI18N
 
-                txt_modificador.setText(resourceMap.getString("txt_modificador.text")); // NOI18N
-                txt_modificador.setName("txt_modificador"); // NOI18N
+                jTextField2.setText(resourceMap.getString("jTextField2.text")); // NOI18N
+                jTextField2.setName("jTextField2"); // NOI18N
 
                 jLabel3.setText(resourceMap.getString("jLabel3.text")); // NOI18N
                 jLabel3.setName("jLabel3"); // NOI18N
 
-                txt_num_dados.setText(resourceMap.getString("txt_num_dados.text")); // NOI18N
-                txt_num_dados.setName("txt_num_dados"); // NOI18N
+                jTextField3.setText(resourceMap.getString("jTextField3.text")); // NOI18N
+                jTextField3.setName("jTextField3"); // NOI18N
 
-                bt_Enviar.setAction(actionMap.get("bt_Limpar")); // NOI18N
-                bt_Enviar.setText(resourceMap.getString("bt_Enviar.text")); // NOI18N
-                bt_Enviar.setName("bt_Enviar"); // NOI18N
+                jButton3.setAction(actionMap.get("bt_Limpar")); // NOI18N
+                jButton3.setText(resourceMap.getString("jButton3.text")); // NOI18N
+                jButton3.setName("jButton3"); // NOI18N
 
-                bt_ve_ficha.setAction(actionMap.get("bt_ver_ficha")); // NOI18N
-                bt_ve_ficha.setText(resourceMap.getString("bt_ve_ficha.text")); // NOI18N
-                bt_ve_ficha.setName("bt_ve_ficha"); // NOI18N
+                jButton4.setAction(actionMap.get("bt_ver_ficha")); // NOI18N
+                jButton4.setText(resourceMap.getString("jButton4.text")); // NOI18N
+                jButton4.setName("jButton4"); // NOI18N
 
-                bt_trava_ficha.setAction(actionMap.get("bt_travar_todas_fichas")); // NOI18N
-                bt_trava_ficha.setText(resourceMap.getString("bt_trava_ficha.text")); // NOI18N
-                bt_trava_ficha.setName("bt_trava_ficha"); // NOI18N
-
-                lbl_status.setText(resourceMap.getString("lbl_status.text")); // NOI18N
-                lbl_status.setName("lbl_status"); // NOI18N
+                jButton5.setAction(actionMap.get("bt_travar_todas_fichas")); // NOI18N
+                jButton5.setText(resourceMap.getString("jButton5.text")); // NOI18N
+                jButton5.setName("jButton5"); // NOI18N
 
                 javax.swing.GroupLayout mainPanelLayout = new javax.swing.GroupLayout(mainPanel);
                 mainPanel.setLayout(mainPanelLayout);
@@ -224,77 +204,63 @@ public class RPG_Janela_Prinicpal extends FrameView {
                         mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(mainPanelLayout.createSequentialGroup()
                                 .addContainerGap(52, Short.MAX_VALUE)
-                                .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(lbl_status)
-                                        .addGroup(mainPanelLayout.createSequentialGroup()
-                                                .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                                        .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 562, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                        .addGroup(mainPanelLayout.createSequentialGroup()
-                                                                .addComponent(txt_enviar, javax.swing.GroupLayout.DEFAULT_SIZE, 479, Short.MAX_VALUE)
-                                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                                .addComponent(bt_enviar))
-                                                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, mainPanelLayout.createSequentialGroup()
-                                                                .addComponent(jLabel2)
-                                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                                .addComponent(txt_modificador, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                                .addComponent(jLabel3)
-                                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                                .addComponent(txt_num_dados, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 28, Short.MAX_VALUE)
-                                                                .addComponent(bt_rolar_dados)
-                                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                                                .addComponent(bt_Enviar)))
+                                .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, mainPanelLayout.createSequentialGroup()
+                                                .addComponent(jLabel2)
                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                        .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 217, Short.MAX_VALUE)
-                                                        .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 217, Short.MAX_VALUE)
-                                                        .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                                                .addComponent(bt_ve_ficha, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                                                .addComponent(bt_trava_ficha, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
+                                                .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(jLabel3)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 28, Short.MAX_VALUE)
+                                                .addComponent(jButton2)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                                .addComponent(jButton3))
+                                        .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 562, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGroup(mainPanelLayout.createSequentialGroup()
+                                                .addComponent(jTextField1, javax.swing.GroupLayout.DEFAULT_SIZE, 479, Short.MAX_VALUE)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(jButton1)))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 217, Short.MAX_VALUE)
+                                        .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 217, Short.MAX_VALUE)
+                                        .addComponent(jButton4)
+                                        .addComponent(jButton5))
                                 .addContainerGap())
                 );
                 mainPanelLayout.setVerticalGroup(
                         mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(mainPanelLayout.createSequentialGroup()
                                 .addGap(34, 34, 34)
-                                .addComponent(jLabel1)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                        .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 261, Short.MAX_VALUE)
-                                        .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.LEADING))
+                                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, mainPanelLayout.createSequentialGroup()
+                                                .addComponent(jLabel1)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(jScrollPane2))
+                                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 261, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                        .addComponent(txt_enviar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(bt_enviar)
-                                        .addComponent(bt_ve_ficha))
+                                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(jButton1)
+                                        .addComponent(jButton4))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                         .addComponent(jLabel2)
-                                        .addComponent(txt_modificador, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addComponent(jLabel3)
-                                        .addComponent(txt_num_dados, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(bt_Enviar)
-                                        .addComponent(bt_rolar_dados)
-                                        .addComponent(bt_trava_ficha))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 16, Short.MAX_VALUE)
-                                .addComponent(lbl_status))
+                                        .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(jButton3)
+                                        .addComponent(jButton2)
+                                        .addComponent(jButton5))
+                                .addGap(105, 105, 105))
                 );
 
                 menuBar.setName("menuBar"); // NOI18N
 
                 fileMenu.setText(resourceMap.getString("fileMenu.text")); // NOI18N
                 fileMenu.setName("fileMenu"); // NOI18N
-
-                menu_metrar.setAction(actionMap.get("mestrar")); // NOI18N
-                menu_metrar.setText(resourceMap.getString("menu_metrar.text")); // NOI18N
-                menu_metrar.setName("menu_metrar"); // NOI18N
-                fileMenu.add(menu_metrar);
-
-                menu_jogar.setAction(actionMap.get("jogar")); // NOI18N
-                menu_jogar.setText(resourceMap.getString("menu_jogar.text")); // NOI18N
-                menu_jogar.setName("menu_jogar"); // NOI18N
-                fileMenu.add(menu_jogar);
 
                 exitMenuItem.setAction(actionMap.get("quit")); // NOI18N
                 exitMenuItem.setText(resourceMap.getString("exitMenuItem.text")); // NOI18N
@@ -355,168 +321,95 @@ public class RPG_Janela_Prinicpal extends FrameView {
                 setStatusBar(statusPanel);
         }// </editor-fold>//GEN-END:initComponents
 
-    private void txt_enviarKeyReleased (java.awt.event.KeyEvent evt)//GEN-FIRST:event_txt_enviarKeyReleased
-    {//GEN-HEADEREND:event_txt_enviarKeyReleased
-            // TODO add your handling code here:
-            if (evt.getKeyCode() == java.awt.event.KeyEvent.VK_ENTER)
-                    bt_enviar();
-    }//GEN-LAST:event_txt_enviarKeyReleased
-
-        //Chamado quando o botão enviar é pressionado
         @Action
         public void bt_enviar ()
         {
-                if (mestrando)
-                        mestre.Enviar_mensagem(txt_enviar.getText());
-                else
-                        cliente.Escrever_mensagem(txt_enviar.getText());
-
-                txt_enviar.setText("");
-
-/*                txt_chat.setEditable(false);
-                String t = txt_chat.getText();
-                t = t + "\n" + txt_enviar.getText();
-                txt_chat.setText(t);
-                txt_enviar.setText("");
-                txt_enviar.grabFocus();
- * */
+                jTextArea1.setEditable(false);
+                String t = jTextArea1.getText();
+                t = t + "\n" + jTextField1.getText();
+                jTextArea1.setText(t);
+                jTextField1.setText("");
         }
 
-        //Chamado quando o botão rolar dado é pressionado
         @Action
         public void bt_rolar_dado ()
         {
-                try
+                int dado, tot = 0, i, i_f = Integer.parseInt(jTextField3.getText());
+                String t;
+
+                for(i = 0; i< i_f; i++)
                 {
-                        int dado, tot = 0, i, i_f = Integer.parseInt(txt_num_dados.getText());
-                        String t;
-
-                        if (!(i_f > 0))
-                        {
-                                JOptionPane.showMessageDialog(null, "Você só pode rolar um número maior que zero de dados!");
-                                txt_modificador.setText("0");
-                                txt_num_dados.setText("1");
-                                return;
-                        }
-
-
-                        for(i = 0; i< i_f; i++)
-                        {
-                                dado = (int) (1 + (6*random()));
-                                dado += Integer.parseInt(txt_modificador.getText());
-                                tot += dado;
-                                t = txt_chat.getText();
-                                t = t + "\nO dado rolado foi: " + dado;
-                                txt_chat.setText(t);
-                        }
-                        t = txt_chat.getText();
-                        t += "\nForam rolados " + i_f + " dados, com o modificador: " + Integer.parseInt(txt_modificador.getText()) + ". O total é: " + tot;
-                        txt_chat.setText(t);
+                        dado = (int) (1 + (6*random()));
+                        dado += Integer.parseInt(jTextField2.getText());
+                        tot += dado;
+                        t = jTextArea1.getText();
+                        t = t + "\nO dado rolado foi: " + dado;
+                        jTextArea1.setText(t);
                 }
-                catch(NumberFormatException e)
-                {
-                        JOptionPane.showMessageDialog(null,"Digite números em \"Modificador\" e \"Número de dados\"");
-                        txt_modificador.setText("0");
-                        txt_num_dados.setText("1");
-                }
+                t = jTextArea1.getText();
+                t += "\nForam rolados " + i_f + " dados, com o modificador: " + Integer.parseInt(jTextField2.getText()) + ". O total é: " + tot;
+                jTextArea1.setText(t);
            
         }
 
-        //Chamado quando o botão limpar é pressionado
         @Action
         public void bt_Limpar ()
         {
-                txt_chat.setText("");
-                txt_enviar.setText("");
-                txt_modificador.setText("0");
-                txt_num_dados.setText("1");
+                jTextArea1.setText("");
         }
 
-        //Chamado quando o botão ver ficha é presionado
         @Action
         public void bt_ver_ficha ()
         {
-                JOptionPane.showMessageDialog(null ,lista_jogadores.getSelectedIndex());
+                //int i = jList1.getSelectedIndex();
+                JOptionPane.showMessageDialog(null ,jList1.getSelectedIndex());
         }
 
-        //Chamado quando o botão travar todas as fichas é presionado
         @Action
         public void bt_travar_todas_fichas ()
         {
-               tes = concatena(tes,JOptionPane.showInputDialog("digite o nome"));
-               lista_jogadores.setListData(tes);
+              //  static String[] s = {"S1","S2"};
+            //    concatena(
+
+
         }
 
-        //Método para colocar uma string no final de um vetor de strings
-        public String[] concatena(String[] v, String s)
+        private String[] concatena(String[] v)
         {
                 String[] vv = new String[v.length + 1];
                 int i;
                 for(i=0;i<v.length;i++)
                         vv[i] = v[i];
-                vv[i] = s;
+                vv[i] = JOptionPane.showInputDialog("Digite a string a ser adicionada");
+
+                for(String s: vv)
+                        System.out.println(s);
 
                 return vv;
         }
 
-        //Método responsável por iniciar o servidor
-        @Action
-        public void mestrar ()
-        {
-                mestrando = true;
-                int porta;
-                while(true)
-                {
-                        try
-                        {
-                                porta = Integer.parseInt(JOptionPane.showInputDialog("Digite a porta:"));
-                                if (porta < 1)
-                                        JOptionPane.showMessageDialog(null, "A porta deve ser um número inteiro e positivo!");
-                                else
-                                        break;
-                        }
-                        catch(NumberFormatException e)
-                        {
-                                JOptionPane.showMessageDialog(null, "A porta deve ser um número inteiro e positivo!");
-                        }
-                }
-
-                mestre = new Servidor(porta, txt_chat);
-                mestre.start();
-        }
-
-        //Método responsável por iniciar o modo jogador
-        @Action
-        public void jogar ()
-        {
-                cliente = new Cliente(txt_chat);
-        }
-
         // Variables declaration - do not modify//GEN-BEGIN:variables
-        private javax.swing.JButton bt_Enviar;
-        private javax.swing.JButton bt_enviar;
-        private javax.swing.JButton bt_rolar_dados;
-        private javax.swing.JButton bt_trava_ficha;
-        private javax.swing.JButton bt_ve_ficha;
+        private javax.swing.JButton jButton1;
+        private javax.swing.JButton jButton2;
+        private javax.swing.JButton jButton3;
+        private javax.swing.JButton jButton4;
+        private javax.swing.JButton jButton5;
         private javax.swing.JLabel jLabel1;
         private javax.swing.JLabel jLabel2;
         private javax.swing.JLabel jLabel3;
+        private javax.swing.JList jList1;
         private javax.swing.JScrollPane jScrollPane1;
         private javax.swing.JScrollPane jScrollPane2;
-        private javax.swing.JLabel lbl_status;
-        private javax.swing.JList lista_jogadores;
+        private javax.swing.JTextArea jTextArea1;
+        private javax.swing.JTextField jTextField1;
+        private javax.swing.JTextField jTextField2;
+        private javax.swing.JTextField jTextField3;
         private javax.swing.JPanel mainPanel;
         private javax.swing.JMenuBar menuBar;
-        private javax.swing.JMenuItem menu_jogar;
-        private javax.swing.JMenuItem menu_metrar;
         private javax.swing.JProgressBar progressBar;
         private javax.swing.JLabel statusAnimationLabel;
         private javax.swing.JLabel statusMessageLabel;
         private javax.swing.JPanel statusPanel;
-        private javax.swing.JTextArea txt_chat;
-        private javax.swing.JTextField txt_enviar;
-        private javax.swing.JTextField txt_modificador;
-        private javax.swing.JTextField txt_num_dados;
         // End of variables declaration//GEN-END:variables
 
     private final Timer messageTimer;

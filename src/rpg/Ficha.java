@@ -15,68 +15,24 @@ class Ficha
 {
 	protected String Nome_jogador, Nome_personagem;
 	protected String TD_Forca, TD_PdF, Historia;
-	protected String[] Magias, Vantagens, Desvantagens;
+	protected ArrayList<String> Magias, Vantagens, Desvantagens;
 
-    public String[] getDesvantagens() {
+    public ArrayList<String> getDesvantagens() {
         return Desvantagens;
     }
 
-    public String[] getMagias() {
+    public ArrayList<String> getMagias() {
         return Magias;
     }
 
-    public String[] getVantagens() {
+    public ArrayList<String> getVantagens() {
         return Vantagens;
     }
 
 	//Características
 	protected int F, H, R, A, PdF, PV, PM;
 
-	//Caminhos da Magia
-	protected int Agua, Ar, Fogo, Luz, Terra, Trevas;
-
-	protected int Experiencia;
-	protected double Dinheiro;
-
-        Ficha()
-	{
-                F = H = R =A = PdF = PV = PM = 0;
-                Agua = Ar = Fogo = Luz = Terra = Trevas = 0;
-                Dinheiro = Experiencia = 0;
-                Magias = new String[1];
-                Vantagens = new String[1];
-                Desvantagens = new String[1];
-	}
-
-        Ficha(String Nome_jogador, String Nome_personagem)
-	{
-		this.Nome_jogador = Nome_jogador;
-		this.Nome_personagem = Nome_personagem;
-
-                F = H = R =A = PdF = PV = PM = 0;
-                Agua = Ar = Fogo = Luz = Terra = Trevas = 0;
-                Dinheiro = Experiencia = 0;
-                Magias = new String[1];
-                Vantagens = new String[1];
-                Desvantagens = new String[1];
-	}
-
-	Ficha(String Nome_jogador, String Nome_personagem, String Historia)
-	{
-
-		this.Nome_jogador = Nome_jogador;
-		this.Nome_personagem = Nome_personagem;
-		this.Historia = Historia;
-
-                F = H = R =A = PdF = PV = PM = 0;
-                Agua = Ar = Fogo = Luz = Terra = Trevas = 0;
-                Dinheiro = Experiencia = 0;
-                Magias = new String[1];
-                Vantagens = new String[1];
-                Desvantagens = new String[1];
-	}
-
-            public int getA() {
+    public int getA() {
         return A;
     }
 
@@ -155,6 +111,41 @@ class Ficha
     public int getTrevas() {
         return Trevas;
     }
+
+	//Caminhos da Magia
+	protected int Agua, Ar, Fogo, Luz, Terra, Trevas;
+
+	protected int Experiencia;
+	protected double Dinheiro;
+
+        Ficha()
+	{
+                F = H = R =A = PdF = PV = PM = 0;
+                Agua = Ar = Fogo = Luz = Terra = Trevas = 0;
+                Dinheiro = Experiencia = 0;
+	}
+
+        Ficha(String Nome_jogador, String Nome_personagem)
+	{
+		this.Nome_jogador = Nome_jogador;
+		this.Nome_personagem = Nome_personagem;
+
+                F = H = R =A = PdF = PV = PM = 0;
+                Agua = Ar = Fogo = Luz = Terra = Trevas = 0;
+                Dinheiro = Experiencia = 0;
+	}
+
+	Ficha(String Nome_jogador, String Nome_personagem, String Historia)
+	{
+
+		this.Nome_jogador = Nome_jogador;
+		this.Nome_personagem = Nome_personagem;
+		this.Historia = Historia;
+
+                F = H = R =A = PdF = PV = PM = 0;
+                Agua = Ar = Fogo = Luz = Terra = Trevas = 0;
+                Dinheiro = Experiencia = 0;
+	}
 
 	public void setF(int F) throws Erro_Ficha
 	{

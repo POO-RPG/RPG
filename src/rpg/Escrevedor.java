@@ -30,7 +30,6 @@ public class Escrevedor extends Thread
                 String mensagem, texto;
 		while(true)
 		{
-                        System.out.print("Jogador esperando uma mensagem!!");
 			try
 			{
                                 mensagem = in.readUTF();

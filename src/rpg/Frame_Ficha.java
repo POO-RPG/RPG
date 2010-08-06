@@ -829,16 +829,23 @@ public class Frame_Ficha extends javax.swing.JFrame {
             ficha.setR(Integer.parseInt(txt_R.getText()));
             ficha.setTerra(Integer.parseInt(txt_Terra.getText()));
             ficha.setTrevas(Integer.parseInt(txt_Trevas.getText()));
-        } catch (Erro_Ficha e) {
+
+            ficha.setNome_jogador(txt_Jogador.getText());
+            ficha.setNome_personagem(txt_Personagem.getText());
+            ficha.setTD_Forca(txt_Forca.getText());
+            ficha.setTD_PdF(txt_PoderDeFogo.getText());
+            ficha.setHistoria(txt_area_Historia.getText());
+
+            JOptionPane.showMessageDialog(this, "Ficha Atualizada!");
+        }
+        catch (Erro_Ficha e) {
             JOptionPane.showMessageDialog(this, e);
         }
-        ficha.setNome_jogador(txt_Jogador.getText());
-        ficha.setNome_personagem(txt_Personagem.getText());
-        ficha.setTD_Forca(txt_Forca.getText());
-        ficha.setTD_PdF(txt_PoderDeFogo.getText());
-        ficha.setHistoria(txt_area_Historia.getText());
+        catch (NumberFormatException e)
+        {
+            JOptionPane.showMessageDialog(this, e);
+        }
 
-        JOptionPane.showMessageDialog(this, "Ficha Atualizada!");
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BT_Add_Desvantagem;

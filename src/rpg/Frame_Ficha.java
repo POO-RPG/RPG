@@ -52,7 +52,7 @@ public class Frame_Ficha extends javax.swing.JFrame {
         txt_Terra.setText(null);
         txt_Trevas.setText(null);
         txt_area_Historia.setText(null);
-
+        
     }
 
     /** This method is called from within the constructor to

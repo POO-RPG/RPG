@@ -81,9 +81,8 @@ public class Servidor extends Thread
                                 novo_jogador.start();
                                 clientes.add(novo_jogador);
                                 System.out.printf("\nCliente Conectado!");
-                                texto = txt_chat.getText();
-                                texto += "\nCliente Conectado!";
-                                txt_chat.setText(texto);
+                                txt_chat.append("\nCliente Conectado!");
+                                txt_chat.setCaretPosition(txt_chat.getText().length());
                         }
                         catch(Exception e)
                         {

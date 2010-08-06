@@ -34,9 +34,6 @@ public class Escrevedor extends Thread
 			{
                                 mensagem = in.readUTF();
 				System.out.printf("\n%s", mensagem);
-                                //texto = txt_chat.getText();
-                                //texto += mensagem;
-                                //txt_chat.setText(texto);
                                 txt_chat.append(mensagem);
                                 txt_chat.setCaretPosition(txt_chat.getText().length()); 
 			}

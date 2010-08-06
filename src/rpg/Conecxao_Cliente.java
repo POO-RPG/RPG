@@ -65,9 +65,9 @@ public class Conecxao_Cliente extends Thread
 			{
 
 				System.out.printf("\nCliente %d desconectou!\n", eu);
-                                texto = txt_chat.getText();
-                                texto += "\nCliente Desconectado!";
-                                txt_chat.setText(texto);
+                                texto = "\nCliente Desconectado!";
+                                txt_chat.append(texto);
+                                txt_chat.setCaretPosition(txt_chat.getText().length());
 				ok = false;
 			}
 		}

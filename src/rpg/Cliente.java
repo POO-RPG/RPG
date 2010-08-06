@@ -52,6 +52,12 @@ public class Cliente
 		}
         }
 
+        public String getNick()
+        {
+                return nick;
+        }
+
+
 	public void Escrever_mensagem(String mensagem)
 	{
                 try

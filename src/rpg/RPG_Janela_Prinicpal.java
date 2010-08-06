@@ -395,10 +395,10 @@ public class RPG_Janela_Prinicpal extends FrameView {
         @Action
         public void bt_rolar_dado ()
         {
+                String s = "";
                 try
                 {
                         int dado, tot = 0, i, i_f = Integer.parseInt(txt_num_dados.getText());
-                        String t;
 
                         if (!(i_f > 0))
                         {
@@ -414,13 +414,22 @@ public class RPG_Janela_Prinicpal extends FrameView {
                                 dado = (int) (1 + (6*random()));
                                 dado += Integer.parseInt(txt_modificador.getText());
                                 tot += dado;
-                                t = txt_chat.getText();
-                                t = t + "\nO dado rolado foi: " + dado;
-                                txt_chat.setText(t);
+                                if(mestrando)
+                                        s += "\nO dado rolado por <Mestre> " + "foi: " + dado;
+                                else
+                                        s += "\nO dado rolado por <" + cliente.getNick() + "> " + "foi: " + dado;
                         }
-                        t = txt_chat.getText();
-                        t += "\nForam rolados " + i_f + " dados, com o modificador: " + Integer.parseInt(txt_modificador.getText()) + ". O total é: " + tot;
-                        txt_chat.setText(t);
+                        
+                        if(mestrando)
+                        {
+                                s += "\nForam rolados " + i_f + " dados por " + "<Mestre>, com o modificador: " + Integer.parseInt(txt_modificador.getText()) + ". O total é: " + tot;
+                                mestre.Enviar_mensagem(s);
+                        }
+                        else
+                        {
+                                s += "\nForam rolados " + i_f + " dados por " + "<" + cliente.getNick() + ">, com o modificador: " + Integer.parseInt(txt_modificador.getText()) + ". O total é: " + tot;
+                                cliente.Escrever_mensagem(s);
+                        }
                 }
                 catch(NumberFormatException e)
                 {

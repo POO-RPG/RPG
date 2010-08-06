@@ -371,12 +371,6 @@ public class RPG_Janela_Prinicpal extends FrameView {
         @Action
         public void bt_enviar ()
         {
-                /*
-                if (mestrando)
-                        mestre.Enviar_mensagem(txt_enviar.getText());
-                else
-                        cliente.Escrever_mensagem(txt_enviar.getText());
-                 */
                 enviar(txt_enviar.getText());
 
                 txt_enviar.setText("");
@@ -421,15 +415,11 @@ public class RPG_Janela_Prinicpal extends FrameView {
                         }
                         
                         if(mestrando)
-                        {
                                 s += "\nForam rolados " + i_f + " dados por " + "<Mestre>, com o modificador: " + Integer.parseInt(txt_modificador.getText()) + ". O total é: " + tot;
-                                mestre.Enviar_mensagem(s);
-                        }
                         else
-                        {
                                 s += "\nForam rolados " + i_f + " dados por " + "<" + cliente.getNick() + ">, com o modificador: " + Integer.parseInt(txt_modificador.getText()) + ". O total é: " + tot;
-                                cliente.Escrever_mensagem(s);
-                        }
+
+                        enviar(s);
                 }
                 catch(NumberFormatException e)
                 {

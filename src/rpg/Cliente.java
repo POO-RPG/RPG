@@ -29,9 +29,9 @@ public class Cliente
                 this.txt_chat = txt_chat;
                 try
 		{
-			nick = JOptionPane.showInputDialog("Qual o seu nick?");
-                        ip_servidor = JOptionPane.showInputDialog("Digite o IP do servidor");
-                        porta = Integer.parseInt(JOptionPane.showInputDialog("Digite a porta do servidor:"));
+			nick = JOptionPane.showInputDialog("Qual o seu nick?", "Jogador");
+                        ip_servidor = JOptionPane.showInputDialog("Digite o IP do servidor", "127.0.0.1");
+                        porta = Integer.parseInt(JOptionPane.showInputDialog("Digite a porta do servidor:","2010"));
 			if (nick == null)
 				nick = "Sem nick";
 

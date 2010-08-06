@@ -478,7 +478,7 @@ public class RPG_Janela_Prinicpal extends FrameView {
                 {
                         try
                         {
-                                porta = Integer.parseInt(JOptionPane.showInputDialog("Digite a porta:"));
+                                porta = Integer.parseInt(JOptionPane.showInputDialog("Digite a porta:", "2010"));
                                 if (porta < 1)
                                         JOptionPane.showMessageDialog(null, "A porta deve ser um número inteiro e positivo!");
                                 else

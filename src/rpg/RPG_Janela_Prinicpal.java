@@ -39,6 +39,11 @@ public class RPG_Janela_Prinicpal extends FrameView {
         {
                 lista_jogadores.setListData(jogadores);
                 txt_chat.setEditable(false);
+                bt_enviar.setEnabled(false);
+                bt_limpar.setEnabled(false);
+                bt_rolar_dados.setEnabled(false);
+                bt_ve_ficha.setEnabled(false);
+                bt_trava_ficha.setEnabled(false);
         }
 
     public RPG_Janela_Prinicpal(SingleFrameApplication app) {
@@ -135,7 +140,7 @@ public class RPG_Janela_Prinicpal extends FrameView {
                 txt_modificador = new javax.swing.JTextField();
                 jLabel3 = new javax.swing.JLabel();
                 txt_num_dados = new javax.swing.JTextField();
-                bt_Enviar = new javax.swing.JButton();
+                bt_limpar = new javax.swing.JButton();
                 bt_ve_ficha = new javax.swing.JButton();
                 bt_trava_ficha = new javax.swing.JButton();
                 lbl_status = new javax.swing.JLabel();
@@ -203,9 +208,9 @@ public class RPG_Janela_Prinicpal extends FrameView {
                 txt_num_dados.setText(resourceMap.getString("txt_num_dados.text")); // NOI18N
                 txt_num_dados.setName("txt_num_dados"); // NOI18N
 
-                bt_Enviar.setAction(actionMap.get("bt_Limpar")); // NOI18N
-                bt_Enviar.setText(resourceMap.getString("bt_Enviar.text")); // NOI18N
-                bt_Enviar.setName("bt_Enviar"); // NOI18N
+                bt_limpar.setAction(actionMap.get("bt_Limpar")); // NOI18N
+                bt_limpar.setText(resourceMap.getString("bt_limpar.text")); // NOI18N
+                bt_limpar.setName("bt_limpar"); // NOI18N
 
                 bt_ve_ficha.setAction(actionMap.get("bt_ver_ficha")); // NOI18N
                 bt_ve_ficha.setText(resourceMap.getString("bt_ve_ficha.text")); // NOI18N
@@ -244,7 +249,7 @@ public class RPG_Janela_Prinicpal extends FrameView {
                                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 28, Short.MAX_VALUE)
                                                                 .addComponent(bt_rolar_dados)
                                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                                                .addComponent(bt_Enviar)))
+                                                                .addComponent(bt_limpar)))
                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                                 .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                                         .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 217, Short.MAX_VALUE)
@@ -274,7 +279,7 @@ public class RPG_Janela_Prinicpal extends FrameView {
                                         .addComponent(txt_modificador, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addComponent(jLabel3)
                                         .addComponent(txt_num_dados, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(bt_Enviar)
+                                        .addComponent(bt_limpar)
                                         .addComponent(bt_rolar_dados)
                                         .addComponent(bt_trava_ficha))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 16, Short.MAX_VALUE)
@@ -366,30 +371,34 @@ public class RPG_Janela_Prinicpal extends FrameView {
         @Action
         public void bt_enviar ()
         {
+                /*
                 if (mestrando)
                         mestre.Enviar_mensagem(txt_enviar.getText());
                 else
                         cliente.Escrever_mensagem(txt_enviar.getText());
+                 */
+                enviar(txt_enviar.getText());
 
                 txt_enviar.setText("");
-
-/*                txt_chat.setEditable(false);
-                String t = txt_chat.getText();
-                t = t + "\n" + txt_enviar.getText();
-                txt_chat.setText(t);
-                txt_enviar.setText("");
-                txt_enviar.grabFocus();
- * */
         }
+
+        public void enviar(String s)
+        {
+                if(mestrando)
+                        mestre.Enviar_mensagem(s);
+                else
+                        cliente.Escrever_mensagem(s);
+        }
+
 
         //Chamado quando o botão rolar dado é pressionado
         @Action
         public void bt_rolar_dado ()
         {
+                String s = "";
                 try
                 {
                         int dado, tot = 0, i, i_f = Integer.parseInt(txt_num_dados.getText());
-                        String t;
 
                         if (!(i_f > 0))
                         {
@@ -405,13 +414,22 @@ public class RPG_Janela_Prinicpal extends FrameView {
                                 dado = (int) (1 + (6*random()));
                                 dado += Integer.parseInt(txt_modificador.getText());
                                 tot += dado;
-                                t = txt_chat.getText();
-                                t = t + "\nO dado rolado foi: " + dado;
-                                txt_chat.setText(t);
+                                if(mestrando)
+                                        s += "\nO dado rolado por <Mestre> " + "foi: " + dado;
+                                else
+                                        s += "\nO dado rolado por <" + cliente.getNick() + "> " + "foi: " + dado;
                         }
-                        t = txt_chat.getText();
-                        t += "\nForam rolados " + i_f + " dados, com o modificador: " + Integer.parseInt(txt_modificador.getText()) + ". O total é: " + tot;
-                        txt_chat.setText(t);
+                        
+                        if(mestrando)
+                        {
+                                s += "\nForam rolados " + i_f + " dados por " + "<Mestre>, com o modificador: " + Integer.parseInt(txt_modificador.getText()) + ". O total é: " + tot;
+                                mestre.Enviar_mensagem(s);
+                        }
+                        else
+                        {
+                                s += "\nForam rolados " + i_f + " dados por " + "<" + cliente.getNick() + ">, com o modificador: " + Integer.parseInt(txt_modificador.getText()) + ". O total é: " + tot;
+                                cliente.Escrever_mensagem(s);
+                        }
                 }
                 catch(NumberFormatException e)
                 {
@@ -469,7 +487,7 @@ public class RPG_Janela_Prinicpal extends FrameView {
                 {
                         try
                         {
-                                porta = Integer.parseInt(JOptionPane.showInputDialog("Digite a porta:"));
+                                porta = Integer.parseInt(JOptionPane.showInputDialog("Digite a porta:", "2010"));
                                 if (porta < 1)
                                         JOptionPane.showMessageDialog(null, "A porta deve ser um número inteiro e positivo!");
                                 else
@@ -483,6 +501,13 @@ public class RPG_Janela_Prinicpal extends FrameView {
 
                 mestre = new Servidor(porta, txt_chat);
                 mestre.start();
+                
+                //Torna os botões clicáveis
+                bt_enviar.setEnabled(true);
+                bt_limpar.setEnabled(true);
+                bt_rolar_dados.setEnabled(true);
+                bt_ve_ficha.setEnabled(true);
+                bt_trava_ficha.setEnabled(true);
         }
 
         //Método responsável por iniciar o modo jogador
@@ -490,11 +515,18 @@ public class RPG_Janela_Prinicpal extends FrameView {
         public void jogar ()
         {
                 cliente = new Cliente(txt_chat);
+
+                //Torna os botões clicáveis
+                bt_enviar.setEnabled(true);
+                bt_limpar.setEnabled(true);
+                bt_rolar_dados.setEnabled(true);
+                bt_ve_ficha.setEnabled(true);
+                bt_trava_ficha.setEnabled(true);
         }
 
         // Variables declaration - do not modify//GEN-BEGIN:variables
-        private javax.swing.JButton bt_Enviar;
         private javax.swing.JButton bt_enviar;
+        private javax.swing.JButton bt_limpar;
         private javax.swing.JButton bt_rolar_dados;
         private javax.swing.JButton bt_trava_ficha;
         private javax.swing.JButton bt_ve_ficha;

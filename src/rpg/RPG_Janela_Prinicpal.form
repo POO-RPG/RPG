@@ -33,7 +33,7 @@
                                   <EmptySpace pref="28" max="32767" attributes="0"/>
                                   <Component id="bt_rolar_dados" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                  <Component id="bt_Enviar" min="-2" max="-2" attributes="0"/>
+                                  <Component id="bt_limpar" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
@@ -73,7 +73,7 @@
                       <Component id="txt_modificador" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jLabel3" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="txt_num_dados" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="bt_Enviar" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="bt_limpar" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="bt_rolar_dados" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="bt_trava_ficha" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
@@ -185,13 +185,13 @@
             <Property name="name" type="java.lang.String" value="txt_num_dados" noResource="true"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JButton" name="bt_Enviar">
+        <Component class="javax.swing.JButton" name="bt_limpar">
           <Properties>
             <Property name="action" type="javax.swing.Action" editor="org.netbeans.modules.swingapp.ActionEditor">
               <action class="rpg.RPG_Janela_Prinicpal" id="bt_Limpar" methodName="bt_Limpar"/>
             </Property>
-            <Property name="text" type="java.lang.String" resourceKey="bt_Enviar.text"/>
-            <Property name="name" type="java.lang.String" value="bt_Enviar" noResource="true"/>
+            <Property name="text" type="java.lang.String" resourceKey="bt_limpar.text"/>
+            <Property name="name" type="java.lang.String" value="bt_limpar" noResource="true"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JButton" name="bt_ve_ficha">

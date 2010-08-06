@@ -18,7 +18,7 @@
                           <Group type="103" groupAlignment="1" attributes="0">
                               <Component id="jScrollPane1" alignment="0" min="-2" pref="562" max="-2" attributes="0"/>
                               <Group type="102" alignment="1" attributes="0">
-                                  <Component id="txt_enviar" pref="479" max="32767" attributes="0"/>
+                                  <Component id="txt_enviar" pref="505" max="32767" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
                                   <Component id="bt_enviar" min="-2" max="-2" attributes="0"/>
                               </Group>
@@ -30,7 +30,7 @@
                                   <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
                                   <Component id="txt_num_dados" min="-2" pref="41" max="-2" attributes="0"/>
-                                  <EmptySpace pref="28" max="32767" attributes="0"/>
+                                  <EmptySpace pref="107" max="32767" attributes="0"/>
                                   <Component id="bt_rolar_dados" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                   <Component id="bt_limpar" min="-2" max="-2" attributes="0"/>
@@ -77,7 +77,7 @@
                       <Component id="bt_rolar_dados" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="bt_trava_ficha" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace pref="16" max="32767" attributes="0"/>
+                  <EmptySpace max="32767" attributes="0"/>
                   <Component id="lbl_status" min="-2" max="-2" attributes="0"/>
               </Group>
           </Group>
@@ -311,7 +311,7 @@
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="statusMessageLabel" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace pref="671" max="32767" attributes="0"/>
+                  <EmptySpace pref="673" max="32767" attributes="0"/>
                   <Component id="progressBar" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="statusAnimationLabel" min="-2" max="-2" attributes="0"/>

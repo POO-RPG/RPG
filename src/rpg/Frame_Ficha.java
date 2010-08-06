@@ -52,7 +52,38 @@ public class Frame_Ficha extends javax.swing.JFrame {
         txt_Terra.setText(null);
         txt_Trevas.setText(null);
         txt_area_Historia.setText(null);
+        
+    }
 
+    //Construtor II
+    Frame_Ficha(Ficha ficha){
+        this.ficha = ficha;
+        initComponents();
+        List_Vantagens.setListData(ficha.getVantagens());
+        List_Desvantagens.setListData(ficha.getDesvantagens());
+        List_Itens.setListData(ficha.getItens());
+        List_Magias.setListData(ficha.getMagias());
+        txt_A.setText(Integer.toString(ficha.getA()));
+        txt_Agua.setText(Integer.toString(ficha.getAgua()));
+        txt_Ar.setText(Integer.toString(ficha.getAr()));
+        txt_Experiencia.setText(Integer.toString(ficha.getExperiencia()));
+        txt_Dinheiro.setText(Double.toString(ficha.getDinheiro()));
+        txt_F.setText(Integer.toString(ficha.getF()));
+        txt_Fogo.setText(Integer.toString(ficha.getFogo()));
+        txt_Forca.setText(ficha.getTD_Forca());
+        txt_H.setText(Integer.toString(ficha.getH()));
+        txt_Jogador.setText(ficha.getNome_jogador());
+        txt_Luz.setText(Integer.toString(ficha.getLuz()));
+        txt_PM.setText(Integer.toString(ficha.getPM()));
+        txt_PV.setText(Integer.toString(ficha.getPV()));
+        txt_PdF.setText(Integer.toString(ficha.getPdF()));
+        txt_Personagem.setText(ficha.getNome_personagem());
+        txt_PoderDeFogo.setText(ficha.getTD_PdF());
+        txt_R.setText(Integer.toString(ficha.getR()));
+        txt_Terra.setText(Integer.toString(ficha.getTerra()));
+        txt_Trevas.setText(Integer.toString(ficha.getTrevas()));
+        txt_area_Historia.setText(ficha.getHistoria());
+  
     }
 
     /** This method is called from within the constructor to
@@ -829,16 +860,23 @@ public class Frame_Ficha extends javax.swing.JFrame {
             ficha.setR(Integer.parseInt(txt_R.getText()));
             ficha.setTerra(Integer.parseInt(txt_Terra.getText()));
             ficha.setTrevas(Integer.parseInt(txt_Trevas.getText()));
-        } catch (Erro_Ficha e) {
+
+            ficha.setNome_jogador(txt_Jogador.getText());
+            ficha.setNome_personagem(txt_Personagem.getText());
+            ficha.setTD_Forca(txt_Forca.getText());
+            ficha.setTD_PdF(txt_PoderDeFogo.getText());
+            ficha.setHistoria(txt_area_Historia.getText());
+
+            JOptionPane.showMessageDialog(this, "Ficha Atualizada!");
+        }
+        catch (Erro_Ficha e) {
             JOptionPane.showMessageDialog(this, e);
         }
-        ficha.setNome_jogador(txt_Jogador.getText());
-        ficha.setNome_personagem(txt_Personagem.getText());
-        ficha.setTD_Forca(txt_Forca.getText());
-        ficha.setTD_PdF(txt_PoderDeFogo.getText());
-        ficha.setHistoria(txt_area_Historia.getText());
+        catch (NumberFormatException e)
+        {
+            JOptionPane.showMessageDialog(this, e);
+        }
 
-        JOptionPane.showMessageDialog(this, "Ficha Atualizada!");
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BT_Add_Desvantagem;
@@ -931,6 +969,60 @@ public class Frame_Ficha extends javax.swing.JFrame {
         }
 
         return nv;
+    }
+
+    public void trava_ficha(){
+        List_Vantagens.disable();
+        List_Desvantagens.disable();
+        List_Itens.disable();
+        List_Magias.disable();
+        txt_A.disable();
+        txt_Agua.disable();
+        txt_Ar.disable();
+        txt_Experiencia.disable();
+        txt_Dinheiro.disable();
+        txt_F.disable();
+        txt_Fogo.disable();
+        txt_Forca.disable();
+        txt_H.disable();
+        txt_Jogador.disable();
+        txt_Luz.disable();
+        txt_PM.disable();
+        txt_PV.disable();
+        txt_PdF.disable();
+        txt_Personagem.disable();
+        txt_PoderDeFogo.disable();
+        txt_R.disable();
+        txt_Terra.disable();
+        txt_Trevas.disable();
+        txt_area_Historia.disable();
+    }
+
+    public void destrava_ficha(){
+        List_Vantagens.enable();
+        List_Desvantagens.enable();
+        List_Itens.enable();
+        List_Magias.enable();
+        txt_A.enable();
+        txt_Agua.enable();
+        txt_Ar.enable();
+        txt_Experiencia.enable();
+        txt_Dinheiro.enable();
+        txt_F.enable();
+        txt_Fogo.enable();
+        txt_Forca.enable();
+        txt_H.enable();
+        txt_Jogador.enable();
+        txt_Luz.enable();
+        txt_PM.enable();
+        txt_PV.enable();
+        txt_PdF.enable();
+        txt_Personagem.enable();
+        txt_PoderDeFogo.enable();
+        txt_R.enable();
+        txt_Terra.enable();
+        txt_Trevas.enable();
+        txt_area_Historia.enable();
     }
 
     @Action

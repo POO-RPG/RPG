@@ -16,13 +16,14 @@ public class RPG_globais
 {
         static private JList lista_jogadores;
         static private ArrayList<Ficha> fichas;
+        static private ArrayList<String> jogadores;
 
-        public static void setfichas(ArrayList<Ficha> fichas)
+        public static void setfichas(ArrayList<Ficha> rfichas)
         {
-            RPG_globais.fichas = fichas;
+            fichas = rfichas;
         }
 
-        public ArrayList<Ficha> setfichas()
+        public static ArrayList<Ficha> getfichas()
         {
             return fichas;
         }
@@ -32,9 +33,21 @@ public class RPG_globais
                 return lista_jogadores;
         }
 
-        public static void setLista_jogadores (JList lista_jogadores)
+        public static void setLista_jogadores (JList rlista_jogadores)
         {
-                RPG_globais.lista_jogadores = lista_jogadores;
+                lista_jogadores = rlista_jogadores;
         }
+
+        public static ArrayList<String> getJogadores ()
+        {
+                return jogadores;
+        }
+
+        public static void setJogadores (ArrayList<String> rjogadores)
+        {
+                jogadores = rjogadores;
+        }
+
+
 
 }

@@ -9,17 +9,13 @@ import java.net.*;
  */
 public class Conexao_ficha extends Thread
 {
-    private ArrayList<Ficha> fichas_r;
-    private ArrayList<String> jogadores;
     private ObjectOutputStream out;
     private ObjectInputStream in;
     private Socket conexao_cliente;
 
-    Conexao_ficha(Socket conexao_cliente, ArrayList<String> jogadores)
+    Conexao_ficha(Socket conexao_cliente)
     {
         this.conexao_cliente = conexao_cliente;
-        this.fichas_r = new ArrayList<Ficha>();
-        this.jogadores = jogadores;
 
         try
         {
@@ -50,6 +46,8 @@ public class Conexao_ficha extends Thread
     public void run()
     {
             Ficha ficha;
+            ArrayList<Ficha> fichas_r = RPG_globais.getfichas();
+            ArrayList<String> jogadores = RPG_globais.getJogadores();
 
         while(true)
         {
@@ -89,10 +87,10 @@ public class Conexao_ficha extends Thread
 
     public Ficha get_ficha(String Nome_jogador)
     {
-        for(int i = 0; i < fichas_r.size(); i++)
+        for(int i = 0; i < RPG_globais.getfichas().size(); i++)
         {
-            if(fichas_r.get(i).getNome_jogador().equals(Nome_jogador))
-                return (fichas_r.get(i));
+            if(RPG_globais.getfichas().get(i).getNome_jogador().equals(Nome_jogador))
+                return (RPG_globais.getfichas().get(i));
         }
         JOptionPane.showMessageDialog(null, "Ficha não encontrada");
 

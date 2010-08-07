@@ -51,7 +51,7 @@ public class Servidor_Fichas extends Thread
         try
         {
             socket = server_fichas.accept();
-            cficha = new Conexao_ficha(socket, jogadores);
+            cficha = new Conexao_ficha(socket);
             cficha.start();
             conexao_fichas.add(cficha);
         }

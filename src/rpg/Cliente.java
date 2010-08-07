@@ -48,7 +48,7 @@ public class Cliente
 
                         //Cria o socket para as fichas
                         Socket s1 = new Socket(ip_servidor,porta + 1);
-                        conecxao_ficha = new Conexao_ficha(s1, jogadores);
+                        conecxao_ficha = new Conexao_ficha(s1);
                         conecxao_ficha.start();
 
 

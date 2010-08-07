@@ -25,6 +25,7 @@ class Ficha implements Serializable
 
 	protected int Experiencia;
 	protected double Dinheiro;
+        protected boolean travado = false;
 
         Ficha()
 	{
@@ -49,6 +50,7 @@ class Ficha implements Serializable
                 Vantagens = new String[0];
                 Desvantagens = new String[0];
                 Itens = new String[0];
+                travado = true;
 	}
 
 	Ficha(String Nome_jogador, String Nome_personagem, String Historia)
@@ -65,6 +67,7 @@ class Ficha implements Serializable
                 Vantagens = new String[0];
                 Desvantagens = new String[0];
                 Itens = new String[0];
+                travado = true;
 	}
 
     public int getA() {
@@ -183,8 +186,13 @@ class Ficha implements Serializable
         this.Historia = Historia;
     }
 
-    public void setNome_jogador(String Nome_jogador) {
-        this.Nome_jogador = Nome_jogador;
+    public void setNome_jogador(String Nome_jogador) 
+    {
+            if(!travado)
+            {
+                    travado = true;
+                    this.Nome_jogador = Nome_jogador;
+            }
     }
 
     public void setNome_personagem(String Nome_personagem) {

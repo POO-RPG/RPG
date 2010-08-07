@@ -15,14 +15,14 @@ import javax.swing.JList;
 public class RPG_globais
 {
         static private JList lista_jogadores;
-        static private ArrayList<Ficha> fichas;
+        public static ArrayList<Ficha> fichas;
 
-        public static void setfichas(ArrayList<Ficha> fichas)
+        public static void setfichas(ArrayList<Ficha> fichasadd)
         {
-            RPG_globais.fichas = fichas;
+            fichas = fichasadd;
         }
 
-        public ArrayList<Ficha> setfichas()
+        public static ArrayList<Ficha> getfichas()
         {
             return fichas;
         }

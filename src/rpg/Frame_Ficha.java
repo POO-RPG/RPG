@@ -12,6 +12,7 @@ package rpg;
 
 import java.awt.Color;
 import java.text.BreakIterator;
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import org.jdesktop.application.Action;
 
@@ -54,6 +55,7 @@ public class Frame_Ficha extends javax.swing.JFrame {
         txt_Terra.setText(null);
         txt_Trevas.setText(null);
         txt_area_Historia.setText(null);
+        this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         
     }
 

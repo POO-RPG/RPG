@@ -52,17 +52,17 @@ public class Consumidor extends Thread
                         txt_chat.setCaretPosition(txt_chat.getText().length());
 
                         //Envia a mensagem para todos os clientes
-			for(Conexao_Cliente c: clientes)
-			{
-				try
-				{
-					c.Escrever_Mensagem(String.format("%s\n", m.getMensagem()));
-				}
-				catch(Exception e)
-				{
-					clientes.remove(c);
-				}
-			}
+                        for(Conexao_Cliente c: clientes)
+                        {
+                                try
+                                {
+                                        c.Escrever_Mensagem(String.format("%s\n", m.getMensagem()));
+                                }
+                                catch(Exception e)
+                                {
+                                        clientes.remove(c);
+                                }
+                        }
 		}
 	}
 }

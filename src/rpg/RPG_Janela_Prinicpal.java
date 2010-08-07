@@ -32,7 +32,7 @@ public class RPG_Janela_Prinicpal extends FrameView {
         String[] jogadores = {};
         ArrayList<Ficha> fichas = new ArrayList<Ficha>();
         Cliente cliente;
-        Servidor mestre;
+        Servidor_Chat mestre;
 
         //Auto explcativo
         private void Inicializa_componentes()
@@ -489,7 +489,7 @@ public class RPG_Janela_Prinicpal extends FrameView {
                         }
                 }
 
-                mestre = new Servidor(porta, txt_chat);
+                mestre = new Servidor_Chat(porta, txt_chat);
                 mestre.start();
                 
                 //Torna os botões clicáveis

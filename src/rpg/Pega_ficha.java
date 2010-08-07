@@ -7,17 +7,15 @@ import java.net.*;
  *
  * @author HP
  */
-public class Pega_ficha extends Thread{
+public class Pega_ficha extends Thread
+{
     private ArrayList<Ficha> fichas_r;
     private ObjectOutputStream out;
     private ObjectInputStream in;
-    private Cliente jogador;
     private Socket conexao_cliente;
-    int porta;
-    String ip_cliente;
-    private Ficha ficha;
 
-    Pega_ficha(Socket conexao_cliente, ArrayList<Ficha> fichas_r){
+    Pega_ficha(Socket conexao_cliente, ArrayList<Ficha> fichas_r)
+    {
         this.conexao_cliente = conexao_cliente;
         this.fichas_r = fichas_r;
 
@@ -33,9 +31,12 @@ public class Pega_ficha extends Thread{
     }
 
     @Override
-    public void run(){
+    public void run()
+    {
+            Ficha ficha;
 
-        while(true){
+        while(true)
+        {
             try
             {
                 ficha = (Ficha)in.readObject();

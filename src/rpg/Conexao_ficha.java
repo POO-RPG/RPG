@@ -48,8 +48,9 @@ public class Conexao_ficha extends Thread
             Ficha ficha;
             ArrayList<Ficha> fichas_r = RPG_globais.getfichas();
             ArrayList<String> jogadores = RPG_globais.getJogadores();
+            boolean ok = true;
 
-        while(true)
+        while(ok)
         {
             try
             {
@@ -78,15 +79,9 @@ public class Conexao_ficha extends Thread
                     }
                 }
             }
-            catch(IOException e)
+            catch(Exception e)
             {
-                e.printStackTrace();
-                JOptionPane.showMessageDialog(null, "Teste");
-                //System.exit(1);
-            }
-            catch(ClassNotFoundException ce)
-            {
-                    ce.printStackTrace();
+                    ok = false;
             }
         }
     }

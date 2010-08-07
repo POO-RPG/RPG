@@ -42,6 +42,20 @@ public class Servidor_Fichas extends Thread implements Envia_ficha
 
     public void Envia_ficha(Ficha ficha)
     {
+	    ArrayList<Ficha> ff = RPG_globais.getfichas();
+
+	    for(Ficha f: ff)
+	    {
+		    try
+		    {
+			    fila_ficha.insere(f);
+		    }
+		    catch(Exception e)
+		    {
+			    e.printStackTrace();
+		    }
+	    }
+	    /*
                 try
                 {
                         fila_ficha.insere(ficha);
@@ -50,7 +64,7 @@ public class Servidor_Fichas extends Thread implements Envia_ficha
                 {
                         ex.printStackTrace();
                         System.exit(1);
-                }
+                }*/
     }
 
     public void Envia_todas_fichas()
@@ -88,10 +102,6 @@ public class Servidor_Fichas extends Thread implements Envia_ficha
                     cficha = new Conexao_ficha(socket);
                     cficha.start();
                     conexao_fichas.add(cficha);
-		    //Reenvia todas as fichas para que quem entar tenha a lista de fichas;
-		    JOptionPane.showMessageDialog(null, "Ẻnviando todas as fichas");
-		    Envia_todas_fichas();
-		    JOptionPane.showMessageDialog(null, "Término do emvio de all ficha");
                 }
                 catch(Exception e)
                 {

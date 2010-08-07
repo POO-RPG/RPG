@@ -839,46 +839,7 @@ public class Frame_Ficha extends javax.swing.JFrame {
         });
     }
 
-    @Action
-    public void BT_AtualizaFicha() {
-        try {
-            ficha.setA(Integer.parseInt(txt_A.getText()));
-            ficha.setAgua(Integer.parseInt(txt_Agua.getText()));
-            ficha.setAr(Integer.parseInt(txt_Ar.getText()));
-            ficha.setExperiencia(Integer.parseInt(txt_Experiencia.getText()));
-            ficha.setDinheiro(Integer.parseInt(txt_Dinheiro.getText()));
-            ficha.setF(Integer.parseInt(txt_F.getText()));
-            ficha.setFogo(Integer.parseInt(txt_Fogo.getText()));
-            ficha.setTD_Forca(txt_Forca.getText());
-            ficha.setH(Integer.parseInt(txt_H.getText()));
-            ficha.setNome_jogador(txt_Jogador.getText());
-            ficha.setLuz(Integer.parseInt(txt_Luz.getText()));
-            ficha.setPM(Integer.parseInt(txt_PM.getText()));
-            ficha.setPV(Integer.parseInt(txt_PV.getText()));
-            ficha.setPdF(Integer.parseInt(txt_PdF.getText()));
-            ficha.setNome_personagem(txt_Personagem.getText());
-            ficha.setTD_PdF(txt_PoderDeFogo.getText());
-            ficha.setR(Integer.parseInt(txt_R.getText()));
-            ficha.setTerra(Integer.parseInt(txt_Terra.getText()));
-            ficha.setTrevas(Integer.parseInt(txt_Trevas.getText()));
 
-            ficha.setNome_jogador(txt_Jogador.getText());
-            ficha.setNome_personagem(txt_Personagem.getText());
-            ficha.setTD_Forca(txt_Forca.getText());
-            ficha.setTD_PdF(txt_PoderDeFogo.getText());
-            ficha.setHistoria(txt_area_Historia.getText());
-
-            JOptionPane.showMessageDialog(this, "Ficha Atualizada!");
-        }
-        catch (Erro_Ficha e) {
-            JOptionPane.showMessageDialog(this, e);
-        }
-        catch (NumberFormatException e)
-        {
-            JOptionPane.showMessageDialog(this, e);
-        }
-
-    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BT_Add_Desvantagem;
     private javax.swing.JButton BT_Add_Item;
@@ -948,6 +909,15 @@ public class Frame_Ficha extends javax.swing.JFrame {
     private javax.swing.JTextArea txt_area_Historia;
     // End of variables declaration//GEN-END:variables
 
+    //Getters and setters
+    public Ficha getFicha() {
+        return ficha;
+    }
+
+    public void setFicha(Ficha ficha) {
+        this.ficha = ficha;
+    }
+    
     public String[] concatena(String[] v, String s) {
         String[] vv = new String[v.length + 1];
         int i;
@@ -1024,6 +994,47 @@ public class Frame_Ficha extends javax.swing.JFrame {
         txt_Terra.enable();
         txt_Trevas.enable();
         txt_area_Historia.enable();
+    }
+
+    @Action
+    public void BT_AtualizaFicha() {
+        try {
+            ficha.setA(Integer.parseInt(txt_A.getText()));
+            ficha.setAgua(Integer.parseInt(txt_Agua.getText()));
+            ficha.setAr(Integer.parseInt(txt_Ar.getText()));
+            ficha.setExperiencia(Integer.parseInt(txt_Experiencia.getText()));
+            ficha.setDinheiro(Integer.parseInt(txt_Dinheiro.getText()));
+            ficha.setF(Integer.parseInt(txt_F.getText()));
+            ficha.setFogo(Integer.parseInt(txt_Fogo.getText()));
+            ficha.setTD_Forca(txt_Forca.getText());
+            ficha.setH(Integer.parseInt(txt_H.getText()));
+            ficha.setNome_jogador(txt_Jogador.getText());
+            ficha.setLuz(Integer.parseInt(txt_Luz.getText()));
+            ficha.setPM(Integer.parseInt(txt_PM.getText()));
+            ficha.setPV(Integer.parseInt(txt_PV.getText()));
+            ficha.setPdF(Integer.parseInt(txt_PdF.getText()));
+            ficha.setNome_personagem(txt_Personagem.getText());
+            ficha.setTD_PdF(txt_PoderDeFogo.getText());
+            ficha.setR(Integer.parseInt(txt_R.getText()));
+            ficha.setTerra(Integer.parseInt(txt_Terra.getText()));
+            ficha.setTrevas(Integer.parseInt(txt_Trevas.getText()));
+
+            ficha.setNome_jogador(txt_Jogador.getText());
+            ficha.setNome_personagem(txt_Personagem.getText());
+            ficha.setTD_Forca(txt_Forca.getText());
+            ficha.setTD_PdF(txt_PoderDeFogo.getText());
+            ficha.setHistoria(txt_area_Historia.getText());
+
+            JOptionPane.showMessageDialog(this, "Ficha Atualizada!");
+        }
+        catch (Erro_Ficha e) {
+            JOptionPane.showMessageDialog(this, e);
+        }
+        catch (NumberFormatException e)
+        {
+            JOptionPane.showMessageDialog(this, e);
+        }
+
     }
 
     @Action

@@ -500,12 +500,12 @@ public class RPG_Janela_Prinicpal extends FrameView {
         @Action
         public void bt_ver_ficha ()
         {
-            JFrame jan;
+		JFrame jan;
                 String jogador;
                 Ficha f = RPG_globais.getMinha_ficha();
                 ArrayList<Ficha> fs = RPG_globais.getfichas();
-                JOptionPane.showMessageDialog(null ,lista_jogadores.getSelectedIndex());
                 jogador = (String) RPG_globais.getLista_jogadores().getSelectedValue();
+		JOptionPane.showMessageDialog(null, jogador);
 
                 for(Ficha ff: fs)
                 {

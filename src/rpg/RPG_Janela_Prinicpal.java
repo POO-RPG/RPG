@@ -546,6 +546,8 @@ public class RPG_Janela_Prinicpal extends FrameView {
         public void mestrar ()
         {
                 mestrando = true;
+                menu_jogar.setEnabled(false);
+                menu_metrar.setEnabled(false);
                 int porta;
                 while(true)
                 {
@@ -582,6 +584,8 @@ public class RPG_Janela_Prinicpal extends FrameView {
         public void jogar ()
         {
                 cliente = new Cliente(txt_chat);
+                menu_metrar.setEnabled(false);
+                menu_jogar.setEnabled(false);
 
                 //Torna os botões clicáveis
                 bt_enviar.setEnabled(true);

@@ -15,11 +15,12 @@ import javax.swing.JList;
 public class RPG_globais
 {
         static private JList lista_jogadores;
-        public static ArrayList<Ficha> fichas;
+        static private ArrayList<Ficha> fichas;
+        static private ArrayList<String> jogadores;
 
-        public static void setfichas(ArrayList<Ficha> fichasadd)
+        public static void setfichas(ArrayList<Ficha> rfichas)
         {
-            fichas = fichasadd;
+            fichas = rfichas;
         }
 
         public static ArrayList<Ficha> getfichas()
@@ -32,9 +33,21 @@ public class RPG_globais
                 return lista_jogadores;
         }
 
-        public static void setLista_jogadores (JList lista_jogadores)
+        public static void setLista_jogadores (JList rlista_jogadores)
         {
-                RPG_globais.lista_jogadores = lista_jogadores;
+                lista_jogadores = rlista_jogadores;
         }
+
+        public static ArrayList<String> getJogadores ()
+        {
+                return jogadores;
+        }
+
+        public static void setJogadores (ArrayList<String> rjogadores)
+        {
+                jogadores = rjogadores;
+        }
+
+
 
 }

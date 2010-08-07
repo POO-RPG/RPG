@@ -5,13 +5,13 @@
 
 package rpg;
 
-import java.util.ArrayList;
+import java.io.Serializable;
 
 /**
  *
  * @author fenix
  */
-class Ficha
+class Ficha implements Serializable
 {
 	protected String Nome_jogador, Nome_personagem;
 	protected String TD_Forca, TD_PdF, Historia;

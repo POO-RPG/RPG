@@ -23,7 +23,7 @@ public class Consumidor_Ficha extends Thread
         }
 
         @Override
-        public void run()
+	public void run()
         {
                 Ficha ficha = null;
                 int i;
@@ -32,8 +32,8 @@ public class Consumidor_Ficha extends Thread
                 while(true)
                 {
                         try
-                        {
-                                ficha = fila_ficha.retira();
+			{
+				ficha = fila_ficha.retira();
                         }
                         catch(Exception e)
                         {

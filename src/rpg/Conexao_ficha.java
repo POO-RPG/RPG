@@ -82,6 +82,7 @@ public class Conexao_ficha extends Thread
             }
             catch(Exception e)
             {
+                    JOptionPane.showMessageDialog(null, "Deu erro na thread de recebimento de fichas");
                     ok = false;
             }
         }

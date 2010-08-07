@@ -56,8 +56,45 @@ public class Frame_Ficha extends javax.swing.JFrame {
         txt_Terra.setText(null);
         txt_Trevas.setText(null);
         txt_area_Historia.setText(null);
+
         this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         
+    }
+
+    public Frame_Ficha(Ficha ficha) {
+        travada = false;
+        this.ficha = ficha;
+        initComponents();
+        List_Vantagens.setListData(ficha.getVantagens());
+        List_Desvantagens.setListData(ficha.getDesvantagens());
+        List_Itens.setListData(ficha.getItens());
+        List_Magias.setListData(ficha.getMagias());
+        txt_A.setText(Integer.toString(ficha.getA()));
+        txt_Agua.setText(Integer.toString(ficha.getAgua()));
+        txt_Ar.setText(Integer.toString(ficha.getAr()));
+        txt_Experiencia.setText(Integer.toString(ficha.getExperiencia()));
+        txt_Dinheiro.setText(Double.toString(ficha.getDinheiro()));
+        txt_F.setText(Integer.toString(ficha.getF()));
+        txt_Fogo.setText(Integer.toString(ficha.getFogo()));
+        txt_Forca.setText(ficha.getTD_Forca());
+        txt_H.setText(Integer.toString(ficha.getH()));
+        txt_Jogador.setText(ficha.getNome_jogador());
+        txt_Luz.setText(Integer.toString(ficha.getLuz()));
+        txt_PM.setText(Integer.toString(ficha.getPM()));
+        txt_PV.setText(Integer.toString(ficha.getPV()));
+        txt_PdF.setText(Integer.toString(ficha.getPdF()));
+        txt_Personagem.setText(ficha.getNome_personagem());
+        txt_PoderDeFogo.setText(ficha.getTD_PdF());
+        txt_R.setText(Integer.toString(ficha.getR()));
+        txt_Terra.setText(Integer.toString(ficha.getTerra()));
+        txt_Trevas.setText(Integer.toString(ficha.getTrevas()));
+        txt_area_Historia.setText(ficha.getHistoria());
+
+        BT_Atualiza_Ficha.setEnabled(false);
+        BT_Limpa_Ficha.setEnabled(false);
+
+        this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+
     }
 
     //Construtor II
@@ -90,6 +127,8 @@ public class Frame_Ficha extends javax.swing.JFrame {
         txt_Terra.setText(Integer.toString(ficha.getTerra()));
         txt_Trevas.setText(Integer.toString(ficha.getTrevas()));
         txt_area_Historia.setText(ficha.getHistoria());
+
+        this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 
     }
 

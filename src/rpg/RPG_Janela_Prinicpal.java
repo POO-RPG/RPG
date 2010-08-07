@@ -226,6 +226,11 @@ public class RPG_Janela_Prinicpal extends FrameView {
         bt_ve_ficha.setAction(actionMap.get("bt_ver_ficha")); // NOI18N
         bt_ve_ficha.setText(resourceMap.getString("bt_ve_ficha.text")); // NOI18N
         bt_ve_ficha.setName("bt_ve_ficha"); // NOI18N
+        bt_ve_ficha.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bt_ve_fichaActionPerformed(evt);
+            }
+        });
 
         bt_trava_ficha.setAction(actionMap.get("bt_travar_todas_fichas")); // NOI18N
         bt_trava_ficha.setText(resourceMap.getString("bt_trava_ficha.text")); // NOI18N
@@ -414,6 +419,10 @@ public class RPG_Janela_Prinicpal extends FrameView {
         // TODO add your handling code here:
     }//GEN-LAST:event_bt_enviarActionPerformed
 
+    private void bt_ve_fichaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_ve_fichaActionPerformed
+
+    }//GEN-LAST:event_bt_ve_fichaActionPerformed
+
         //Chamado quando o botão enviar é pressionado
         @Action
         public void bt_enviar ()
@@ -491,7 +500,26 @@ public class RPG_Janela_Prinicpal extends FrameView {
         @Action
         public void bt_ver_ficha ()
         {
+            JFrame jan;
+                String jogador;
+                Ficha f = RPG_globais.getMinha_ficha();
+                ArrayList<Ficha> fs = RPG_globais.getfichas();
                 JOptionPane.showMessageDialog(null ,lista_jogadores.getSelectedIndex());
+                jogador = (String) RPG_globais.getLista_jogadores().getSelectedValue();
+
+                for(Ficha ff: fs)
+                {
+                    if(jogador.equals(ff.getNome_jogador()))
+                    {
+                        f = ff;
+                        break;
+                    }
+                }
+
+                jan = new Frame_Ficha(f);
+                jan.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE) ta errada!!!
+                        janela não fecha mais
+                jan.setVisible(true);
         }
 
         //Chamado quando o botão travar todas as fichas é presionado

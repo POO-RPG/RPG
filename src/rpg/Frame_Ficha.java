@@ -23,6 +23,7 @@ import org.jdesktop.application.Action;
 public class Frame_Ficha extends javax.swing.JFrame {
 
     Ficha ficha;
+    Envia_ficha envia_ficha;
     boolean travada;
 
     /** Creates new form Frame_Ficha */
@@ -60,7 +61,8 @@ public class Frame_Ficha extends javax.swing.JFrame {
     }
 
     //Construtor II
-    Frame_Ficha(Ficha ficha){
+    Frame_Ficha(Ficha ficha, Envia_ficha envia_ficha){
+        this.envia_ficha = envia_ficha;
         travada = false;
         this.ficha = ficha;
         initComponents();
@@ -88,7 +90,7 @@ public class Frame_Ficha extends javax.swing.JFrame {
         txt_Terra.setText(Integer.toString(ficha.getTerra()));
         txt_Trevas.setText(Integer.toString(ficha.getTrevas()));
         txt_area_Historia.setText(ficha.getHistoria());
- 
+
     }
 
     /** This method is called from within the constructor to
@@ -830,19 +832,20 @@ public class Frame_Ficha extends javax.swing.JFrame {
 
     private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
         RPG_globais.setMinha_ficha(ficha);
+        envia_ficha.Envia_ficha(ficha);
     }//GEN-LAST:event_formWindowClosing
 
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
+/*    public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(new Runnable() {
 
             public void run() {
                 new Frame_Ficha().setVisible(true);
             }
         });
-    }
+    }*/
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -1031,6 +1034,7 @@ public class Frame_Ficha extends javax.swing.JFrame {
             ficha.setHistoria(txt_area_Historia.getText());
 
             RPG_globais.setMinha_ficha(ficha);
+            envia_ficha.Envia_ficha(ficha);
 
             JOptionPane.showMessageDialog(this, "Ficha Atualizada!");
         }

@@ -17,7 +17,7 @@ public class RPG_globais
         static private JList lista_jogadores;
         static private ArrayList<Ficha> fichas = new ArrayList<Ficha>();
         static private ArrayList<String> jogadores = new ArrayList<String>();
-        static private Ficha minha_ficha = new Ficha();
+        static private Ficha minha_ficha;
 
         public static void setfichas(ArrayList<Ficha> rfichas)
         {

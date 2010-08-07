@@ -11,6 +11,7 @@ package rpg;
  * @author belimawr
  */
 import java.util.*;
+import javax.swing.JOptionPane;
 import javax.swing.JTextArea;
 
 public class Consumidor extends Thread
@@ -61,6 +62,8 @@ public class Consumidor extends Thread
                                 catch(Exception e)
                                 {
                                         clientes.remove(c);
+                                        if(clientes.isEmpty())
+                                                break;
                                 }
                         }
 		}

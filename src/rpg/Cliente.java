@@ -76,6 +76,7 @@ public class Cliente
                                 s.close();
                                 System.exit(0);
                         }
+                        if(mensagem.equals(""))
                         out.writeUTF("<" + nick + "> " + mensagem);
                 }
                 catch(Exception eee)

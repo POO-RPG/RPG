@@ -55,6 +55,9 @@ public class Servidor_Chat extends Thread
 
         public void Enviar_mensagem(String s)
         {
+            if(s.equals(""))
+                return;
+
                 try
                 {
                         f.insere(new Mensagem("<" + nick + "> " + s));

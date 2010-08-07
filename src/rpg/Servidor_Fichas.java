@@ -43,6 +43,15 @@ public class Servidor_Fichas extends Thread implements Envia_ficha
     public void Envia_ficha(Ficha ficha)
     {
 	    ArrayList<Ficha> ff = RPG_globais.getfichas();
+	    try
+	    {
+		fila_ficha.insere(ficha);
+	    }
+	    catch(Exception e)
+	    {
+		    e.printStackTrace();
+		    System.exit(1);
+	    }
 
 	    for(Ficha f: ff)
 	    {

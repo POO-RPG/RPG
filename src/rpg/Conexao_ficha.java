@@ -55,6 +55,7 @@ public class Conexao_ficha extends Thread
             try
             {
                 ficha = (Ficha)in.readObject();
+                JOptionPane.showMessageDialog(null, "Ficha recebida " + ficha.getNome_personagem());
                 for(int i = 0; i < fichas_r.size(); i++)
                 {
                     //Se já existir esse personagem, a ficha existente é sobrescrita

@@ -69,6 +69,9 @@ public class Cliente
 
 	public void Escrever_mensagem(String mensagem)
 	{
+            if(mensagem.equals(""))
+                return;
+            
                 try
                 {
                         if (mensagem == null)
@@ -76,7 +79,6 @@ public class Cliente
                                 s.close();
                                 System.exit(0);
                         }
-                        if(mensagem.equals(""))
                         out.writeUTF("<" + nick + "> " + mensagem);
                 }
                 catch(Exception eee)

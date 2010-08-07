@@ -396,7 +396,16 @@ public class RPG_Janela_Prinicpal extends FrameView {
     private void bt_editar_fichaActionPerformed (java.awt.event.ActionEvent evt)//GEN-FIRST:event_bt_editar_fichaActionPerformed
     {//GEN-HEADEREND:event_bt_editar_fichaActionPerformed
             // TODO add your handling code here:
-            JFrame jan = new Frame_Ficha(RPG_globais.getMinha_ficha());
+            JFrame jan;
+            if(mestrando)
+            {
+                    jan = new Frame_Ficha(RPG_globais.getMinha_ficha(), mestre);
+            }
+            else
+            {
+                    jan = new Frame_Ficha(RPG_globais.getMinha_ficha(), cliente.getConecxao_ficha());
+            }
+
             jan.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
             jan.setVisible(true);
     }//GEN-LAST:event_bt_editar_fichaActionPerformed

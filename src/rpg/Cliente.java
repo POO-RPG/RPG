@@ -87,4 +87,11 @@ public class Cliente
                         System.exit(1);
                 }
 	}
+
+        public Conexao_ficha getConecxao_ficha ()
+        {
+                return conecxao_ficha;
+        }
+
+
 }

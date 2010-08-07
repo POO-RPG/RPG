@@ -1030,6 +1030,8 @@ public class Frame_Ficha extends javax.swing.JFrame {
             ficha.setTD_PdF(txt_PoderDeFogo.getText());
             ficha.setHistoria(txt_area_Historia.getText());
 
+            RPG_globais.setMinha_ficha(ficha);
+
             JOptionPane.showMessageDialog(this, "Ficha Atualizada!");
         }
         catch (Erro_Ficha e) {

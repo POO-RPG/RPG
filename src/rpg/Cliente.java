@@ -57,7 +57,6 @@ public class Cliente
                 }
 		catch(Exception eee)
 		{
-			System.out.printf("\nConexão recusada pelo servidor!\n");
 			System.exit(1);
 		}
         }

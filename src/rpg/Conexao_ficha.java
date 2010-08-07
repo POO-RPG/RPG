@@ -56,32 +56,44 @@ public class Conexao_ficha extends Thread implements Envia_ficha
             {
                 ficha = (Ficha)in.readObject();
                 JOptionPane.showMessageDialog(null, "Ficha recebida " + ficha.getNome_personagem());
-                for(int i = 0; i < fichas_r.size(); i++)
+                
+                if(fichas_r.isEmpty())
                 {
-                    //Se já existir esse personagem, a ficha existente é sobrescrita
-                    if(fichas_r.get(i).getNome_personagem().equals(ficha.getNome_personagem()))
-                        fichas_r.add(i, ficha);
-                    else
-                    {
                         fichas_r.add(ficha);
                         jogadores.add(ficha.getNome_jogador());
-
-                        Collections.sort(jogadores, new Comparator()
-                        {
-
-                                                        public int compare (Object arg0, Object arg1)
-                                                        {
-                                                                String s1 = (String) arg0, s2 = (String) arg1;
-                                                                return s1.compareTo(s2);
-                                                        }
-                        });
-
                         RPG_globais.getLista_jogadores().setListData(jogadores.toArray());
-                    }
+                }
+                else
+                {
+                        for(int i = 0; i < fichas_r.size(); i++)
+                        {
+                            //Se já existir esse personagem, a ficha existente é sobrescrita
+                            if(fichas_r.get(i).getNome_personagem().equals(ficha.getNome_personagem()))
+                                fichas_r.add(i, ficha);
+                            else
+                            {
+                                fichas_r.add(ficha);
+                                jogadores.add(ficha.getNome_jogador());
+
+                                Collections.sort(jogadores, new Comparator()
+                                {
+
+                                                                public int compare (Object arg0, Object arg1)
+                                                                {
+                                                                        String s1 = (String) arg0, s2 = (String) arg1;
+                                                                        return s1.compareTo(s2);
+                                                                }
+                                });
+
+                                RPG_globais.getLista_jogadores().setListData(jogadores.toArray());
+                            }
+
+                        }
                 }
             }
             catch(Exception e)
             {
+                    e.printStackTrace();
                     JOptionPane.showMessageDialog(null, "Deu erro na thread de recebimento de fichas");
                     ok = false;
             }

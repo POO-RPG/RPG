@@ -35,6 +35,7 @@ public class RPG_Janela_Prinicpal extends FrameView {
         Cliente cliente;
         Servidor_Chat mestre;
         Servidor_Fichas mestre_ficha;
+        Ficha minha_ficha;
 
         //Auto explcativo
         private void Inicializa_componentes()
@@ -49,6 +50,7 @@ public class RPG_Janela_Prinicpal extends FrameView {
 
                 jogadores = new ArrayList<String>();
                 conexao_fichas = new ArrayList<Conexao_ficha>();
+                RPG_globais.setLista_jogadores(lista_jogadores);
         }
 
     public RPG_Janela_Prinicpal(SingleFrameApplication app) {
@@ -148,6 +150,7 @@ public class RPG_Janela_Prinicpal extends FrameView {
                 bt_ve_ficha = new javax.swing.JButton();
                 bt_trava_ficha = new javax.swing.JButton();
                 lbl_status = new javax.swing.JLabel();
+                bt_editar_ficha = new javax.swing.JButton();
                 menuBar = new javax.swing.JMenuBar();
                 javax.swing.JMenu fileMenu = new javax.swing.JMenu();
                 menu_metrar = new javax.swing.JMenuItem();
@@ -227,14 +230,21 @@ public class RPG_Janela_Prinicpal extends FrameView {
                 lbl_status.setText(resourceMap.getString("lbl_status.text")); // NOI18N
                 lbl_status.setName("lbl_status"); // NOI18N
 
+                bt_editar_ficha.setText(resourceMap.getString("bt_editar_ficha.text")); // NOI18N
+                bt_editar_ficha.setName("bt_editar_ficha"); // NOI18N
+                bt_editar_ficha.addActionListener(new java.awt.event.ActionListener() {
+                        public void actionPerformed(java.awt.event.ActionEvent evt) {
+                                bt_editar_fichaActionPerformed(evt);
+                        }
+                });
+
                 javax.swing.GroupLayout mainPanelLayout = new javax.swing.GroupLayout(mainPanel);
                 mainPanel.setLayout(mainPanelLayout);
                 mainPanelLayout.setHorizontalGroup(
                         mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(mainPanelLayout.createSequentialGroup()
-                                .addContainerGap(52, Short.MAX_VALUE)
+                                .addContainerGap()
                                 .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(lbl_status)
                                         .addGroup(mainPanelLayout.createSequentialGroup()
                                                 .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                                         .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 562, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -254,24 +264,33 @@ public class RPG_Janela_Prinicpal extends FrameView {
                                                                 .addComponent(bt_rolar_dados)
                                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                                                 .addComponent(bt_limpar)))
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                        .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 217, Short.MAX_VALUE)
-                                                        .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 217, Short.MAX_VALUE)
-                                                        .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                                                .addComponent(bt_ve_ficha, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                                                .addComponent(bt_trava_ficha, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
+                                        .addGroup(mainPanelLayout.createSequentialGroup()
+                                                .addComponent(lbl_status)
+                                                .addGap(516, 516, 516)))
+                                .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addGroup(mainPanelLayout.createSequentialGroup()
+                                                .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                                        .addComponent(bt_ve_ficha, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                        .addComponent(bt_trava_ficha, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                        .addComponent(bt_editar_ficha, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                        .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 196, Short.MAX_VALUE))
+                                .addGap(389, 389, 389)
+                                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addContainerGap())
                 );
                 mainPanelLayout.setVerticalGroup(
                         mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(mainPanelLayout.createSequentialGroup()
-                                .addGap(34, 34, 34)
+                                .addGap(69, 69, 69)
                                 .addComponent(jLabel1)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                        .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 261, Short.MAX_VALUE)
-                                        .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.LEADING))
+                                .addContainerGap(360, Short.MAX_VALUE))
+                        .addGroup(mainPanelLayout.createSequentialGroup()
+                                .addContainerGap()
+                                .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                        .addComponent(jScrollPane2)
+                                        .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 261, Short.MAX_VALUE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                         .addComponent(txt_enviar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -286,8 +305,11 @@ public class RPG_Janela_Prinicpal extends FrameView {
                                         .addComponent(bt_limpar)
                                         .addComponent(bt_rolar_dados)
                                         .addComponent(bt_trava_ficha))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 16, Short.MAX_VALUE)
-                                .addComponent(lbl_status))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                        .addComponent(lbl_status)
+                                        .addComponent(bt_editar_ficha))
+                                .addGap(63, 63, 63))
                 );
 
                 menuBar.setName("menuBar"); // NOI18N
@@ -337,11 +359,11 @@ public class RPG_Janela_Prinicpal extends FrameView {
                 statusPanel.setLayout(statusPanelLayout);
                 statusPanelLayout.setHorizontalGroup(
                         statusPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(statusPanelSeparator, javax.swing.GroupLayout.DEFAULT_SIZE, 855, Short.MAX_VALUE)
+                        .addComponent(statusPanelSeparator, javax.swing.GroupLayout.DEFAULT_SIZE, 1177, Short.MAX_VALUE)
                         .addGroup(statusPanelLayout.createSequentialGroup()
                                 .addContainerGap()
                                 .addComponent(statusMessageLabel)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 671, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 993, Short.MAX_VALUE)
                                 .addComponent(progressBar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(statusAnimationLabel)
@@ -370,6 +392,12 @@ public class RPG_Janela_Prinicpal extends FrameView {
             if (evt.getKeyCode() == java.awt.event.KeyEvent.VK_ENTER)
                     bt_enviar();
     }//GEN-LAST:event_txt_enviarKeyReleased
+
+    private void bt_editar_fichaActionPerformed (java.awt.event.ActionEvent evt)//GEN-FIRST:event_bt_editar_fichaActionPerformed
+    {//GEN-HEADEREND:event_bt_editar_fichaActionPerformed
+            // TODO add your handling code here:
+
+    }//GEN-LAST:event_bt_editar_fichaActionPerformed
 
         //Chamado quando o botão enviar é pressionado
         @Action
@@ -520,6 +548,7 @@ public class RPG_Janela_Prinicpal extends FrameView {
         }
 
         // Variables declaration - do not modify//GEN-BEGIN:variables
+        private javax.swing.JButton bt_editar_ficha;
         private javax.swing.JButton bt_enviar;
         private javax.swing.JButton bt_limpar;
         private javax.swing.JButton bt_rolar_dados;

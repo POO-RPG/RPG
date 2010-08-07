@@ -18,7 +18,7 @@ public class Conexao_ficha extends Thread
     Conexao_ficha(Socket conexao_cliente, ArrayList<String> jogadores)
     {
         this.conexao_cliente = conexao_cliente;
-        this.fichas_r = fichas_r;
+        this.fichas_r = new ArrayList<Ficha>();
         this.jogadores = jogadores;
 
         try
@@ -51,6 +51,18 @@ public class Conexao_ficha extends Thread
                     {
                         fichas_r.add(ficha);
                         jogadores.add(ficha.getNome_jogador());
+
+                        Collections.sort(jogadores, new Comparator()
+                        {
+
+                                                        public int compare (Object arg0, Object arg1)
+                                                        {
+                                                                String s1 = (String) arg0, s2 = (String) arg1;
+                                                                return s1.compareTo(s2);
+                                                        }
+                        });
+
+                        RPG_globais.getLista_jogadores().setListData(jogadores.toArray());
                     }
                 }
             }

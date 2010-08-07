@@ -29,7 +29,7 @@ public class RPG_Janela_Prinicpal extends FrameView {
 
         //Atribuos
         boolean mestrando = false;
-        ArrayList<String> jogadores;
+        ArrayList<String> jogadores = new ArrayList<String>();
         ArrayList<Ficha> fichas = new ArrayList<Ficha>();
         ArrayList<Conexao_ficha> conexao_fichas;
         Cliente cliente;

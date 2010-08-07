@@ -32,6 +32,19 @@ public class Conexao_ficha extends Thread
         }
     }
 
+    public void Envia_ficha(Ficha f)
+    {
+            try
+            {
+                out.writeObject(f);
+            }
+            catch(Exception e)
+            {
+                    e.printStackTrace();
+                    System.exit(1);
+            }
+    }
+
     @Override
     public void run()
     {

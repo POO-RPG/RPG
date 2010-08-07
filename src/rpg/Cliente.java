@@ -12,7 +12,6 @@ package rpg;
 import javax.swing.*;
 import java.net.*;
 import java.io.*;
-import java.util.ArrayList;
 
 public class Cliente
 {
@@ -25,7 +24,6 @@ public class Cliente
         private int porta;
         private JTextArea txt_chat;
         private Conexao_ficha conecxao_ficha;
-        private ArrayList<String> jogadores;
 
         Cliente(JTextArea txt_chat)
         {

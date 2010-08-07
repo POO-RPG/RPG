@@ -15,8 +15,8 @@ import javax.swing.JList;
 public class RPG_globais
 {
         static private JList lista_jogadores;
-        static private ArrayList<Ficha> fichas;
-        static private ArrayList<String> jogadores;
+        static private ArrayList<Ficha> fichas = new ArrayList<Ficha>();
+        static private ArrayList<String> jogadores = new ArrayList<String>();
 
         public static void setfichas(ArrayList<Ficha> rfichas)
         {

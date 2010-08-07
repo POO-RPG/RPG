@@ -24,7 +24,7 @@ public class Servidor_Chat extends Thread
         private String[] nome_clientes = {};
         private ServerSocket servidor;
         private Fila<Mensagem> f;
-        private ArrayList<Conecxao_Cliente> clientes;
+        private ArrayList<Conexao_Cliente> clientes;
         private Consumidor c;
         private JTextArea txt_chat;
         private String nick = "Mestre";
@@ -36,7 +36,7 @@ public class Servidor_Chat extends Thread
                         this.txt_chat = txt_chat;
                         servidor = new ServerSocket(porta);
                         f = new Fila<Mensagem>(1000);
-                        clientes = new ArrayList<Conecxao_Cliente>();
+                        clientes = new ArrayList<Conexao_Cliente>();
                         c = new Consumidor(f, clientes, txt_chat);
                         c.start();
 
@@ -48,7 +48,7 @@ public class Servidor_Chat extends Thread
                 }
         }
 
-        public ArrayList<Conecxao_Cliente> getClientes ()
+        public ArrayList<Conexao_Cliente> getClientes ()
         {
                 return clientes;
         }
@@ -68,14 +68,14 @@ public class Servidor_Chat extends Thread
         @Override
         public void run()
         {
-                Conecxao_Cliente novo_jogador;
+                Conexao_Cliente novo_jogador;
                 Socket novo_soket;
                 while(true)
                 {
                         try
                         {
                                 novo_soket = servidor.accept();
-                                novo_jogador = new Conecxao_Cliente(novo_soket, f, txt_chat);
+                                novo_jogador = new Conexao_Cliente(novo_soket, f, txt_chat);
                                 novo_jogador.start();
                                 clientes.add(novo_jogador);
                                 txt_chat.append("\nCliente Conectado!");

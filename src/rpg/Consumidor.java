@@ -16,10 +16,10 @@ import javax.swing.JTextArea;
 public class Consumidor extends Thread
 {
 	private Fila<Mensagem> f;
-	private ArrayList<Conecxao_Cliente> clientes;
+	private ArrayList<Conexao_Cliente> clientes;
         private JTextArea txt_chat;
 
-	Consumidor(Fila<Mensagem> ff, ArrayList<Conecxao_Cliente> clientes, JTextArea txt_chat)
+	Consumidor(Fila<Mensagem> ff, ArrayList<Conexao_Cliente> clientes, JTextArea txt_chat)
 	{
 		f = ff;
 		this.clientes = clientes;
@@ -53,7 +53,7 @@ public class Consumidor extends Thread
                         txt_chat.setCaretPosition(txt_chat.getText().length());
 
                         //Envia a mensagem para todos os clientes
-			for(Conecxao_Cliente c: clientes)
+			for(Conexao_Cliente c: clientes)
 			{
 				try
 				{

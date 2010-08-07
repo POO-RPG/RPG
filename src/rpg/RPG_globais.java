@@ -17,6 +17,7 @@ public class RPG_globais
         static private JList lista_jogadores;
         static private ArrayList<Ficha> fichas = new ArrayList<Ficha>();
         static private ArrayList<String> jogadores = new ArrayList<String>();
+        static private Ficha minha_ficha = null;
 
         public static void setfichas(ArrayList<Ficha> rfichas)
         {
@@ -48,6 +49,14 @@ public class RPG_globais
                 jogadores = rjogadores;
         }
 
+        public static Ficha getMinha_ficha ()
+        {
+                return minha_ficha;
+        }
 
+        public static void setMinha_ficha (Ficha minha_ficha)
+        {
+                RPG_globais.minha_ficha = minha_ficha;
+        }
 
 }

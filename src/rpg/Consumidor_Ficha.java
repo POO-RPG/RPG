@@ -23,7 +23,7 @@ public class Consumidor_Ficha extends Thread
         }
 
         @Override
-        public void run()
+	public void run()
         {
                 System.out.println("A thread consumidora foi iniciada!");
                 Ficha ficha = null;
@@ -38,7 +38,7 @@ public class Consumidor_Ficha extends Thread
                                 System.out.println("Retirando uma ficha...");
                                 ficha = fila_ficha.retira();
                                 System.out.println("Ficah retirada!!");
-                        }
+			{
                         catch(Exception e)
                         {
                                 e.printStackTrace();

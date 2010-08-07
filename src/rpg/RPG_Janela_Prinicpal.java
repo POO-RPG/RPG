@@ -34,7 +34,6 @@ public class RPG_Janela_Prinicpal extends FrameView {
         Cliente cliente;
         Servidor_Chat mestre;
         Servidor_Fichas mestre_ficha;
-        Ficha minha_ficha;
 
         //Auto explcativo
         private void Inicializa_componentes()
@@ -397,7 +396,9 @@ public class RPG_Janela_Prinicpal extends FrameView {
     private void bt_editar_fichaActionPerformed (java.awt.event.ActionEvent evt)//GEN-FIRST:event_bt_editar_fichaActionPerformed
     {//GEN-HEADEREND:event_bt_editar_fichaActionPerformed
             // TODO add your handling code here:
-
+            JFrame jan = new Frame_Ficha(RPG_globais.getMinha_ficha());
+            jan.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+            jan.setVisible(true);
     }//GEN-LAST:event_bt_editar_fichaActionPerformed
 
     private void bt_enviarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_enviarActionPerformed

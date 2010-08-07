@@ -5,6 +5,7 @@
 
 package rpg;
 
+import java.util.ArrayList;
 import javax.swing.JList;
 
 /**
@@ -14,6 +15,17 @@ import javax.swing.JList;
 public class RPG_globais
 {
         static private JList lista_jogadores;
+        static private ArrayList<Ficha> fichas;
+
+        public static void setfichas(ArrayList<Ficha> fichas)
+        {
+            RPG_globais.fichas = fichas;
+        }
+
+        public ArrayList<Ficha> setfichas()
+        {
+            return fichas;
+        }
 
         public static JList getLista_jogadores ()
         {

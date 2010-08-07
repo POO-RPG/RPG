@@ -11,7 +11,7 @@ import java.util.ArrayList;
  *
  * @author belimawr
  */
-public class Servidor_Fichas
+public class Servidor_Fichas extends Thread
 {
     private ArrayList<String> jogadores;
     private ArrayList<Conexao_ficha> conexao_fichas;

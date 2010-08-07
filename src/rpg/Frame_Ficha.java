@@ -829,7 +829,7 @@ public class Frame_Ficha extends javax.swing.JFrame {
     }//GEN-LAST:event_formWindowClosed
 
     private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
-        // TODO add your handling code here:
+        RPG_globais.setMinha_ficha(ficha);
     }//GEN-LAST:event_formWindowClosing
 
     /**

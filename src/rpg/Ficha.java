@@ -303,4 +303,9 @@ class Ficha
 		this.Experiencia = Experiencia;
 	}
 
+        public String toString()
+        {
+                return Nome_jogador;
+        }
+
 }

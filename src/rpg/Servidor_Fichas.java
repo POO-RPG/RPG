@@ -6,6 +6,7 @@
 package rpg;
 import java.net.*;
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -52,6 +53,17 @@ public class Servidor_Fichas extends Thread implements Envia_ficha
                 }
     }
 
+    public void Envia_todas_fichas()
+    {
+	    ArrayList<Ficha> ff = RPG_globais.getfichas();
+
+	    for(Conexao_ficha c: conexao_fichas)
+	    {
+		    for(Ficha f: ff)
+			    Envia_ficha(f);
+	    }
+    }
+
     public ArrayList<Conexao_ficha> getconexao_fichas()
     {
         return conexao_fichas;
@@ -76,11 +88,15 @@ public class Servidor_Fichas extends Thread implements Envia_ficha
                     cficha = new Conexao_ficha(socket);
                     cficha.start();
                     conexao_fichas.add(cficha);
+		    //Reenvia todas as fichas para que quem entar tenha a lista de fichas;
+		    JOptionPane.showMessageDialog(null, "Ẻnviando todas as fichas");
+		    Envia_todas_fichas();
+		    JOptionPane.showMessageDialog(null, "Término do emvio de all ficha");
                 }
                 catch(Exception e)
                 {
                     e.printStackTrace();
-                }
+		}
         }
     }
 }

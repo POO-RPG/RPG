@@ -25,8 +25,7 @@ public class Consumidor_Ficha extends Thread
 	public void run()
         {
                 Ficha ficha = null;
-                int i;
-                boolean adicionado = false;
+		boolean adicionado = false;
                 
                 while(true)
                 {
@@ -40,7 +39,7 @@ public class Consumidor_Ficha extends Thread
                                 System.exit(1);
                         }
                         //Coloca a ficha no servidor
-                        for(i=0; i < RPG_globais.getJogadores().size() ; i++)
+                        for(int i = 0; i < RPG_globais.getJogadores().size() ; i++)
                         {
                                 if(RPG_globais.getfichas().get(i).getNome_personagem().equals(ficha.getNome_personagem()))
                                 {

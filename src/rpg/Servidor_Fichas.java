@@ -11,7 +11,7 @@ import java.util.ArrayList;
  *
  * @author belimawr
  */
-public class Servidor_Fichas extends Thread
+public class Servidor_Fichas extends Thread implements Envia_ficha
 {
     private ArrayList<String> jogadores;
     private ArrayList<Conexao_ficha> conexao_fichas;
@@ -39,11 +39,11 @@ public class Servidor_Fichas extends Thread
                 this.jogadores = jogadores;
     }
 
-    public void Enviar_ficha(Ficha f)
+    public void Envia_ficha(Ficha ficha)
     {
                 try
                 {
-                        fila_ficha.insere(f);
+                        fila_ficha.insere(ficha);
                 }
                 catch (InterruptedException ex)
                 {

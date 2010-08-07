@@ -7,7 +7,7 @@ import java.net.*;
  *
  * @author HP
  */
-public class Conexao_ficha extends Thread
+public class Conexao_ficha extends Thread implements Envia_ficha
 {
     private ObjectOutputStream out;
     private ObjectInputStream in;
@@ -29,11 +29,11 @@ public class Conexao_ficha extends Thread
         }
     }
 
-    public void Envia_ficha(Ficha f)
+    public void Envia_ficha(Ficha ficha)
     {
             try
             {
-                out.writeObject(f);
+                out.writeObject(ficha);
             }
             catch(Exception e)
             {

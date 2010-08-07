@@ -41,7 +41,7 @@ public class Consumidor_Ficha extends Thread
                         //Coloca a ficha no servidor
                         for(int i = 0; i < RPG_globais.getJogadores().size() ; i++)
                         {
-                                if(RPG_globais.getfichas().get(i).getNome_personagem().equals(ficha.getNome_personagem()))
+                                if(RPG_globais.getfichas().get(i).getNome_jogador().equals(ficha.getNome_jogador()))
                                 {
                                         adicionado = true;
                                         RPG_globais.getfichas().add(i, ficha);

@@ -57,7 +57,7 @@ public class Conexao_ficha extends Thread implements Envia_ficha
             try
             {
                 ficha = (Ficha)in.readObject();
-                JOptionPane.showMessageDialog(null, "Ficha recebida " + ficha.getNome_personagem());
+                System.out.println( "Ficha recebida " + ficha.getNome_personagem());
                 
                 if(fichas_r.isEmpty())
                 {

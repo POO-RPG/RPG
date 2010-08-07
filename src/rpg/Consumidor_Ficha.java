@@ -26,6 +26,9 @@ public class Consumidor_Ficha extends Thread
         public void run()
         {
                 Ficha ficha = null;
+                int i;
+                boolean adicionado = false;
+                
                 while(true)
                 {
                         try
@@ -37,7 +40,26 @@ public class Consumidor_Ficha extends Thread
                                 e.printStackTrace();
                                 System.exit(1);
                         }
+                        //Coloca a ficha no servidor
+                        for(i=0; i < RPG_globais.getJogadores().size() ; i++)
+                        {
+                                if(RPG_globais.getfichas().get(i).getNome_personagem().equals(ficha.getNome_personagem()))
+                                {
+                                        adicionado = true;
+                                        RPG_globais.getfichas().add(i, ficha);
+                                        break;
+                                }
+                        }
 
+                        if(!adicionado) //Se a ficha não foi adicionada, adiciona ela
+                        {
+                                 RPG_globais.getfichas().add(ficha);
+                                 adicionado = true;
+                                 RPG_globais.getJogadores().add(ficha.getNome_jogador());
+                                 RPG_globais.getLista_jogadores().setListData(RPG_globais.getJogadores().toArray());
+                        }
+
+                        //Envia para os clientes
                         for(Conexao_ficha c : conecxao_ficha)
                         {
                                 try

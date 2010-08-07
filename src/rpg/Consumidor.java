@@ -45,10 +45,7 @@ public class Consumidor extends Thread
 				e.printStackTrace();
 			}
 
-                        //Escreve a mensagem na área de chat
-                        //texto = txt_chat.getText();
-                        //texto += "\n" + m.getMensagem();
-                        //txt_chat.setText(texto);
+                        //Escreve para o servidor
                         txt_chat.append("\n" + m.getMensagem());
                         txt_chat.setCaretPosition(txt_chat.getText().length());
 

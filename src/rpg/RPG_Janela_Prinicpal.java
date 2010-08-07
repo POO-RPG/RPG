@@ -524,6 +524,7 @@ public class RPG_Janela_Prinicpal extends FrameView {
                 mestre = new Servidor_Chat(porta, txt_chat);
                 mestre.start();
                 mestre_ficha = new Servidor_Fichas(conexao_fichas, jogadores, porta);
+                mestre_ficha.start();
                 
                 //Torna os botões clicáveis
                 bt_enviar.setEnabled(true);

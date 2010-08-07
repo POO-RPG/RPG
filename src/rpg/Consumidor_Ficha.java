@@ -18,7 +18,6 @@ public class Consumidor_Ficha extends Thread
 
         Consumidor_Ficha(Fila<Ficha> fila_ficha, ArrayList<Conexao_ficha> conecxao_ficha)
         {
-                this.fila_ficha = fila_ficha;
                 this.conecxao_ficha = conecxao_ficha;
         }
 

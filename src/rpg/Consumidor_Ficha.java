@@ -13,7 +13,7 @@ import java.util.ArrayList;
  */
 public class Consumidor_Ficha extends Thread
 {
-        private Fila<Ficha> fila_ficha;
+        private Fila<Ficha> fila_ficha = RPG_globais.getFila_fichas();
         private ArrayList<Conexao_ficha> conecxao_ficha;
 
         Consumidor_Ficha(Fila<Ficha> fila_ficha, ArrayList<Conexao_ficha> conecxao_ficha)
@@ -32,9 +32,12 @@ public class Consumidor_Ficha extends Thread
                 
                 while(true)
                 {
+                        System.out.println("Entrei no while da thread consumidora de fichas");
                         try
                         {
+                                System.out.println("Retirando uma ficha...");
                                 ficha = fila_ficha.retira();
+                                System.out.println("Ficah retirada!!");
                         }
                         catch(Exception e)
                         {
@@ -81,8 +84,6 @@ public class Consumidor_Ficha extends Thread
                                 }
                         }
                 }
-                
-                System.out.println("A thread consumidora MORREU!!");
         }
         
 

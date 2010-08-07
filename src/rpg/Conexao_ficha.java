@@ -58,6 +58,7 @@ public class Conexao_ficha extends Thread implements Envia_ficha
             {
                 ficha = (Ficha)in.readObject();
                 System.out.println( "Ficha recebida " + ficha.getNome_personagem());
+                RPG_globais.getFila_fichas().insere(ficha);
                 
                 if(fichas_r.isEmpty())
                 {

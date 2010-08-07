@@ -18,6 +18,7 @@ public class RPG_globais
         static private ArrayList<Ficha> fichas = new ArrayList<Ficha>();
         static private ArrayList<String> jogadores = new ArrayList<String>();
         static private Ficha minha_ficha = new Ficha();
+        static private Fila<Ficha> fila_fichas = new Fila<Ficha>(1000);
 
         public static void setfichas(ArrayList<Ficha> rfichas)
         {
@@ -58,5 +59,17 @@ public class RPG_globais
         {
                 RPG_globais.minha_ficha = minha_ficha;
         }
+
+        public static Fila<Ficha> getFila_fichas ()
+        {
+                return fila_fichas;
+        }
+
+        public static void setFila_fichas (Fila<Ficha> fila_fichas)
+        {
+                RPG_globais.fila_fichas = fila_fichas;
+        }
+
+
 
 }

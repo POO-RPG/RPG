@@ -82,6 +82,7 @@ public class Conexao_ficha extends Thread
             {
                 e.printStackTrace();
                 JOptionPane.showMessageDialog(null, "Teste");
+                //System.exit(1);
             }
             catch(ClassNotFoundException ce)
             {

@@ -46,8 +46,7 @@ public class Consumidor_Ficha extends Thread
                                 }
                                 catch(Exception e)
                                 {
-                                        e.printStackTrace();
-                                        System.exit(1);
+                                        conecxao_ficha.remove(c);
                                 }
                         }
                 }

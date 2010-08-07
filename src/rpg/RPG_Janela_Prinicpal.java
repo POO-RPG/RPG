@@ -399,7 +399,7 @@ public class RPG_Janela_Prinicpal extends FrameView {
             JFrame jan;
             if(mestrando)
             {
-                    jan = new Frame_Ficha(RPG_globais.getMinha_ficha(), mestre);
+                    jan = new Frame_Ficha(RPG_globais.getMinha_ficha(), mestre_ficha);
             }
             else
             {

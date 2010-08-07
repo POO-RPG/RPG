@@ -517,8 +517,7 @@ public class RPG_Janela_Prinicpal extends FrameView {
                 }
 
                 jan = new Frame_Ficha(f);
-                jan.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE) ta errada!!!
-                        janela não fecha mais
+                jan.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
                 jan.setVisible(true);
         }
 

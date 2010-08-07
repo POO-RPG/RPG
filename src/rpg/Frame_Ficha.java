@@ -1008,7 +1008,7 @@ public class Frame_Ficha extends javax.swing.JFrame {
             ficha.setAgua(Integer.parseInt(txt_Agua.getText()));
             ficha.setAr(Integer.parseInt(txt_Ar.getText()));
             ficha.setExperiencia(Integer.parseInt(txt_Experiencia.getText()));
-            ficha.setDinheiro(Integer.parseInt(txt_Dinheiro.getText()));
+            ficha.setDinheiro(Double.parseDouble(txt_Dinheiro.getText()));
             ficha.setF(Integer.parseInt(txt_F.getText()));
             ficha.setFogo(Integer.parseInt(txt_Fogo.getText()));
             ficha.setTD_Forca(txt_Forca.getText());
@@ -1029,6 +1029,8 @@ public class Frame_Ficha extends javax.swing.JFrame {
             ficha.setTD_Forca(txt_Forca.getText());
             ficha.setTD_PdF(txt_PoderDeFogo.getText());
             ficha.setHistoria(txt_area_Historia.getText());
+
+            RPG_globais.setMinha_ficha(ficha);
 
             JOptionPane.showMessageDialog(this, "Ficha Atualizada!");
         }

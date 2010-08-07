@@ -28,7 +28,7 @@ class Ficha
 
         Ficha()
 	{
-                F = H = R =A = PdF = PV = PM = 0;
+                F = H = R = A = PdF = PV = PM = 0;
                 Agua = Ar = Fogo = Luz = Terra = Trevas = 0;
                 Dinheiro = Experiencia = 0;
                 Magias = new String[0];

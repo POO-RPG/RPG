@@ -32,7 +32,7 @@ public class Consumidor extends Thread
 	{
 		Mensagem m = null;
                 String texto;
-		while(1>0)
+		while(true)
 		{
 			try
 			{

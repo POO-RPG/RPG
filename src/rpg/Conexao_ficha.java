@@ -21,15 +21,20 @@ public class Conexao_ficha extends Thread
         this.fichas_r = new ArrayList<Ficha>();
         this.jogadores = jogadores;
 
+        JOptionPane.showMessageDialog(null, "Conexao_ficha vai começar a criar os in e out");
         try
         {
             out = new ObjectOutputStream(conexao_cliente.getOutputStream());
+            JOptionPane.showMessageDialog(null, "out criado");
             in = new ObjectInputStream(conexao_cliente.getInputStream());
+            JOptionPane.showMessageDialog(null, "in criado");
         }
         catch(Exception e)
         {
             e.printStackTrace();
+            System.exit(1);
         }
+        JOptionPane.showMessageDialog(null, "Fim do construtor de Conexao_ficha");
     }
 
     public void Envia_ficha(Ficha f)

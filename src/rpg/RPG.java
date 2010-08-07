@@ -18,7 +18,7 @@ public class RPG extends SingleFrameApplication {
     @Override protected void startup() {
         //show (new Frame_Ficha());
         show(new RPG_Janela_Prinicpal(this));
-        show (new Frame_Ficha(new Ficha("Teste", "lalalla")));
+        //show (new Frame_Ficha(new Ficha("Teste", "lalalla")));
     }
 
     /**

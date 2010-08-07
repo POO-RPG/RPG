@@ -45,11 +45,15 @@ public class Cliente
 			out = new DataOutputStream(s.getOutputStream());
 			e = new Escrevedor(in, txt_chat);
 			e.start();
+                        JOptionPane.showMessageDialog(null, "Conecxão do chat concluida");
 
                         //Cria o socket para as fichas
-                        s = new Socket(ip_servidor,porta + 1);
-                        conecxao_ficha = new Conexao_ficha(s, jogadores);
+                        Socket s1 = new Socket(ip_servidor,porta + 1);
+                        JOptionPane.showMessageDialog(null, "Socket da ficha criado");
+                        conecxao_ficha = new Conexao_ficha(s1, jogadores);
+                        JOptionPane.showMessageDialog(null, "Conecxão Cliente criada");
                         conecxao_ficha.start();
+                        JOptionPane.showMessageDialog(null, "Fim do criador da classe Cliente");
 
 
 		}

@@ -78,9 +78,14 @@ public class Conexao_ficha extends Thread
                     }
                 }
             }
-            catch(Exception e)
+            catch(IOException e)
             {
                 e.printStackTrace();
+                JOptionPane.showMessageDialog(null, "Teste");
+            }
+            catch(ClassNotFoundException ce)
+            {
+                    ce.printStackTrace();
             }
         }
     }

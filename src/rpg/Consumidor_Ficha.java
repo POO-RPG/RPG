@@ -38,7 +38,7 @@ public class Consumidor_Ficha extends Thread
                                 System.out.println("Retirando uma ficha...");
                                 ficha = fila_ficha.retira();
                                 System.out.println("Ficah retirada!!");
-			{
+			}
                         catch(Exception e)
                         {
                                 e.printStackTrace();

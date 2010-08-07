@@ -10,14 +10,16 @@ import java.net.*;
 public class Conexao_ficha extends Thread
 {
     private ArrayList<Ficha> fichas_r;
+    private ArrayList<String> jogadores;
     private ObjectOutputStream out;
     private ObjectInputStream in;
     private Socket conexao_cliente;
 
-    Conexao_ficha(Socket conexao_cliente)
+    Conexao_ficha(Socket conexao_cliente, ArrayList<String> jogadores)
     {
         this.conexao_cliente = conexao_cliente;
         this.fichas_r = fichas_r;
+        this.jogadores = jogadores;
 
         try
         {
@@ -46,9 +48,11 @@ public class Conexao_ficha extends Thread
                     if(fichas_r.get(i).getNome_personagem().equals(ficha.getNome_personagem()))
                         fichas_r.add(i, ficha);
                     else
+                    {
                         fichas_r.add(ficha);
+                        jogadores.add(ficha.getNome_jogador());
+                    }
                 }
-
             }
             catch(Exception e)
             {

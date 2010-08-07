@@ -29,21 +29,26 @@ public class RPG_Janela_Prinicpal extends FrameView {
 
         //Atribuos
         boolean mestrando = false;
-        String[] jogadores = {};
+        ArrayList<String> jogadores;
         ArrayList<Ficha> fichas = new ArrayList<Ficha>();
+        ArrayList<Conexao_ficha> conexao_fichas;
         Cliente cliente;
         Servidor_Chat mestre;
+        Servidor_Fichas mestre_ficha;
 
         //Auto explcativo
         private void Inicializa_componentes()
         {
-                lista_jogadores.setListData(jogadores);
+                lista_jogadores.setListData(jogadores.toArray());
                 txt_chat.setEditable(false);
                 bt_enviar.setEnabled(false);
                 bt_limpar.setEnabled(false);
                 bt_rolar_dados.setEnabled(false);
                 bt_ve_ficha.setEnabled(false);
                 bt_trava_ficha.setEnabled(false);
+
+                jogadores = new ArrayList<String>();
+                conexao_fichas = new ArrayList<Conexao_ficha>();
         }
 
     public RPG_Janela_Prinicpal(SingleFrameApplication app) {
@@ -51,7 +56,6 @@ public class RPG_Janela_Prinicpal extends FrameView {
 
         initComponents();
         Inicializa_componentes();
-
 
         // status bar initialization - message timeout, idle icon and busy animation, etc
         ResourceMap resourceMap = getResourceMap();
@@ -491,6 +495,7 @@ public class RPG_Janela_Prinicpal extends FrameView {
 
                 mestre = new Servidor_Chat(porta, txt_chat);
                 mestre.start();
+                mestre_ficha = new Servidor_Fichas(conexao_fichas, jogadores, porta);
                 
                 //Torna os botões clicáveis
                 bt_enviar.setEnabled(true);

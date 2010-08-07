@@ -13,11 +13,11 @@ import java.util.ArrayList;
  */
 public class Servidor_Fichas
 {
-    private String[] jogadores;
+    private ArrayList<String> jogadores;
     private ArrayList<Conexao_ficha> conexao_fichas;
     private ServerSocket server_fichas;
 
-    public Servidor_Fichas (ArrayList<Conexao_ficha> conexao_fichas, String[] jogadores, int porta)
+    public Servidor_Fichas (ArrayList<Conexao_ficha> conexao_fichas, ArrayList<String> jogadores, int porta)
     {
         try
         {
@@ -38,7 +38,7 @@ public class Servidor_Fichas
         return conexao_fichas;
     }
 
-    public String[] getJogadores()
+    public ArrayList<String> getJogadores()
     {
         return jogadores;
     }
@@ -51,7 +51,7 @@ public class Servidor_Fichas
         try
         {
             socket = server_fichas.accept();
-            cficha = new Conexao_ficha(socket);
+            cficha = new Conexao_ficha(socket, jogadores);
             cficha.start();
             conexao_fichas.add(cficha);
         }

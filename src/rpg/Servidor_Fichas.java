@@ -48,16 +48,20 @@ public class Servidor_Fichas extends Thread
         Conexao_ficha cficha;
         Socket socket;
 
-        try
+        while(true)
         {
-            socket = server_fichas.accept();
-            cficha = new Conexao_ficha(socket);
-            cficha.start();
-            conexao_fichas.add(cficha);
-        }
-        catch(Exception e)
-        {
-            e.printStackTrace();
+
+                try
+                {
+                    socket = server_fichas.accept();
+                    cficha = new Conexao_ficha(socket);
+                    cficha.start();
+                    conexao_fichas.add(cficha);
+                }
+                catch(Exception e)
+                {
+                    e.printStackTrace();
+                }
         }
     }
 }

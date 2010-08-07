@@ -71,8 +71,8 @@ public class Conexao_ficha extends Thread implements Envia_ficha
                         
                         for(int i = 0; i < fichas_r.size(); i++)
                         {
-                            //Se já existir esse personagem, a ficha existente é sobrescrita
-                            if(fichas_r.get(i).getNome_personagem().equals(ficha.getNome_personagem()))
+                            //Se já existir esse jogador, a ficha existente é sobrescrita
+                            if(fichas_r.get(i).getNome_jogador().equals(ficha.getNome_jogador()))
                             {
                                 fichas_r.add(i, ficha);
                                 adicionado = true;
@@ -83,7 +83,7 @@ public class Conexao_ficha extends Thread implements Envia_ficha
                         {
                                int size = fichas_r.size();
                                fichas_r.add(size-1,ficha);
-                               jogadores.add(ficha.getNome_personagem());
+                               jogadores.add(ficha.getNome_jogador());
                                adicionado = true;
 
                                 Collections.sort(jogadores, new Comparator()
@@ -104,7 +104,6 @@ public class Conexao_ficha extends Thread implements Envia_ficha
                 catch(Exception e)
                 {
                     e.printStackTrace();
-                    JOptionPane.showMessageDialog(null, "Deu erro na thread de recebimento de fichas");
                     ok = false;
                 }
             }

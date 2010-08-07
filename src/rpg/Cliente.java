@@ -31,11 +31,13 @@ public class Cliente
                 try
 		{
                         //Pergunda as informações da conecxão e do jogador
-			nick = JOptionPane.showInputDialog("Qual o seu nick?", "Jogador");
+			nick = JOptionPane.showInputDialog("Qual o seu nome?", "Jogador");
                         ip_servidor = JOptionPane.showInputDialog("Digite o IP do servidor", "127.0.0.1");
                         porta = Integer.parseInt(JOptionPane.showInputDialog("Digite a porta do servidor:","2010"));
 			if (nick == null)
 				nick = "Sem nick";
+                        //Seta o nome do jogador de modo que ele não possa mais ser alterado
+                        RPG_globais.getMinha_ficha().setNome_jogador(nick);
 
                         //Cria o soket, o input e output stream para o chat, e o escrevedor
 			s = new Socket(ip_servidor, porta);

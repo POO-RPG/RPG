@@ -22,9 +22,11 @@ import org.jdesktop.application.Action;
 public class Frame_Ficha extends javax.swing.JFrame {
 
     Ficha ficha;
+    boolean travada;
 
     /** Creates new form Frame_Ficha */
     public Frame_Ficha() {
+        travada = false;
         String nada[] = new String[0];
         ficha = new Ficha();
         initComponents();
@@ -57,6 +59,7 @@ public class Frame_Ficha extends javax.swing.JFrame {
 
     //Construtor II
     Frame_Ficha(Ficha ficha){
+        travada = false;
         this.ficha = ficha;
         initComponents();
         List_Vantagens.setListData(ficha.getVantagens());
@@ -943,57 +946,57 @@ public class Frame_Ficha extends javax.swing.JFrame {
     }
 
     public void trava_ficha(){
-        List_Vantagens.disable();
-        List_Desvantagens.disable();
-        List_Itens.disable();
-        List_Magias.disable();
-        txt_A.disable();
-        txt_Agua.disable();
-        txt_Ar.disable();
-        txt_Experiencia.disable();
-        txt_Dinheiro.disable();
-        txt_F.disable();
-        txt_Fogo.disable();
-        txt_Forca.disable();
-        txt_H.disable();
-        txt_Jogador.disable();
-        txt_Luz.disable();
-        txt_PM.disable();
-        txt_PV.disable();
-        txt_PdF.disable();
-        txt_Personagem.disable();
-        txt_PoderDeFogo.disable();
-        txt_R.disable();
-        txt_Terra.disable();
-        txt_Trevas.disable();
-        txt_area_Historia.disable();
+        List_Vantagens.setEnabled(false);
+        List_Desvantagens.setEnabled(false);
+        List_Itens.setEnabled(false);
+        List_Magias.setEnabled(false);
+        txt_A.setEnabled(false);
+        txt_Agua.setEnabled(false);
+        txt_Ar.setEnabled(false);
+        txt_Experiencia.setEnabled(false);
+        txt_Dinheiro.setEnabled(false);
+        txt_F.setEnabled(false);
+        txt_Fogo.setEnabled(false);
+        txt_Forca.setEnabled(false);
+        txt_H.setEnabled(false);
+        txt_Jogador.setEnabled(false);
+        txt_Luz.setEnabled(false);
+        txt_PM.setEnabled(false);
+        txt_PV.setEnabled(false);
+        txt_PdF.setEnabled(false);
+        txt_Personagem.setEnabled(false);
+        txt_PoderDeFogo.setEnabled(false);
+        txt_R.setEnabled(false);
+        txt_Terra.setEnabled(false);
+        txt_Trevas.setEnabled(false);
+        txt_area_Historia.setEnabled(false);
     }
 
     public void destrava_ficha(){
-        List_Vantagens.enable();
-        List_Desvantagens.enable();
-        List_Itens.enable();
-        List_Magias.enable();
-        txt_A.enable();
-        txt_Agua.enable();
-        txt_Ar.enable();
-        txt_Experiencia.enable();
-        txt_Dinheiro.enable();
-        txt_F.enable();
-        txt_Fogo.enable();
-        txt_Forca.enable();
-        txt_H.enable();
-        txt_Jogador.enable();
-        txt_Luz.enable();
-        txt_PM.enable();
-        txt_PV.enable();
-        txt_PdF.enable();
-        txt_Personagem.enable();
-        txt_PoderDeFogo.enable();
-        txt_R.enable();
-        txt_Terra.enable();
-        txt_Trevas.enable();
-        txt_area_Historia.enable();
+        List_Vantagens.setEnabled(true);
+        List_Desvantagens.setEnabled(true);
+        List_Itens.setEnabled(true);
+        List_Magias.setEnabled(true);
+        txt_A.setEnabled(true);
+        txt_Agua.setEnabled(true);
+        txt_Ar.setEnabled(true);
+        txt_Experiencia.setEnabled(true);
+        txt_Dinheiro.setEnabled(true);
+        txt_F.setEnabled(true);
+        txt_Fogo.setEnabled(true);
+        txt_Forca.setEnabled(true);
+        txt_H.setEnabled(true);
+        txt_Jogador.setEnabled(true);
+        txt_Luz.setEnabled(true);
+        txt_PM.setEnabled(true);
+        txt_PV.setEnabled(true);
+        txt_PdF.setEnabled(true);
+        txt_Personagem.setEnabled(true);
+        txt_PoderDeFogo.setEnabled(true);
+        txt_R.setEnabled(true);
+        txt_Terra.setEnabled(true);
+        txt_Trevas.setEnabled(true);
+        txt_area_Historia.setEnabled(true);
     }
 
     @Action

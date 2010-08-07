@@ -83,7 +83,7 @@ public class Frame_Ficha extends javax.swing.JFrame {
         txt_Terra.setText(Integer.toString(ficha.getTerra()));
         txt_Trevas.setText(Integer.toString(ficha.getTrevas()));
         txt_area_Historia.setText(ficha.getHistoria());
-  
+ 
     }
 
     /** This method is called from within the constructor to
@@ -917,7 +917,7 @@ public class Frame_Ficha extends javax.swing.JFrame {
     public void setFicha(Ficha ficha) {
         this.ficha = ficha;
     }
-    
+
     public String[] concatena(String[] v, String s) {
         String[] vv = new String[v.length + 1];
         int i;

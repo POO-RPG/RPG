@@ -26,7 +26,7 @@ public class Frame_Ficha extends javax.swing.JFrame {
     Envia_ficha envia_ficha;
     boolean travada;
 
-    /** Creates new form Frame_Ficha */
+    /** Creates new form Frame_Ficha 
     public Frame_Ficha() {
         travada = false;
         String nada[] = new String[0];
@@ -59,7 +59,7 @@ public class Frame_Ficha extends javax.swing.JFrame {
 
         this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         
-    }
+    }*/
 
     public Frame_Ficha(Ficha ficha) {
         travada = false;

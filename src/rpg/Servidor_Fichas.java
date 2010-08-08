@@ -20,11 +20,13 @@ public class Servidor_Fichas extends Thread implements Envia_ficha
     private Fila<Ficha> fila_ficha;
     Consumidor_Ficha consome_ficha;
 
-    public Servidor_Fichas (ArrayList<Conexao_ficha> conexao_fichas, ArrayList<String> jogadores, int porta)
-    {
-                fila_ficha = new  Fila<Ficha>(100);
-                consome_ficha = new Consumidor_Ficha(fila_ficha, conexao_fichas);
-                consome_ficha.start();
+	public Servidor_Fichas (ArrayList<Conexao_ficha> conexao_fichas, ArrayList<String> jogadores, int porta)
+	{
+		this.conexao_fichas = conexao_fichas;
+		this.jogadores = jogadores;
+                this.fila_ficha = RPG_globais.getFila_fichas();
+                this.consome_ficha = new Consumidor_Ficha(fila_ficha, this.conexao_fichas);
+                this.consome_ficha.start();
 
                 try
                 {
@@ -35,9 +37,6 @@ public class Servidor_Fichas extends Thread implements Envia_ficha
                     e.printStackTrace();
                     System.exit(1);
                 }
-
-                this.conexao_fichas = conexao_fichas;
-                this.jogadores = jogadores;
     }
 
     public void Envia_ficha(Ficha ficha)
@@ -70,16 +69,6 @@ public class Servidor_Fichas extends Thread implements Envia_ficha
 			    e.printStackTrace();
 		    }
 	    }
-	    /*
-                try
-                {
-                        fila_ficha.insere(ficha);
-                }
-                catch (InterruptedException ex)
-                {
-                        ex.printStackTrace();
-                        System.exit(1);
-                }*/
     }
 
     public ArrayList<Conexao_ficha> getconexao_fichas()

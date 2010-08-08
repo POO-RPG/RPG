@@ -393,7 +393,6 @@ public class RPG_Janela_Prinicpal extends FrameView {
 
     private void txt_enviarKeyReleased (java.awt.event.KeyEvent evt)//GEN-FIRST:event_txt_enviarKeyReleased
     {//GEN-HEADEREND:event_txt_enviarKeyReleased
-            // TODO add your handling code here:
             if (evt.getKeyCode() == java.awt.event.KeyEvent.VK_ENTER)
                     bt_enviar();
     }//GEN-LAST:event_txt_enviarKeyReleased

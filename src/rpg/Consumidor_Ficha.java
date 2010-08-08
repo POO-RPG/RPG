@@ -42,8 +42,8 @@ public class Consumidor_Ficha extends Thread
                         //Coloca a ficha no servidor
                         for (int i = 0; i < RPG_globais.getfichas().size(); i++)
                         {
-                                System.out.printf("Array: |%s|, Retirada: |%s|\n", RPG_globais.getfichas().get(i).getNome_jogador(), ficha.getNome_jogador() );
-                                if (RPG_globais.getfichas().get(i).getNome_jogador().equals(ficha.getNome_jogador()))
+                                //System.out.printf("Tamanho: %d Array: |%s|, Retirada: |%s|\n", RPG_globais.getfichas().size(), RPG_globais.getfichas().get(i).getNome_jogador(), ficha.getNome_jogador() );
+                                if (RPG_globais.getfichas().get(i).getNome_jogador().equalsIgnoreCase(ficha.getNome_jogador()))
                                 {
                                         adicionado = true;
                                         RPG_globais.getfichas().add(i, ficha);
@@ -51,7 +51,7 @@ public class Consumidor_Ficha extends Thread
                                 }
                         }
 
-                        if (!adicionado) //Se a ficha não foi adicionada, adiciona ela
+                        if (adicionado == false) //Se a ficha não foi adicionada, adiciona ela
                         {
                                 RPG_globais.getfichas().add(ficha);
                                 adicionado = true;

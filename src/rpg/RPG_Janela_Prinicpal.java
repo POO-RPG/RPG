@@ -545,6 +545,7 @@ public class RPG_Janela_Prinicpal extends FrameView {
         @Action
         public void mestrar ()
         {
+                RPG_globais.setMinha_ficha(new Ficha("Mestre", "NPC"));
                 try
                 {
                         mestrando = true;

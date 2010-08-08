@@ -6,7 +6,8 @@
 package rpg;
 import java.net.*;
 import java.util.ArrayList;
-import javax.swing.JOptionPane;
+import java.util.Collections;
+import java.util.Comparator;
 
 /**
  *
@@ -40,8 +41,17 @@ public class Servidor_Fichas extends Thread implements Envia_ficha
 
     public void Envia_ficha(Ficha ficha)
     {
-	    ArrayList<Ficha> ff = RPG_globais.getfichas();
-	    boolean add = false;
+                ArrayList<Ficha> ff = RPG_globais.getfichas();
+                boolean add = false;
+                try
+                {
+                        fila_ficha.insere(ficha);
+                   
+                }
+                catch (InterruptedException ex)
+                {
+                        ex.printStackTrace();
+                }
 
 	    for(int i = 0 ; i < ff.size(); i++)
 	    {
@@ -68,6 +78,18 @@ public class Servidor_Fichas extends Thread implements Envia_ficha
 			    e.printStackTrace();
 		    }
 	    }
+
+            RPG_globais.getJogadores().add(ficha.getNome_jogador());
+            Collections.sort(RPG_globais.getJogadores(), new Comparator()
+            {
+                        public int compare (Object arg0, Object arg1)
+                                {
+                                        String s1 = (String) arg0, s2 = (String) arg1;
+                                        return s1.compareTo(s2);
+                                }
+            });
+            RPG_globais.getLista_jogadores().setListData(RPG_globais.getJogadores().toArray());
+ 
     }
 
     public ArrayList<Conexao_ficha> getconexao_fichas()

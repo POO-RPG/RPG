@@ -33,7 +33,6 @@ public class Servidor_Fichas extends Thread implements Envia_ficha
                 catch(Exception e)
                 {
                     e.printStackTrace();
-                    System.exit(1);
                 }
 
                 this.conexao_fichas = conexao_fichas;

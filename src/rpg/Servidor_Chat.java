@@ -9,9 +9,11 @@
 
 package rpg;
 
+import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
 import javax.swing.JTextArea;
 
 /**
@@ -29,7 +31,7 @@ public class Servidor_Chat extends Thread
         private JTextArea txt_chat;
         private String nick = "Mestre";
 
-        Servidor_Chat(int porta, JTextArea txt_chat)
+        Servidor_Chat(int porta, JTextArea txt_chat) throws IOException
         {
                 try
                 {
@@ -44,7 +46,8 @@ public class Servidor_Chat extends Thread
                 catch(Exception e)
                 {
                         e.printStackTrace();
-                        System.exit(1);
+                        JOptionPane.showMessageDialog(null, "A porta " + porta + " já está em uso!");
+                        throw new IOException("porta em uso");
                 }
         }
 
@@ -87,6 +90,7 @@ public class Servidor_Chat extends Thread
                         catch(Exception e)
                         {
                                 e.printStackTrace();
+                                break;
                         }
                 }
         }

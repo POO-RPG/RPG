@@ -4,6 +4,7 @@
 
 package rpg;
 
+import java.io.IOException;
 import org.jdesktop.application.Action;
 import org.jdesktop.application.ResourceMap;
 import org.jdesktop.application.SingleFrameApplication;
@@ -545,38 +546,49 @@ public class RPG_Janela_Prinicpal extends FrameView {
         @Action
         public void mestrar ()
         {
-                mestrando = true;
-                menu_jogar.setEnabled(false);
-                menu_metrar.setEnabled(false);
-                int porta;
-                while(true)
+                try
                 {
-                        try
+                        mestrando = true;
+                        int porta;
+                        while (true)
                         {
-                                porta = Integer.parseInt(JOptionPane.showInputDialog("Digite a porta:", "2010"));
-                                if (porta < 1)
+                                try
+                                {
+                                        porta = Integer.parseInt(JOptionPane.showInputDialog("Digite a porta:", "2010"));
+                                        if (porta < 1)
+                                        {
+                                                JOptionPane.showMessageDialog(null, "A porta deve ser um número inteiro e positivo!");
+                                        }
+                                        else
+                                        {
+                                                break;
+                                        }
+                                }
+                                catch (NumberFormatException e)
+                                {
                                         JOptionPane.showMessageDialog(null, "A porta deve ser um número inteiro e positivo!");
-                                else
-                                        break;
+                                }
                         }
-                        catch(NumberFormatException e)
-                        {
-                                JOptionPane.showMessageDialog(null, "A porta deve ser um número inteiro e positivo!");
-                        }
-                }
+                        mestre = new Servidor_Chat(porta, txt_chat);
 
-                mestre = new Servidor_Chat(porta, txt_chat);
-                mestre.start();
-                mestre_ficha = new Servidor_Fichas(conexao_fichas, jogadores, porta);
-                mestre_ficha.start();
-                
-                //Torna os botões clicáveis
-                bt_enviar.setEnabled(true);
-                bt_limpar.setEnabled(true);
-                bt_rolar_dados.setEnabled(true);
-                bt_ve_ficha.setEnabled(true);
-                bt_trava_ficha.setEnabled(true);
-                bt_editar_ficha.setEnabled(true);
+                        menu_jogar.setEnabled(false);
+                        menu_metrar.setEnabled(false);
+
+                        mestre.start();
+                        mestre_ficha = new Servidor_Fichas(conexao_fichas, jogadores, porta);
+                        mestre_ficha.start();
+                        //Torna os botões clicáveis
+                        bt_enviar.setEnabled(true);
+                        bt_limpar.setEnabled(true);
+                        bt_rolar_dados.setEnabled(true);
+                        bt_ve_ficha.setEnabled(true);
+                        bt_trava_ficha.setEnabled(true);
+                        bt_editar_ficha.setEnabled(true);
+                }
+                catch (IOException ex)
+                {
+                        ex.printStackTrace();
+                }
         }
 
         //Método responsável por iniciar o modo jogador

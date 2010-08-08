@@ -32,6 +32,7 @@ public class Consumidor_Ficha extends Thread
                         try
                         {
                                 ficha = fila_ficha.retira();
+                                System.out.println("Retirada a ficha: " + ficha);
                         }
                         catch (Exception e)
                         {
@@ -39,8 +40,9 @@ public class Consumidor_Ficha extends Thread
                                 System.exit(1);
                         }
                         //Coloca a ficha no servidor
-                        for (int i = 0; i < RPG_globais.getJogadores().size(); i++)
+                        for (int i = 0; i < RPG_globais.getfichas().size(); i++)
                         {
+                                System.out.printf("Array: |%s|, Retirada: |%s|\n", RPG_globais.getfichas().get(i).getNome_jogador(), ficha.getNome_jogador() );
                                 if (RPG_globais.getfichas().get(i).getNome_jogador().equals(ficha.getNome_jogador()))
                                 {
                                         adicionado = true;

@@ -29,10 +29,10 @@ public class Consumidor_Ficha extends Thread
 
                 while (true)
                 {
+                        adicionado = false;
                         try
                         {
                                 ficha = fila_ficha.retira();
-                                System.out.println("Retirada a ficha: " + ficha);
                         }
                         catch (Exception e)
                         {

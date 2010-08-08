@@ -26,7 +26,7 @@ public class Frame_Ficha extends javax.swing.JFrame {
     Envia_ficha envia_ficha;
     boolean travada;
 
-    /** Creates new form Frame_Ficha */
+    /** Creates new form Frame_Ficha 
     public Frame_Ficha() {
         travada = false;
         String nada[] = new String[0];
@@ -59,7 +59,7 @@ public class Frame_Ficha extends javax.swing.JFrame {
 
         this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         
-    }
+    }*/
 
     public Frame_Ficha(Ficha ficha) {
         travada = false;
@@ -92,6 +92,7 @@ public class Frame_Ficha extends javax.swing.JFrame {
 
         BT_Atualiza_Ficha.setEnabled(false);
         BT_Limpa_Ficha.setEnabled(false);
+	txt_Jogador.setEnabled(false);
 
         this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 
@@ -127,6 +128,8 @@ public class Frame_Ficha extends javax.swing.JFrame {
         txt_Terra.setText(Integer.toString(ficha.getTerra()));
         txt_Trevas.setText(Integer.toString(ficha.getTrevas()));
         txt_area_Historia.setText(ficha.getHistoria());
+
+	txt_Jogador.setEnabled(false);
 
         this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 

@@ -82,17 +82,6 @@ public class Servidor_Fichas extends Thread implements Envia_ficha
                 }*/
     }
 
-    public void Envia_todas_fichas()
-    {
-	    ArrayList<Ficha> ff = RPG_globais.getfichas();
-
-	    for(Conexao_ficha c: conexao_fichas)
-	    {
-		    for(Ficha f: ff)
-			    Envia_ficha(f);
-	    }
-    }
-
     public ArrayList<Conexao_ficha> getconexao_fichas()
     {
         return conexao_fichas;

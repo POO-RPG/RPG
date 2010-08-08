@@ -93,6 +93,10 @@ public class Servidor_Fichas extends Thread implements Envia_ficha
                     socket = server_fichas.accept();
                     cficha = new Conexao_ficha(socket);
                     cficha.start();
+		    for (Ficha f: RPG_globais.getfichas() )
+		    {
+			    cficha.Envia_ficha(f);
+		    }
                     conexao_fichas.add(cficha);
                 }
                 catch(Exception e)

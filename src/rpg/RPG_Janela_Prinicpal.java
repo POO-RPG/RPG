@@ -400,7 +400,6 @@ public class RPG_Janela_Prinicpal extends FrameView {
 
     private void bt_editar_fichaActionPerformed (java.awt.event.ActionEvent evt)//GEN-FIRST:event_bt_editar_fichaActionPerformed
     {//GEN-HEADEREND:event_bt_editar_fichaActionPerformed
-            // TODO add your handling code here:
             JFrame jan;
             if(mestrando)
             {

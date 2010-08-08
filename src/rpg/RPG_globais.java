@@ -20,56 +20,54 @@ public class RPG_globais
         static private Ficha minha_ficha = new Ficha();
         static private Fila<Ficha> fila_fichas = new Fila<Ficha>(1000);
 
-        public static void setfichas(ArrayList<Ficha> rfichas)
+        public synchronized static void setfichas(ArrayList<Ficha> rfichas)
         {
             fichas = rfichas;
         }
 
-        public static ArrayList<Ficha> getfichas()
+        public synchronized static ArrayList<Ficha> getfichas()
         {
             return fichas;
         }
 
-        public static JList getLista_jogadores ()
-        {
-                return lista_jogadores;
-        }
-
-        public static void setLista_jogadores (JList rlista_jogadores)
+        public synchronized static void setLista_jogadores (JList rlista_jogadores)
         {
                 lista_jogadores = rlista_jogadores;
         }
 
-        public static ArrayList<String> getJogadores ()
+        public synchronized static JList getLista_jogadores ()
         {
-                return jogadores;
+                return lista_jogadores;
         }
 
-        public static void setJogadores (ArrayList<String> rjogadores)
+        public synchronized static void setJogadores (ArrayList<String> rjogadores)
         {
                 jogadores = rjogadores;
         }
 
-        public static Ficha getMinha_ficha ()
+        public synchronized static ArrayList<String> getJogadores ()
         {
-                return minha_ficha;
+                return jogadores;
         }
 
-        public static void setMinha_ficha (Ficha minha_ficha)
+        public synchronized static void setMinha_ficha (Ficha minha_ficha)
         {
                 RPG_globais.minha_ficha = minha_ficha;
         }
 
-        public static Fila<Ficha> getFila_fichas ()
+        public synchronized static Ficha getMinha_ficha ()
         {
-                return fila_fichas;
+                return minha_ficha;
         }
 
-        public static void setFila_fichas (Fila<Ficha> fila_fichas)
+        public synchronized static void setFila_fichas (Fila<Ficha> fila_fichas)
         {
                 RPG_globais.fila_fichas = fila_fichas;
         }
 
-
+        public synchronized static Fila<Ficha> getFila_fichas ()
+        {
+                return fila_fichas;
+        }
 
 }

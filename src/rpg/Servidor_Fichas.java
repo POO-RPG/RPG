@@ -43,7 +43,6 @@ public class Servidor_Fichas extends Thread implements Envia_ficha
         public void Envia_ficha (Ficha ficha)
         {
                 ArrayList<Ficha> ff = RPG_globais.getfichas();
-                boolean add = false;
                 try
                 {
                         fila_ficha.insere(ficha);
@@ -53,47 +52,6 @@ public class Servidor_Fichas extends Thread implements Envia_ficha
                 {
                         ex.printStackTrace();
                 }
-
-                for (int i = 0; i < ff.size(); i++)
-                {
-                        if (ff.get(i).getNome_jogador().equals(ficha.getNome_jogador()))
-                        {
-                                ff.remove(i);
-                                ff.add(ficha);
-                                add = true;
-                                break;
-                        }
-                }
-
-                if (add)
-                {
-                        ff.add(ficha);
-                }
-
-                for (Ficha f : ff)
-                {
-                        try
-                        {
-                                fila_ficha.insere(f);
-                        }
-                        catch (Exception e)
-                        {
-                                e.printStackTrace();
-                        }
-                }
-
-                RPG_globais.getJogadores().add(ficha.getNome_jogador());
-                Collections.sort(RPG_globais.getJogadores(), new Comparator()
-                {
-
-                        public int compare (Object arg0, Object arg1)
-                        {
-                                String s1 = (String) arg0, s2 = (String) arg1;
-                                return s1.compareTo(s2);
-                        }
-                });
-                RPG_globais.getLista_jogadores().setListData(RPG_globais.getJogadores().toArray());
-
         }
 
         public ArrayList<Conexao_ficha> getconexao_fichas ()

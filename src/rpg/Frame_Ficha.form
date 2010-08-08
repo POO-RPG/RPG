@@ -38,7 +38,7 @@
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace min="-2" pref="8" max="-2" attributes="0"/>
-                              <Component id="jScrollPane1" pref="161" max="32767" attributes="1"/>
+                              <Component id="jScrollPane1" pref="165" max="32767" attributes="1"/>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" max="-2" attributes="0">
                                   <Component id="BT_Rm_Desvantagem" min="0" pref="0" max="32767" attributes="1"/>
@@ -50,13 +50,13 @@
                                   <Group type="102" attributes="0">
                                       <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="jScrollPane5" alignment="0" pref="408" max="32767" attributes="1"/>
-                                          <Component id="BT_Atualiza_Ficha" alignment="0" pref="408" max="32767" attributes="1"/>
+                                          <Component id="jScrollPane5" alignment="0" pref="412" max="32767" attributes="1"/>
+                                          <Component id="BT_Atualiza_Ficha" alignment="0" pref="412" max="32767" attributes="1"/>
                                       </Group>
                                   </Group>
                                   <Group type="102" attributes="0">
                                       <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
-                                      <Component id="jLabel25" pref="420" max="32767" attributes="1"/>
+                                      <Component id="jLabel25" pref="424" max="32767" attributes="1"/>
                                   </Group>
                               </Group>
                           </Group>

@@ -2,7 +2,6 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package rpg;
 
 import java.util.ArrayList;
@@ -13,35 +12,36 @@ import java.util.ArrayList;
  */
 public class Consumidor_Ficha extends Thread
 {
+
         private Fila<Ficha> fila_ficha = RPG_globais.getFila_fichas();
         private ArrayList<Conexao_ficha> conecxao_ficha;
 
-        Consumidor_Ficha(Fila<Ficha> fila_ficha, ArrayList<Conexao_ficha> conecxao_ficha)
+        Consumidor_Ficha (Fila<Ficha> fila_ficha, ArrayList<Conexao_ficha> conecxao_ficha)
         {
                 this.conecxao_ficha = conecxao_ficha;
         }
 
         @Override
-	public void run()
+        public void run ()
         {
                 Ficha ficha = null;
-		boolean adicionado = false;
-                
-                while(true)
+                boolean adicionado = false;
+
+                while (true)
                 {
                         try
                         {
                                 ficha = fila_ficha.retira();
-			}
-                        catch(Exception e)
+                        }
+                        catch (Exception e)
                         {
                                 e.printStackTrace();
                                 System.exit(1);
                         }
                         //Coloca a ficha no servidor
-                        for(int i = 0; i < RPG_globais.getJogadores().size() ; i++)
+                        for (int i = 0; i < RPG_globais.getJogadores().size(); i++)
                         {
-                                if(RPG_globais.getfichas().get(i).getNome_jogador().equals(ficha.getNome_jogador()))
+                                if (RPG_globais.getfichas().get(i).getNome_jogador().equals(ficha.getNome_jogador()))
                                 {
                                         adicionado = true;
                                         RPG_globais.getfichas().add(i, ficha);
@@ -49,35 +49,34 @@ public class Consumidor_Ficha extends Thread
                                 }
                         }
 
-                        if(!adicionado) //Se a ficha não foi adicionada, adiciona ela
+                        if (!adicionado) //Se a ficha não foi adicionada, adiciona ela
                         {
-                                 RPG_globais.getfichas().add(ficha);
-                                 adicionado = true;
-                                 RPG_globais.getJogadores().add(ficha.getNome_jogador());
-                                 RPG_globais.getLista_jogadores().setListData(RPG_globais.getJogadores().toArray());
+                                RPG_globais.getfichas().add(ficha);
+                                adicionado = true;
+                                RPG_globais.getJogadores().add(ficha.getNome_jogador());
+                                RPG_globais.getLista_jogadores().setListData(RPG_globais.getJogadores().toArray());
                         }
 
                         //Envia para os clientes
-                        for(Conexao_ficha c : conecxao_ficha)
+                        for (Conexao_ficha c : conecxao_ficha)
                         {
                                 try
                                 {
                                         c.Envia_ficha(ficha);
                                 }
-                                catch(Exception e)
+                                catch (Exception e)
                                 {
                                         System.out.println("Cliente de FICHAS Desconectado!!");
                                         conecxao_ficha.remove(c);
                                         RPG_globais.getJogadores().remove(ficha.getNome_jogador());
                                         RPG_globais.getfichas().remove(ficha);
                                         RPG_globais.getLista_jogadores().setListData(RPG_globais.getJogadores().toArray());
-                                        if(conecxao_ficha.isEmpty())
+                                        if (conecxao_ficha.isEmpty())
+                                        {
                                                 break;
+                                        }
                                 }
                         }
                 }
         }
-        
-
-
 }

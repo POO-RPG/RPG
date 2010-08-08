@@ -1,123 +1,127 @@
 package rpg;
+
 import java.io.*;
 import java.util.*;
 import javax.swing.JOptionPane;
 import java.net.*;
+
 /**
  *
  * @author HP
  */
 public class Conexao_ficha extends Thread implements Envia_ficha
 {
-    private ObjectOutputStream out;
-    private ObjectInputStream in;
-    private Socket conexao_cliente;
 
-    Conexao_ficha(Socket conexao_cliente)
-    {
-        this.conexao_cliente = conexao_cliente;
+        private ObjectOutputStream out;
+        private ObjectInputStream in;
+        private Socket conexao_cliente;
 
-        try
+        Conexao_ficha (Socket conexao_cliente)
         {
-            out = new ObjectOutputStream(conexao_cliente.getOutputStream());
-            in = new ObjectInputStream(conexao_cliente.getInputStream());
-        }
-        catch(Exception e)
-        {
-            e.printStackTrace();
-            System.exit(1);
-        }
-    }
+                this.conexao_cliente = conexao_cliente;
 
-    public void Envia_ficha(Ficha ficha)
-    {
-            try
-            {
-                out.writeObject(ficha);
-            }
-            catch(Exception e)
-            {
-                    e.printStackTrace();
-            }
-    }
-
-    @Override
-    public void run()
-    {
-            Ficha ficha;
-            ArrayList<Ficha> fichas_r = RPG_globais.getfichas();
-            ArrayList<String> jogadores = RPG_globais.getJogadores();
-            boolean ok = true;
-            boolean adicionado;
-
-        while(ok)
-        {
-            adicionado = false;
-            try
-            {
-                ficha = (Ficha)in.readObject();
-                RPG_globais.getFila_fichas().insere(ficha);
-                
-                if(fichas_r.isEmpty())
+                try
                 {
-                        fichas_r.add(ficha);
-                        adicionado = true;
-                        jogadores.add(ficha.getNome_jogador());
-                        RPG_globais.getLista_jogadores().setListData(jogadores.toArray());
+                        out = new ObjectOutputStream(conexao_cliente.getOutputStream());
+                        in = new ObjectInputStream(conexao_cliente.getInputStream());
                 }
-                else
+                catch (Exception e)
                 {
-                        
-                        for(int i = 0; i < fichas_r.size(); i++)
-                        {
-                            //Se já existir esse jogador, a ficha existente é sobrescrita
-                            if(fichas_r.get(i).getNome_jogador().equals(ficha.getNome_jogador()))
-                            {
-                                fichas_r.add(i, ficha);
-                                adicionado = true;
-                                break;
-                            }
-                        }
-                        if (adicionado == false)
-                        {
-                               int size = fichas_r.size();
-                               fichas_r.add(size-1,ficha);
-                               jogadores.add(ficha.getNome_jogador());
-                               adicionado = true;
+                        e.printStackTrace();
+                        System.exit(1);
+                }
+        }
 
-                                Collections.sort(jogadores, new Comparator()
+        public void Envia_ficha (Ficha ficha)
+        {
+                try
+                {
+                        out.writeObject(ficha);
+                }
+                catch (Exception e)
+                {
+                        e.printStackTrace();
+                }
+        }
+
+        @Override
+        public void run ()
+        {
+                Ficha ficha;
+                ArrayList<Ficha> fichas_r = RPG_globais.getfichas();
+                ArrayList<String> jogadores = RPG_globais.getJogadores();
+                boolean ok = true;
+                boolean adicionado;
+
+                while (ok)
+                {
+                        adicionado = false;
+                        try
+                        {
+                                ficha = (Ficha) in.readObject();
+                                RPG_globais.getFila_fichas().insere(ficha);
+
+                                if (fichas_r.isEmpty())
+                                {
+                                        fichas_r.add(ficha);
+                                        adicionado = true;
+                                        jogadores.add(ficha.getNome_jogador());
+                                        RPG_globais.getLista_jogadores().setListData(jogadores.toArray());
+                                }
+                                else
                                 {
 
-                                                                public int compare (Object arg0, Object arg1)
-                                                                {
-                                                                        String s1 = (String) arg0, s2 = (String) arg1;
-                                                                        return s1.compareTo(s2);
-                                                                }
-                                });
+                                        for (int i = 0; i < fichas_r.size(); i++)
+                                        {
+                                                //Se já existir esse jogador, a ficha existente é sobrescrita
+                                                if (fichas_r.get(i).getNome_jogador().equals(ficha.getNome_jogador()))
+                                                {
+                                                        fichas_r.add(i, ficha);
+                                                        adicionado = true;
+                                                        break;
+                                                }
+                                        }
+                                        if (adicionado == false)
+                                        {
+                                                int size = fichas_r.size();
+                                                fichas_r.add(size - 1, ficha);
+                                                jogadores.add(ficha.getNome_jogador());
+                                                adicionado = true;
 
-                                RPG_globais.getLista_jogadores().setListData(jogadores.toArray());
+                                                Collections.sort(jogadores, new Comparator()
+                                                {
+
+                                                        public int compare (Object arg0, Object arg1)
+                                                        {
+                                                                String s1 = (String) arg0, s2 = (String) arg1;
+                                                                return s1.compareTo(s2);
+                                                        }
+                                                });
+
+                                                RPG_globais.getLista_jogadores().setListData(jogadores.toArray());
+                                        }
+                                }
+                        }
+                        catch (Exception e)
+                        {
+                                e.printStackTrace();
+                                System.out.println("***********************Cliente Ficha DESCONECTADO*******************");
+                                ok = false;
                         }
                 }
-            }
-
-                catch(Exception e)
-                {
-                    e.printStackTrace();
-                    System.out.println("***********************Cliente Ficha DESCONECTADO*******************");
-                    ok = false;
-                }
-            }
         }
 
-    public Ficha get_ficha(String Nome_jogador)
-    {
-        for(int i = 0; i < RPG_globais.getfichas().size(); i++)
+        public Ficha get_ficha (String Nome_jogador)
         {
-            if(RPG_globais.getfichas().get(i).getNome_jogador().equals(Nome_jogador))
-                return (RPG_globais.getfichas().get(i));
-        }
-        JOptionPane.showMessageDialog(null, "Ficha não encontrada");
+                for (int i = 0; i < RPG_globais.getfichas().size(); i++)
+                {
+                        if (RPG_globais.getfichas().get(i).getNome_jogador().equals(Nome_jogador))
+                        {
+                                return (RPG_globais.getfichas().get(i));
+                        }
+                }
+                JOptionPane.showMessageDialog(null, "Ficha não encontrada");
 
-        return (null);
-    }
+                return (null);
+        }
 }

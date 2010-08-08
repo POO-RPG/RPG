@@ -2,7 +2,6 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package rpg;
 
 /**
@@ -11,6 +10,6 @@ package rpg;
  */
 public interface Envia_ficha
 {
-        void Envia_ficha(Ficha ficha);
 
+        void Envia_ficha (Ficha ficha);
 }

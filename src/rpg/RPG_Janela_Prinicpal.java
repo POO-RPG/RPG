@@ -1,7 +1,6 @@
 /*
  * RPG_Janela_Prinicpal.java
  */
-
 package rpg;
 
 import java.io.IOException;
@@ -23,11 +22,13 @@ import static java.lang.Math.*;
 /**
  * The application's main frame.
  */
-public class RPG_Janela_Prinicpal extends FrameView {
+public class RPG_Janela_Prinicpal extends FrameView
+{
 
         //Coisas para testes
-        String[] tes= {};
-
+        String[] tes =
+        {
+        };
         //Atribuos
         boolean mestrando = false;
         ArrayList<String> jogadores = new ArrayList<String>();
@@ -37,7 +38,7 @@ public class RPG_Janela_Prinicpal extends FrameView {
         Servidor_Fichas mestre_ficha;
 
         //Auto explcativo
-        private void Inicializa_componentes()
+        private void Inicializa_componentes ()
         {
                 lista_jogadores.setListData(jogadores.toArray());
                 txt_chat.setEditable(false);
@@ -53,83 +54,104 @@ public class RPG_Janela_Prinicpal extends FrameView {
                 RPG_globais.setLista_jogadores(lista_jogadores);
         }
 
-    public RPG_Janela_Prinicpal(SingleFrameApplication app) {
-        super(app);
+        public RPG_Janela_Prinicpal (SingleFrameApplication app)
+        {
+                super(app);
 
-        initComponents();
-        Inicializa_componentes();
+                initComponents();
+                Inicializa_componentes();
 
-        // status bar initialization - message timeout, idle icon and busy animation, etc
-        ResourceMap resourceMap = getResourceMap();
-        int messageTimeout = resourceMap.getInteger("StatusBar.messageTimeout");
-        messageTimer = new Timer(messageTimeout, new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                statusMessageLabel.setText("");
-            }
-        });
-        messageTimer.setRepeats(false);
-        int busyAnimationRate = resourceMap.getInteger("StatusBar.busyAnimationRate");
-        for (int i = 0; i < busyIcons.length; i++) {
-            busyIcons[i] = resourceMap.getIcon("StatusBar.busyIcons[" + i + "]");
-        }
-        busyIconTimer = new Timer(busyAnimationRate, new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                busyIconIndex = (busyIconIndex + 1) % busyIcons.length;
-                statusAnimationLabel.setIcon(busyIcons[busyIconIndex]);
-            }
-        });
-        idleIcon = resourceMap.getIcon("StatusBar.idleIcon");
-        statusAnimationLabel.setIcon(idleIcon);
-        progressBar.setVisible(false);
+                // status bar initialization - message timeout, idle icon and busy animation, etc
+                ResourceMap resourceMap = getResourceMap();
+                int messageTimeout = resourceMap.getInteger("StatusBar.messageTimeout");
+                messageTimer = new Timer(messageTimeout, new ActionListener()
+                {
 
-        // connecting action tasks to status bar via TaskMonitor
-        TaskMonitor taskMonitor = new TaskMonitor(getApplication().getContext());
-        taskMonitor.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
-            public void propertyChange(java.beans.PropertyChangeEvent evt) {
-                String propertyName = evt.getPropertyName();
-                if ("started".equals(propertyName)) {
-                    if (!busyIconTimer.isRunning()) {
-                        statusAnimationLabel.setIcon(busyIcons[0]);
-                        busyIconIndex = 0;
-                        busyIconTimer.start();
-                    }
-                    progressBar.setVisible(true);
-                    progressBar.setIndeterminate(true);
-                } else if ("done".equals(propertyName)) {
-                    busyIconTimer.stop();
-                    statusAnimationLabel.setIcon(idleIcon);
-                    progressBar.setVisible(false);
-                    progressBar.setValue(0);
-                } else if ("message".equals(propertyName)) {
-                    String text = (String)(evt.getNewValue());
-                    statusMessageLabel.setText((text == null) ? "" : text);
-                    messageTimer.restart();
-                } else if ("progress".equals(propertyName)) {
-                    int value = (Integer)(evt.getNewValue());
-                    progressBar.setVisible(true);
-                    progressBar.setIndeterminate(false);
-                    progressBar.setValue(value);
+                        public void actionPerformed (ActionEvent e)
+                        {
+                                statusMessageLabel.setText("");
+                        }
+                });
+                messageTimer.setRepeats(false);
+                int busyAnimationRate = resourceMap.getInteger("StatusBar.busyAnimationRate");
+                for (int i = 0; i < busyIcons.length; i++)
+                {
+                        busyIcons[i] = resourceMap.getIcon("StatusBar.busyIcons[" + i + "]");
                 }
-            }
-        });
-    }
+                busyIconTimer = new Timer(busyAnimationRate, new ActionListener()
+                {
 
-    @Action
-    public void showAboutBox() {
-        if (aboutBox == null) {
-            JFrame mainFrame = RPG.getApplication().getMainFrame();
-            aboutBox = new RPGAboutBox(mainFrame);
-            aboutBox.setLocationRelativeTo(mainFrame);
+                        public void actionPerformed (ActionEvent e)
+                        {
+                                busyIconIndex = (busyIconIndex + 1) % busyIcons.length;
+                                statusAnimationLabel.setIcon(busyIcons[busyIconIndex]);
+                        }
+                });
+                idleIcon = resourceMap.getIcon("StatusBar.idleIcon");
+                statusAnimationLabel.setIcon(idleIcon);
+                progressBar.setVisible(false);
+
+                // connecting action tasks to status bar via TaskMonitor
+                TaskMonitor taskMonitor = new TaskMonitor(getApplication().getContext());
+                taskMonitor.addPropertyChangeListener(new java.beans.PropertyChangeListener()
+                {
+
+                        public void propertyChange (java.beans.PropertyChangeEvent evt)
+                        {
+                                String propertyName = evt.getPropertyName();
+                                if ("started".equals(propertyName))
+                                {
+                                        if (!busyIconTimer.isRunning())
+                                        {
+                                                statusAnimationLabel.setIcon(busyIcons[0]);
+                                                busyIconIndex = 0;
+                                                busyIconTimer.start();
+                                        }
+                                        progressBar.setVisible(true);
+                                        progressBar.setIndeterminate(true);
+                                }
+                                else if ("done".equals(propertyName))
+                                {
+                                        busyIconTimer.stop();
+                                        statusAnimationLabel.setIcon(idleIcon);
+                                        progressBar.setVisible(false);
+                                        progressBar.setValue(0);
+                                }
+                                else if ("message".equals(propertyName))
+                                {
+                                        String text = (String) (evt.getNewValue());
+                                        statusMessageLabel.setText((text == null) ? "" : text);
+                                        messageTimer.restart();
+                                }
+                                else if ("progress".equals(propertyName))
+                                {
+                                        int value = (Integer) (evt.getNewValue());
+                                        progressBar.setVisible(true);
+                                        progressBar.setIndeterminate(false);
+                                        progressBar.setValue(value);
+                                }
+                        }
+                });
         }
-        RPG.getApplication().show(aboutBox);
-    }
 
-    /** This method is called from within the constructor to
-     * initialize the form.
-     * WARNING: Do NOT modify this code. The content of this method is
-     * always regenerated by the Form Editor.
-     */
-    @SuppressWarnings("unchecked")
+        @Action
+        public void showAboutBox ()
+        {
+                if (aboutBox == null)
+                {
+                        JFrame mainFrame = RPG.getApplication().getMainFrame();
+                        aboutBox = new RPGAboutBox(mainFrame);
+                        aboutBox.setLocationRelativeTo(mainFrame);
+                }
+                RPG.getApplication().show(aboutBox);
+        }
+
+        /** This method is called from within the constructor to
+         * initialize the form.
+         * WARNING: Do NOT modify this code. The content of this method is
+         * always regenerated by the Form Editor.
+         */
+        @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
@@ -395,13 +417,15 @@ public class RPG_Janela_Prinicpal extends FrameView {
     private void txt_enviarKeyReleased (java.awt.event.KeyEvent evt)//GEN-FIRST:event_txt_enviarKeyReleased
     {//GEN-HEADEREND:event_txt_enviarKeyReleased
             if (evt.getKeyCode() == java.awt.event.KeyEvent.VK_ENTER)
+            {
                     bt_enviar();
+            }
     }//GEN-LAST:event_txt_enviarKeyReleased
 
     private void bt_editar_fichaActionPerformed (java.awt.event.ActionEvent evt)//GEN-FIRST:event_bt_editar_fichaActionPerformed
     {//GEN-HEADEREND:event_bt_editar_fichaActionPerformed
             JFrame jan;
-            if(mestrando)
+            if (mestrando)
             {
                     jan = new Frame_Ficha(RPG_globais.getMinha_ficha(), mestre_ficha);
             }
@@ -415,11 +439,10 @@ public class RPG_Janela_Prinicpal extends FrameView {
     }//GEN-LAST:event_bt_editar_fichaActionPerformed
 
     private void bt_enviarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_enviarActionPerformed
-        // TODO add your handling code here:
+            // TODO add your handling code here:
     }//GEN-LAST:event_bt_enviarActionPerformed
 
     private void bt_ve_fichaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_ve_fichaActionPerformed
-
     }//GEN-LAST:event_bt_ve_fichaActionPerformed
 
         //Chamado quando o botão enviar é pressionado
@@ -431,14 +454,17 @@ public class RPG_Janela_Prinicpal extends FrameView {
                 txt_enviar.setText("");
         }
 
-        public void enviar(String s)
+        public void enviar (String s)
         {
-                if(mestrando)
+                if (mestrando)
+                {
                         mestre.Enviar_mensagem(s);
+                }
                 else
+                {
                         cliente.Escrever_mensagem(s);
+                }
         }
-
 
         //Chamado quando o botão rolar dado é pressionado
         @Action
@@ -458,31 +484,39 @@ public class RPG_Janela_Prinicpal extends FrameView {
                         }
 
 
-                        for(i = 0; i< i_f; i++)
+                        for (i = 0; i < i_f; i++)
                         {
-                                dado = (int) (1 + (6*random()));
+                                dado = (int) (1 + (6 * random()));
                                 dado += Integer.parseInt(txt_modificador.getText());
                                 tot += dado;
-                                if(mestrando)
+                                if (mestrando)
+                                {
                                         s += "\nO dado rolado por <Mestre> " + "foi: " + dado;
+                                }
                                 else
+                                {
                                         s += "\nO dado rolado por <" + cliente.getNick() + "> " + "foi: " + dado;
+                                }
                         }
-                        
-                        if(mestrando)
+
+                        if (mestrando)
+                        {
                                 s += "\nForam rolados " + i_f + " dados por " + "<Mestre>, com o modificador: " + Integer.parseInt(txt_modificador.getText()) + ". O total é: " + tot;
+                        }
                         else
+                        {
                                 s += "\nForam rolados " + i_f + " dados por " + "<" + cliente.getNick() + ">, com o modificador: " + Integer.parseInt(txt_modificador.getText()) + ". O total é: " + tot;
+                        }
 
                         enviar(s);
                 }
-                catch(NumberFormatException e)
+                catch (NumberFormatException e)
                 {
-                        JOptionPane.showMessageDialog(null,"Digite números em \"Modificador\" e \"Número de dados\"");
+                        JOptionPane.showMessageDialog(null, "Digite números em \"Modificador\" e \"Número de dados\"");
                         txt_modificador.setText("0");
                         txt_num_dados.setText("1");
                 }
-           
+
         }
 
         //Chamado quando o botão limpar é pressionado
@@ -499,20 +533,20 @@ public class RPG_Janela_Prinicpal extends FrameView {
         @Action
         public void bt_ver_ficha ()
         {
-		JFrame jan;
+                JFrame jan;
                 String jogador;
                 Ficha f = RPG_globais.getMinha_ficha();
                 ArrayList<Ficha> fs = RPG_globais.getfichas();
                 jogador = (String) RPG_globais.getLista_jogadores().getSelectedValue();
-		JOptionPane.showMessageDialog(null, jogador);
+                JOptionPane.showMessageDialog(null, jogador);
 
-                for(Ficha ff: fs)
+                for (Ficha ff : fs)
                 {
-                    if(jogador.equals(ff.getNome_jogador()))
-                    {
-                        f = ff;
-                        break;
-                    }
+                        if (jogador.equals(ff.getNome_jogador()))
+                        {
+                                f = ff;
+                                break;
+                        }
                 }
 
                 jan = new Frame_Ficha(f);
@@ -524,17 +558,19 @@ public class RPG_Janela_Prinicpal extends FrameView {
         @Action
         public void bt_travar_todas_fichas ()
         {
-               tes = concatena(tes,JOptionPane.showInputDialog("digite o nome"));
-               lista_jogadores.setListData(tes);
+                tes = concatena(tes, JOptionPane.showInputDialog("digite o nome"));
+                lista_jogadores.setListData(tes);
         }
 
         //Método para colocar uma string no final de um vetor de strings
-        public String[] concatena(String[] v, String s)
+        public String[] concatena (String[] v, String s)
         {
                 String[] vv = new String[v.length + 1];
                 int i;
-                for(i=0;i<v.length;i++)
+                for (i = 0; i < v.length; i++)
+                {
                         vv[i] = v[i];
+                }
                 vv[i] = s;
 
                 return vv;
@@ -606,7 +642,6 @@ public class RPG_Janela_Prinicpal extends FrameView {
                 bt_trava_ficha.setEnabled(true);
                 bt_editar_ficha.setEnabled(true);
         }
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton bt_editar_ficha;
     private javax.swing.JButton bt_enviar;
@@ -634,12 +669,10 @@ public class RPG_Janela_Prinicpal extends FrameView {
     private javax.swing.JTextField txt_modificador;
     private javax.swing.JTextField txt_num_dados;
     // End of variables declaration//GEN-END:variables
-
-    private final Timer messageTimer;
-    private final Timer busyIconTimer;
-    private final Icon idleIcon;
-    private final Icon[] busyIcons = new Icon[15];
-    private int busyIconIndex = 0;
-
-    private JDialog aboutBox;
+        private final Timer messageTimer;
+        private final Timer busyIconTimer;
+        private final Icon idleIcon;
+        private final Icon[] busyIcons = new Icon[15];
+        private int busyIconIndex = 0;
+        private JDialog aboutBox;
 }

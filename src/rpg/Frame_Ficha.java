@@ -18,126 +18,129 @@ import org.jdesktop.application.Action;
  *
  * @author fenix
  */
-public class Frame_Ficha extends javax.swing.JFrame {
+public class Frame_Ficha extends javax.swing.JFrame
+{
 
-	Ficha ficha;
-	Envia_ficha envia_ficha;
-	boolean travada;
+        Ficha ficha;
+        Envia_ficha envia_ficha;
+        boolean travada;
 
-	/** Creates new form Frame_Ficha
-	public Frame_Ficha() {
-	travada = false;
-	String nada[] = new String[0];
-	ficha = new Ficha();
-	initComponents();
-	List_Vantagens.setListData(nada);
-	List_Desvantagens.setListData(nada);
-	List_Itens.setListData(nada);
-	List_Magias.setListData(nada);
-	txt_A.setText("");
-	txt_Agua.setText("");
-	txt_Ar.setText("");
-	txt_Experiencia.setText("");
-	txt_Dinheiro.setText(null);
-	txt_F.setText("");
-	txt_Fogo.setText("");
-	txt_Forca.setText(null);
-	txt_H.setText(null);
-	txt_Jogador.setText(null);
-	txt_Luz.setText(null);
-	txt_PM.setText(null);
-	txt_PV.setText(null);
-	txt_PdF.setText(null);
-	txt_Personagem.setText(null);
-	txt_PoderDeFogo.setText(null);
-	txt_R.setText(null);
-	txt_Terra.setText(null);
-	txt_Trevas.setText(null);
-	txt_area_Historia.setText(null);
+        /** Creates new form Frame_Ficha
+        public Frame_Ficha() {
+        travada = false;
+        String nada[] = new String[0];
+        ficha = new Ficha();
+        initComponents();
+        List_Vantagens.setListData(nada);
+        List_Desvantagens.setListData(nada);
+        List_Itens.setListData(nada);
+        List_Magias.setListData(nada);
+        txt_A.setText("");
+        txt_Agua.setText("");
+        txt_Ar.setText("");
+        txt_Experiencia.setText("");
+        txt_Dinheiro.setText(null);
+        txt_F.setText("");
+        txt_Fogo.setText("");
+        txt_Forca.setText(null);
+        txt_H.setText(null);
+        txt_Jogador.setText(null);
+        txt_Luz.setText(null);
+        txt_PM.setText(null);
+        txt_PV.setText(null);
+        txt_PdF.setText(null);
+        txt_Personagem.setText(null);
+        txt_PoderDeFogo.setText(null);
+        txt_R.setText(null);
+        txt_Terra.setText(null);
+        txt_Trevas.setText(null);
+        txt_area_Historia.setText(null);
 
-	this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 
-	}*/
-	public Frame_Ficha(Ficha ficha) {
-		travada = false;
-		this.ficha = ficha;
-		initComponents();
-		List_Vantagens.setListData(ficha.getVantagens());
-		List_Desvantagens.setListData(ficha.getDesvantagens());
-		List_Itens.setListData(ficha.getItens());
-		List_Magias.setListData(ficha.getMagias());
-		txt_A.setText(Integer.toString(ficha.getA()));
-		txt_Agua.setText(Integer.toString(ficha.getAgua()));
-		txt_Ar.setText(Integer.toString(ficha.getAr()));
-		txt_Experiencia.setText(Integer.toString(ficha.getExperiencia()));
-		txt_Dinheiro.setText(Double.toString(ficha.getDinheiro()));
-		txt_F.setText(Integer.toString(ficha.getF()));
-		txt_Fogo.setText(Integer.toString(ficha.getFogo()));
-		txt_Forca.setText(ficha.getTD_Forca());
-		txt_H.setText(Integer.toString(ficha.getH()));
-		txt_Jogador.setText(ficha.getNome_jogador());
-		txt_Luz.setText(Integer.toString(ficha.getLuz()));
-		txt_PM.setText(Integer.toString(ficha.getPM()));
-		txt_PV.setText(Integer.toString(ficha.getPV()));
-		txt_PdF.setText(Integer.toString(ficha.getPdF()));
-		txt_Personagem.setText(ficha.getNome_personagem());
-		txt_PoderDeFogo.setText(ficha.getTD_PdF());
-		txt_R.setText(Integer.toString(ficha.getR()));
-		txt_Terra.setText(Integer.toString(ficha.getTerra()));
-		txt_Trevas.setText(Integer.toString(ficha.getTrevas()));
-		txt_area_Historia.setText(ficha.getHistoria());
+        }*/
+        public Frame_Ficha (Ficha ficha)
+        {
+                travada = false;
+                this.ficha = ficha;
+                initComponents();
+                List_Vantagens.setListData(ficha.getVantagens());
+                List_Desvantagens.setListData(ficha.getDesvantagens());
+                List_Itens.setListData(ficha.getItens());
+                List_Magias.setListData(ficha.getMagias());
+                txt_A.setText(Integer.toString(ficha.getA()));
+                txt_Agua.setText(Integer.toString(ficha.getAgua()));
+                txt_Ar.setText(Integer.toString(ficha.getAr()));
+                txt_Experiencia.setText(Integer.toString(ficha.getExperiencia()));
+                txt_Dinheiro.setText(Double.toString(ficha.getDinheiro()));
+                txt_F.setText(Integer.toString(ficha.getF()));
+                txt_Fogo.setText(Integer.toString(ficha.getFogo()));
+                txt_Forca.setText(ficha.getTD_Forca());
+                txt_H.setText(Integer.toString(ficha.getH()));
+                txt_Jogador.setText(ficha.getNome_jogador());
+                txt_Luz.setText(Integer.toString(ficha.getLuz()));
+                txt_PM.setText(Integer.toString(ficha.getPM()));
+                txt_PV.setText(Integer.toString(ficha.getPV()));
+                txt_PdF.setText(Integer.toString(ficha.getPdF()));
+                txt_Personagem.setText(ficha.getNome_personagem());
+                txt_PoderDeFogo.setText(ficha.getTD_PdF());
+                txt_R.setText(Integer.toString(ficha.getR()));
+                txt_Terra.setText(Integer.toString(ficha.getTerra()));
+                txt_Trevas.setText(Integer.toString(ficha.getTrevas()));
+                txt_area_Historia.setText(ficha.getHistoria());
 
-		BT_Atualiza_Ficha.setEnabled(false);
-		BT_Limpa_Ficha.setEnabled(false);
-		txt_Jogador.setEnabled(false);
+                BT_Atualiza_Ficha.setEnabled(false);
+                BT_Limpa_Ficha.setEnabled(false);
+                txt_Jogador.setEnabled(false);
 
-		this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+                this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 
-	}
+        }
 
-	//Construtor II
-	Frame_Ficha(Ficha ficha, Envia_ficha envia_ficha) {
-		this.envia_ficha = envia_ficha;
-		travada = false;
-		this.ficha = ficha;
-		initComponents();
-		List_Vantagens.setListData(ficha.getVantagens());
-		List_Desvantagens.setListData(ficha.getDesvantagens());
-		List_Itens.setListData(ficha.getItens());
-		List_Magias.setListData(ficha.getMagias());
-		txt_A.setText(Integer.toString(ficha.getA()));
-		txt_Agua.setText(Integer.toString(ficha.getAgua()));
-		txt_Ar.setText(Integer.toString(ficha.getAr()));
-		txt_Experiencia.setText(Integer.toString(ficha.getExperiencia()));
-		txt_Dinheiro.setText(Double.toString(ficha.getDinheiro()));
-		txt_F.setText(Integer.toString(ficha.getF()));
-		txt_Fogo.setText(Integer.toString(ficha.getFogo()));
-		txt_Forca.setText(ficha.getTD_Forca());
-		txt_H.setText(Integer.toString(ficha.getH()));
-		txt_Jogador.setText(ficha.getNome_jogador());
-		txt_Luz.setText(Integer.toString(ficha.getLuz()));
-		txt_PM.setText(Integer.toString(ficha.getPM()));
-		txt_PV.setText(Integer.toString(ficha.getPV()));
-		txt_PdF.setText(Integer.toString(ficha.getPdF()));
-		txt_Personagem.setText(ficha.getNome_personagem());
-		txt_PoderDeFogo.setText(ficha.getTD_PdF());
-		txt_R.setText(Integer.toString(ficha.getR()));
-		txt_Terra.setText(Integer.toString(ficha.getTerra()));
-		txt_Trevas.setText(Integer.toString(ficha.getTrevas()));
-		txt_area_Historia.setText(ficha.getHistoria());
+        //Construtor II
+        Frame_Ficha (Ficha ficha, Envia_ficha envia_ficha)
+        {
+                this.envia_ficha = envia_ficha;
+                travada = false;
+                this.ficha = ficha;
+                initComponents();
+                List_Vantagens.setListData(ficha.getVantagens());
+                List_Desvantagens.setListData(ficha.getDesvantagens());
+                List_Itens.setListData(ficha.getItens());
+                List_Magias.setListData(ficha.getMagias());
+                txt_A.setText(Integer.toString(ficha.getA()));
+                txt_Agua.setText(Integer.toString(ficha.getAgua()));
+                txt_Ar.setText(Integer.toString(ficha.getAr()));
+                txt_Experiencia.setText(Integer.toString(ficha.getExperiencia()));
+                txt_Dinheiro.setText(Double.toString(ficha.getDinheiro()));
+                txt_F.setText(Integer.toString(ficha.getF()));
+                txt_Fogo.setText(Integer.toString(ficha.getFogo()));
+                txt_Forca.setText(ficha.getTD_Forca());
+                txt_H.setText(Integer.toString(ficha.getH()));
+                txt_Jogador.setText(ficha.getNome_jogador());
+                txt_Luz.setText(Integer.toString(ficha.getLuz()));
+                txt_PM.setText(Integer.toString(ficha.getPM()));
+                txt_PV.setText(Integer.toString(ficha.getPV()));
+                txt_PdF.setText(Integer.toString(ficha.getPdF()));
+                txt_Personagem.setText(ficha.getNome_personagem());
+                txt_PoderDeFogo.setText(ficha.getTD_PdF());
+                txt_R.setText(Integer.toString(ficha.getR()));
+                txt_Terra.setText(Integer.toString(ficha.getTerra()));
+                txt_Trevas.setText(Integer.toString(ficha.getTrevas()));
+                txt_area_Historia.setText(ficha.getHistoria());
 
-		txt_Jogador.setEnabled(false);
+                txt_Jogador.setEnabled(false);
 
-		this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+                this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 
-	}
+        }
 
-	/** This method is called from within the constructor to
-	 * initialize the form.
-	 * WARNING: Do NOT modify this code. The content of this method is
-	 * always regenerated by the Form Editor.
-	 */
-	@SuppressWarnings("unchecked")
+        /** This method is called from within the constructor to
+         * initialize the form.
+         * WARNING: Do NOT modify this code. The content of this method is
+         * always regenerated by the Form Editor.
+         */
+        @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
@@ -806,84 +809,84 @@ public class Frame_Ficha extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void txt_JogadorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_JogadorActionPerformed
-	    // TODO add your handling code here:
+            // TODO add your handling code here:
     }//GEN-LAST:event_txt_JogadorActionPerformed
 
     private void txt_PersonagemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_PersonagemActionPerformed
-	    // TODO add your handling code here:
+            // TODO add your handling code here:
     }//GEN-LAST:event_txt_PersonagemActionPerformed
 
     private void txt_FActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_FActionPerformed
-	    // TODO add your handling code here:
+            // TODO add your handling code here:
     }//GEN-LAST:event_txt_FActionPerformed
 
     private void txt_HActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_HActionPerformed
-	    // TODO add your handling code here:
+            // TODO add your handling code here:
     }//GEN-LAST:event_txt_HActionPerformed
 
     private void txt_RActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_RActionPerformed
-	    // TODO add your handling code here:
+            // TODO add your handling code here:
     }//GEN-LAST:event_txt_RActionPerformed
 
     private void txt_AActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_AActionPerformed
-	    // TODO add your handling code here:
+            // TODO add your handling code here:
     }//GEN-LAST:event_txt_AActionPerformed
 
     private void txt_PdFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_PdFActionPerformed
-	    // TODO add your handling code here:
+            // TODO add your handling code here:
     }//GEN-LAST:event_txt_PdFActionPerformed
 
     private void txt_PVActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_PVActionPerformed
-	    // TODO add your handling code here:
+            // TODO add your handling code here:
     }//GEN-LAST:event_txt_PVActionPerformed
 
     private void txt_PMActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_PMActionPerformed
-	    // TODO add your handling code here:
+            // TODO add your handling code here:
     }//GEN-LAST:event_txt_PMActionPerformed
 
     private void txt_TrevasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_TrevasActionPerformed
-	    // TODO add your handling code here:
+            // TODO add your handling code here:
     }//GEN-LAST:event_txt_TrevasActionPerformed
 
     private void txt_LuzActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_LuzActionPerformed
-	    // TODO add your handling code here:
+            // TODO add your handling code here:
     }//GEN-LAST:event_txt_LuzActionPerformed
 
     private void txt_TerraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_TerraActionPerformed
-	    // TODO add your handling code here:
+            // TODO add your handling code here:
     }//GEN-LAST:event_txt_TerraActionPerformed
 
     private void txt_FogoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_FogoActionPerformed
-	    // TODO add your handling code here:
+            // TODO add your handling code here:
     }//GEN-LAST:event_txt_FogoActionPerformed
 
     private void txt_ArActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_ArActionPerformed
-	    // TODO add your handling code here:
+            // TODO add your handling code here:
     }//GEN-LAST:event_txt_ArActionPerformed
 
     private void txt_AguaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_AguaActionPerformed
-	    // TODO add your handling code here:
+            // TODO add your handling code here:
     }//GEN-LAST:event_txt_AguaActionPerformed
 
     private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosed
-	    // TODO add your handling code here:
+            // TODO add your handling code here:
     }//GEN-LAST:event_formWindowClosed
 
     private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
-	    //RPG_globais.setMinha_ficha(ficha);
-	    //envia_ficha.Envia_ficha(ficha);
+            //RPG_globais.setMinha_ficha(ficha);
+            //envia_ficha.Envia_ficha(ficha);
     }//GEN-LAST:event_formWindowClosing
-	/**
-	 * @param args the command line arguments
-	 */
-	/*    public static void main(String args[]) {
-	java.awt.EventQueue.invokeLater(new Runnable() {
+        /**
+         * @param args the command line arguments
+         */
+        /*    public static void main(String args[]) {
+        java.awt.EventQueue.invokeLater(new Runnable() {
 
-	public void run() {
-	new Frame_Ficha().setVisible(true);
-	}
-	});
-	}*/
+        public void run() {
+        new Frame_Ficha().setVisible(true);
+        }
+        });
+        }*/
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BT_Add_Desvantagem;
     private javax.swing.JButton BT_Add_Item;
@@ -953,233 +956,257 @@ public class Frame_Ficha extends javax.swing.JFrame {
     private javax.swing.JTextArea txt_area_Historia;
     // End of variables declaration//GEN-END:variables
 
-	//Getters and setters
-	public Ficha getFicha() {
-		return ficha;
-	}
+        //Getters and setters
+        public Ficha getFicha ()
+        {
+                return ficha;
+        }
 
-	public void setFicha(Ficha ficha) {
-		this.ficha = ficha;
-	}
+        public void setFicha (Ficha ficha)
+        {
+                this.ficha = ficha;
+        }
 
-	public String[] concatena(String[] v, String s) {
-		String[] vv = new String[v.length + 1];
-		int i;
-		for (i = 0; i < v.length; i++) {
-			vv[i] = v[i];
-		}
-		vv[i] = s;
+        public String[] concatena (String[] v, String s)
+        {
+                String[] vv = new String[v.length + 1];
+                int i;
+                for (i = 0; i < v.length; i++)
+                {
+                        vv[i] = v[i];
+                }
+                vv[i] = s;
 
-		return vv;
-	}
+                return vv;
+        }
 
-	public String[] remove_s_from_Svet(String[] sv, int i) {
-		for (int j = i + 1; j < sv.length; j++) {
-			sv[j - 1] = sv[j];
-		}
+        public String[] remove_s_from_Svet (String[] sv, int i)
+        {
+                for (int j = i + 1; j < sv.length; j++)
+                {
+                        sv[j - 1] = sv[j];
+                }
 
-		String[] nv = new String[sv.length - 1];
-		for (int j = 0; j < nv.length; j++) {
-			nv[j] = sv[j];
-		}
+                String[] nv = new String[sv.length - 1];
+                for (int j = 0; j < nv.length; j++)
+                {
+                        nv[j] = sv[j];
+                }
 
-		return nv;
-	}
+                return nv;
+        }
 
-	public void trava_ficha() {
-		List_Vantagens.setEnabled(false);
-		List_Desvantagens.setEnabled(false);
-		List_Itens.setEnabled(false);
-		List_Magias.setEnabled(false);
-		txt_A.setEnabled(false);
-		txt_Agua.setEnabled(false);
-		txt_Ar.setEnabled(false);
-		txt_Experiencia.setEnabled(false);
-		txt_Dinheiro.setEnabled(false);
-		txt_F.setEnabled(false);
-		txt_Fogo.setEnabled(false);
-		txt_Forca.setEnabled(false);
-		txt_H.setEnabled(false);
-		txt_Jogador.setEnabled(false);
-		txt_Luz.setEnabled(false);
-		txt_PM.setEnabled(false);
-		txt_PV.setEnabled(false);
-		txt_PdF.setEnabled(false);
-		txt_Personagem.setEnabled(false);
-		txt_PoderDeFogo.setEnabled(false);
-		txt_R.setEnabled(false);
-		txt_Terra.setEnabled(false);
-		txt_Trevas.setEnabled(false);
-		txt_area_Historia.setEnabled(false);
-	}
+        public void trava_ficha ()
+        {
+                List_Vantagens.setEnabled(false);
+                List_Desvantagens.setEnabled(false);
+                List_Itens.setEnabled(false);
+                List_Magias.setEnabled(false);
+                txt_A.setEnabled(false);
+                txt_Agua.setEnabled(false);
+                txt_Ar.setEnabled(false);
+                txt_Experiencia.setEnabled(false);
+                txt_Dinheiro.setEnabled(false);
+                txt_F.setEnabled(false);
+                txt_Fogo.setEnabled(false);
+                txt_Forca.setEnabled(false);
+                txt_H.setEnabled(false);
+                txt_Jogador.setEnabled(false);
+                txt_Luz.setEnabled(false);
+                txt_PM.setEnabled(false);
+                txt_PV.setEnabled(false);
+                txt_PdF.setEnabled(false);
+                txt_Personagem.setEnabled(false);
+                txt_PoderDeFogo.setEnabled(false);
+                txt_R.setEnabled(false);
+                txt_Terra.setEnabled(false);
+                txt_Trevas.setEnabled(false);
+                txt_area_Historia.setEnabled(false);
+        }
 
-	public void destrava_ficha() {
-		List_Vantagens.setEnabled(true);
-		List_Desvantagens.setEnabled(true);
-		List_Itens.setEnabled(true);
-		List_Magias.setEnabled(true);
-		txt_A.setEnabled(true);
-		txt_Agua.setEnabled(true);
-		txt_Ar.setEnabled(true);
-		txt_Experiencia.setEnabled(true);
-		txt_Dinheiro.setEnabled(true);
-		txt_F.setEnabled(true);
-		txt_Fogo.setEnabled(true);
-		txt_Forca.setEnabled(true);
-		txt_H.setEnabled(true);
-		txt_Jogador.setEnabled(true);
-		txt_Luz.setEnabled(true);
-		txt_PM.setEnabled(true);
-		txt_PV.setEnabled(true);
-		txt_PdF.setEnabled(true);
-		txt_Personagem.setEnabled(true);
-		txt_PoderDeFogo.setEnabled(true);
-		txt_R.setEnabled(true);
-		txt_Terra.setEnabled(true);
-		txt_Trevas.setEnabled(true);
-		txt_area_Historia.setEnabled(true);
-	}
+        public void destrava_ficha ()
+        {
+                List_Vantagens.setEnabled(true);
+                List_Desvantagens.setEnabled(true);
+                List_Itens.setEnabled(true);
+                List_Magias.setEnabled(true);
+                txt_A.setEnabled(true);
+                txt_Agua.setEnabled(true);
+                txt_Ar.setEnabled(true);
+                txt_Experiencia.setEnabled(true);
+                txt_Dinheiro.setEnabled(true);
+                txt_F.setEnabled(true);
+                txt_Fogo.setEnabled(true);
+                txt_Forca.setEnabled(true);
+                txt_H.setEnabled(true);
+                txt_Jogador.setEnabled(true);
+                txt_Luz.setEnabled(true);
+                txt_PM.setEnabled(true);
+                txt_PV.setEnabled(true);
+                txt_PdF.setEnabled(true);
+                txt_Personagem.setEnabled(true);
+                txt_PoderDeFogo.setEnabled(true);
+                txt_R.setEnabled(true);
+                txt_Terra.setEnabled(true);
+                txt_Trevas.setEnabled(true);
+                txt_area_Historia.setEnabled(true);
+        }
 
-	@Action
-	public void BT_AtualizaFicha() {
-		try {
-			ficha.setA(Integer.parseInt(txt_A.getText()));
-			ficha.setAgua(Integer.parseInt(txt_Agua.getText()));
-			ficha.setAr(Integer.parseInt(txt_Ar.getText()));
-			ficha.setExperiencia(Integer.parseInt(txt_Experiencia.getText()));
-			ficha.setDinheiro(Double.parseDouble(txt_Dinheiro.getText()));
-			ficha.setF(Integer.parseInt(txt_F.getText()));
-			ficha.setFogo(Integer.parseInt(txt_Fogo.getText()));
-			ficha.setTD_Forca(txt_Forca.getText());
-			ficha.setH(Integer.parseInt(txt_H.getText()));
-			ficha.setNome_jogador(txt_Jogador.getText());
-			ficha.setLuz(Integer.parseInt(txt_Luz.getText()));
-			ficha.setPM(Integer.parseInt(txt_PM.getText()));
-			ficha.setPV(Integer.parseInt(txt_PV.getText()));
-			ficha.setPdF(Integer.parseInt(txt_PdF.getText()));
-			ficha.setNome_personagem(txt_Personagem.getText());
-			ficha.setTD_PdF(txt_PoderDeFogo.getText());
-			ficha.setR(Integer.parseInt(txt_R.getText()));
-			ficha.setTerra(Integer.parseInt(txt_Terra.getText()));
-			ficha.setTrevas(Integer.parseInt(txt_Trevas.getText()));
+        @Action
+        public void BT_AtualizaFicha ()
+        {
+                try
+                {
+                        ficha.setA(Integer.parseInt(txt_A.getText()));
+                        ficha.setAgua(Integer.parseInt(txt_Agua.getText()));
+                        ficha.setAr(Integer.parseInt(txt_Ar.getText()));
+                        ficha.setExperiencia(Integer.parseInt(txt_Experiencia.getText()));
+                        ficha.setDinheiro(Double.parseDouble(txt_Dinheiro.getText()));
+                        ficha.setF(Integer.parseInt(txt_F.getText()));
+                        ficha.setFogo(Integer.parseInt(txt_Fogo.getText()));
+                        ficha.setTD_Forca(txt_Forca.getText());
+                        ficha.setH(Integer.parseInt(txt_H.getText()));
+                        ficha.setNome_jogador(txt_Jogador.getText());
+                        ficha.setLuz(Integer.parseInt(txt_Luz.getText()));
+                        ficha.setPM(Integer.parseInt(txt_PM.getText()));
+                        ficha.setPV(Integer.parseInt(txt_PV.getText()));
+                        ficha.setPdF(Integer.parseInt(txt_PdF.getText()));
+                        ficha.setNome_personagem(txt_Personagem.getText());
+                        ficha.setTD_PdF(txt_PoderDeFogo.getText());
+                        ficha.setR(Integer.parseInt(txt_R.getText()));
+                        ficha.setTerra(Integer.parseInt(txt_Terra.getText()));
+                        ficha.setTrevas(Integer.parseInt(txt_Trevas.getText()));
 
-			ficha.setNome_jogador(txt_Jogador.getText());
-			ficha.setNome_personagem(txt_Personagem.getText());
-			ficha.setTD_Forca(txt_Forca.getText());
-			ficha.setTD_PdF(txt_PoderDeFogo.getText());
-			ficha.setHistoria(txt_area_Historia.getText());
+                        ficha.setNome_jogador(txt_Jogador.getText());
+                        ficha.setNome_personagem(txt_Personagem.getText());
+                        ficha.setTD_Forca(txt_Forca.getText());
+                        ficha.setTD_PdF(txt_PoderDeFogo.getText());
+                        ficha.setHistoria(txt_area_Historia.getText());
 
-			RPG_globais.setMinha_ficha(ficha);
-			envia_ficha.Envia_ficha(ficha);
+                        RPG_globais.setMinha_ficha(ficha);
+                        envia_ficha.Envia_ficha(ficha);
 
-			JOptionPane.showMessageDialog(this, "Ficha Atualizada!");
-		} catch (Erro_Ficha e) {
-			JOptionPane.showMessageDialog(this, e);
-		} catch (NumberFormatException e) {
-			JOptionPane.showMessageDialog(this, e);
-		}
+                        JOptionPane.showMessageDialog(this, "Ficha Atualizada!");
+                }
+                catch (Erro_Ficha e)
+                {
+                        JOptionPane.showMessageDialog(this, e);
+                }
+                catch (NumberFormatException e)
+                {
+                        JOptionPane.showMessageDialog(this, e);
+                }
 
-	}
+        }
 
-	@Action
-	public void BT_Add_VAntagem() {
-		String v;
-		String[] s = ficha.getVantagens();
-		v = JOptionPane.showInputDialog("Digite a nova vantagem");
-		s = concatena(s, v);
-		ficha.setVantagens(s);
-		List_Vantagens.setListData(s);
-	}
+        @Action
+        public void BT_Add_VAntagem ()
+        {
+                String v;
+                String[] s = ficha.getVantagens();
+                v = JOptionPane.showInputDialog("Digite a nova vantagem");
+                s = concatena(s, v);
+                ficha.setVantagens(s);
+                List_Vantagens.setListData(s);
+        }
 
-	@Action
-	public void BT_Rm_Vantagem() {
-		int i = List_Vantagens.getSelectedIndex();
-		String[] s = remove_s_from_Svet(ficha.getVantagens(), i);
-		ficha.setVantagens(s);
-		List_Vantagens.setListData(ficha.getVantagens());
-	}
+        @Action
+        public void BT_Rm_Vantagem ()
+        {
+                int i = List_Vantagens.getSelectedIndex();
+                String[] s = remove_s_from_Svet(ficha.getVantagens(), i);
+                ficha.setVantagens(s);
+                List_Vantagens.setListData(ficha.getVantagens());
+        }
 
-	@Action
-	public void BT_Add_Desvantagem() {
-		String v;
-		String[] s = ficha.getDesvantagens();
-		v = JOptionPane.showInputDialog("Digite a nova desvantagem");
-		s = concatena(s, v);
-		ficha.setDesvantagens(s);
-		List_Desvantagens.setListData(s);
-	}
+        @Action
+        public void BT_Add_Desvantagem ()
+        {
+                String v;
+                String[] s = ficha.getDesvantagens();
+                v = JOptionPane.showInputDialog("Digite a nova desvantagem");
+                s = concatena(s, v);
+                ficha.setDesvantagens(s);
+                List_Desvantagens.setListData(s);
+        }
 
-	@Action
-	public void BT_Rm_Desvantagem() {
-		int i = List_Desvantagens.getSelectedIndex();
-		String[] s = remove_s_from_Svet(ficha.getDesvantagens(), i);
-		ficha.setDesvantagens(s);
-		List_Desvantagens.setListData(ficha.getDesvantagens());
-	}
+        @Action
+        public void BT_Rm_Desvantagem ()
+        {
+                int i = List_Desvantagens.getSelectedIndex();
+                String[] s = remove_s_from_Svet(ficha.getDesvantagens(), i);
+                ficha.setDesvantagens(s);
+                List_Desvantagens.setListData(ficha.getDesvantagens());
+        }
 
-	@Action
-	public void BT_Add_Magia() {
-		String v;
-		String[] s = ficha.getMagias();
-		v = JOptionPane.showInputDialog("Digite a nova magia");
-		s = concatena(s, v);
-		ficha.setMagias(s);
-		List_Magias.setListData(s);
-	}
+        @Action
+        public void BT_Add_Magia ()
+        {
+                String v;
+                String[] s = ficha.getMagias();
+                v = JOptionPane.showInputDialog("Digite a nova magia");
+                s = concatena(s, v);
+                ficha.setMagias(s);
+                List_Magias.setListData(s);
+        }
 
-	@Action
-	public void BT_Rm_Magia() {
-		int i = List_Magias.getSelectedIndex();
-		String[] s = remove_s_from_Svet(ficha.getMagias(), i);
-		ficha.setMagias(s);
-		List_Magias.setListData(ficha.getMagias());
-	}
+        @Action
+        public void BT_Rm_Magia ()
+        {
+                int i = List_Magias.getSelectedIndex();
+                String[] s = remove_s_from_Svet(ficha.getMagias(), i);
+                ficha.setMagias(s);
+                List_Magias.setListData(ficha.getMagias());
+        }
 
-	@Action
-	public void BT_Add_Item() {
-		String v;
-		String[] s = ficha.getItens();
-		v = JOptionPane.showInputDialog("Digite o novo item");
-		s = concatena(s, v);
-		ficha.setItens(s);
-		List_Itens.setListData(s);
-	}
+        @Action
+        public void BT_Add_Item ()
+        {
+                String v;
+                String[] s = ficha.getItens();
+                v = JOptionPane.showInputDialog("Digite o novo item");
+                s = concatena(s, v);
+                ficha.setItens(s);
+                List_Itens.setListData(s);
+        }
 
-	@Action
-	public void BT_Rm_Item() {
-		int i = List_Itens.getSelectedIndex();
-		String[] s = remove_s_from_Svet(ficha.getItens(), i);
-		ficha.setItens(s);
-		List_Itens.setListData(ficha.getItens());
-	}
+        @Action
+        public void BT_Rm_Item ()
+        {
+                int i = List_Itens.getSelectedIndex();
+                String[] s = remove_s_from_Svet(ficha.getItens(), i);
+                ficha.setItens(s);
+                List_Itens.setListData(ficha.getItens());
+        }
 
-	@Action
-	public void BT_Limpar_Ficha() {
-		String nada[] = new String[0];
-		ficha = new Ficha();
-		List_Vantagens.setListData(nada);
-		List_Desvantagens.setListData(nada);
-		List_Itens.setListData(nada);
-		List_Magias.setListData(nada);
-		txt_A.setText("");
-		txt_Agua.setText("");
-		txt_Ar.setText("");
-		txt_Experiencia.setText("");
-		txt_Dinheiro.setText(null);
-		txt_F.setText("");
-		txt_Fogo.setText("");
-		txt_Forca.setText(null);
-		txt_H.setText(null);
-		txt_Jogador.setText(null);
-		txt_Luz.setText(null);
-		txt_PM.setText(null);
-		txt_PV.setText(null);
-		txt_PdF.setText(null);
-		txt_Personagem.setText(null);
-		txt_PoderDeFogo.setText(null);
-		txt_R.setText(null);
-		txt_Terra.setText(null);
-		txt_Trevas.setText(null);
-		txt_area_Historia.setText(null);
-	}
+        @Action
+        public void BT_Limpar_Ficha ()
+        {
+                String nada[] = new String[0];
+                ficha = new Ficha();
+                List_Vantagens.setListData(nada);
+                List_Desvantagens.setListData(nada);
+                List_Itens.setListData(nada);
+                List_Magias.setListData(nada);
+                txt_A.setText("");
+                txt_Agua.setText("");
+                txt_Ar.setText("");
+                txt_Experiencia.setText("");
+                txt_Dinheiro.setText(null);
+                txt_F.setText("");
+                txt_Fogo.setText("");
+                txt_Forca.setText(null);
+                txt_H.setText(null);
+                txt_Jogador.setText(null);
+                txt_Luz.setText(null);
+                txt_PM.setText(null);
+                txt_PV.setText(null);
+                txt_PdF.setText(null);
+                txt_Personagem.setText(null);
+                txt_PoderDeFogo.setText(null);
+                txt_R.setText(null);
+                txt_Terra.setText(null);
+                txt_Trevas.setText(null);
+                txt_area_Historia.setText(null);
+        }
 }

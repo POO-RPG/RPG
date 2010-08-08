@@ -2,7 +2,6 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package rpg;
 
 import java.util.ArrayList;
@@ -14,20 +13,21 @@ import javax.swing.JList;
  */
 public class RPG_globais
 {
+
         static private JList lista_jogadores;
         static private ArrayList<Ficha> fichas = new ArrayList<Ficha>();
         static private ArrayList<String> jogadores = new ArrayList<String>();
         static private Ficha minha_ficha = new Ficha();
         static private Fila<Ficha> fila_fichas = new Fila<Ficha>(1000);
 
-        public synchronized static void setfichas(ArrayList<Ficha> rfichas)
+        public synchronized static void setfichas (ArrayList<Ficha> rfichas)
         {
-            fichas = rfichas;
+                fichas = rfichas;
         }
 
-        public synchronized static ArrayList<Ficha> getfichas()
+        public synchronized static ArrayList<Ficha> getfichas ()
         {
-            return fichas;
+                return fichas;
         }
 
         public synchronized static void setLista_jogadores (JList rlista_jogadores)
@@ -69,5 +69,4 @@ public class RPG_globais
         {
                 return fila_fichas;
         }
-
 }

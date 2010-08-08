@@ -6,7 +6,6 @@
  *  - Criar o consumidor;
  *  - Manter a fila de mensagens
  */
-
 package rpg;
 
 import java.io.IOException;
@@ -22,8 +21,11 @@ import javax.swing.JTextArea;
  */
 public class Servidor_Chat extends Thread
 {
+
         private static int cont_clientes = 0;
-        private String[] nome_clientes = {};
+        private String[] nome_clientes =
+        {
+        };
         private ServerSocket servidor;
         private Fila<Mensagem> f;
         private ArrayList<Conexao_Cliente> clientes;
@@ -31,7 +33,7 @@ public class Servidor_Chat extends Thread
         private JTextArea txt_chat;
         private String nick = "Mestre";
 
-        Servidor_Chat(int porta, JTextArea txt_chat) throws IOException
+        Servidor_Chat (int porta, JTextArea txt_chat) throws IOException
         {
                 try
                 {
@@ -43,7 +45,7 @@ public class Servidor_Chat extends Thread
                         c.start();
 
                 }
-                catch(Exception e)
+                catch (Exception e)
                 {
                         e.printStackTrace();
                         JOptionPane.showMessageDialog(null, "A porta " + porta + " já está em uso!");
@@ -56,27 +58,29 @@ public class Servidor_Chat extends Thread
                 return clientes;
         }
 
-        public void Enviar_mensagem(String s)
+        public void Enviar_mensagem (String s)
         {
-            if(s.equals(""))
-                return;
+                if (s.equals(""))
+                {
+                        return;
+                }
 
                 try
                 {
                         f.insere(new Mensagem("<" + nick + "> " + s));
                 }
-                catch(Exception e)
+                catch (Exception e)
                 {
                         e.printStackTrace();
                 }
         }
-        
+
         @Override
-        public void run()
+        public void run ()
         {
                 Conexao_Cliente novo_jogador;
                 Socket novo_soket;
-                while(true)
+                while (true)
                 {
                         try
                         {
@@ -87,7 +91,7 @@ public class Servidor_Chat extends Thread
                                 txt_chat.append("\nCliente Conectado!");
                                 txt_chat.setCaretPosition(txt_chat.getText().length());// Rola a caixa de texto.
                         }
-                        catch(Exception e)
+                        catch (Exception e)
                         {
                                 e.printStackTrace();
                                 break;

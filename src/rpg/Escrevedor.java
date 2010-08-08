@@ -2,7 +2,6 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package rpg;
 
 /**
@@ -15,37 +14,38 @@ import javax.swing.JTextArea;
 
 public class Escrevedor extends Thread
 {
-	private DataInputStream in;
+
+        private DataInputStream in;
         private JTextArea txt_chat;
- 
-	Escrevedor(DataInputStream i, JTextArea txt_chat)
-	{
-		in = i;
+
+        Escrevedor (DataInputStream i, JTextArea txt_chat)
+        {
+                in = i;
                 this.txt_chat = txt_chat;
-	}
-        
+        }
+
         @Override
-	public void run()
-	{
+        public void run ()
+        {
                 String mensagem, texto;
-		while(true)
-		{
-			try
-			{
+                while (true)
+                {
+                        try
+                        {
                                 mensagem = in.readUTF();
                                 txt_chat.append(mensagem);
-                                txt_chat.setCaretPosition(txt_chat.getText().length()); 
-			}
-                        catch(EOFException e)
+                                txt_chat.setCaretPosition(txt_chat.getText().length());
+                        }
+                        catch (EOFException e)
                         {
                                 JOptionPane.showMessageDialog(null, "A conexão com o servidor foi interrompida.");
                                 System.exit(1);
                         }
-			catch(Exception e)
-			{
-				e.printStackTrace();
+                        catch (Exception e)
+                        {
+                                e.printStackTrace();
                                 System.exit(1);
-			}
-		}
-	}
+                        }
+                }
+        }
 }

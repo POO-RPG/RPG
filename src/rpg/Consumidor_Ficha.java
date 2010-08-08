@@ -66,7 +66,11 @@ public class Consumidor_Ficha extends Thread
                                 }
                                 catch(Exception e)
                                 {
+                                        System.out.println("Cliente de FICHAS Desconectado!!");
                                         conecxao_ficha.remove(c);
+                                        RPG_globais.getJogadores().remove(ficha.getNome_jogador());
+                                        RPG_globais.getfichas().remove(ficha);
+                                        RPG_globais.getLista_jogadores().setListData(RPG_globais.getJogadores().toArray());
                                         if(conecxao_ficha.isEmpty())
                                                 break;
                                 }

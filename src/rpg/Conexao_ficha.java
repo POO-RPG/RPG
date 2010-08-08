@@ -38,7 +38,6 @@ public class Conexao_ficha extends Thread implements Envia_ficha
             catch(Exception e)
             {
                     e.printStackTrace();
-                    System.exit(1);
             }
     }
 
@@ -104,6 +103,7 @@ public class Conexao_ficha extends Thread implements Envia_ficha
                 catch(Exception e)
                 {
                     e.printStackTrace();
+                    System.out.println("***********************Cliente Ficha DESCONECTADO*******************");
                     ok = false;
                 }
             }

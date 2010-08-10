@@ -47,7 +47,9 @@ public class Consumidor_Ficha extends Thread
                         {
                                 try
                                 {
+					System.out.printf("Servidor enviando:\n Jogador %s | Personagem %s\n", ficha.getNome_jogador(), ficha.getNome_personagem());
                                         c.Enviar_ficha(ficha);
+					System.out.printf("Enviado:\n Jogador %s | Personagem %s\n", ficha.getNome_jogador(), ficha.getNome_personagem());
                                 }
                                 catch (Exception e)
                                 {

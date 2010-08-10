@@ -32,7 +32,7 @@ public class Conexao_ficha extends Thread implements Envia_ficha
                 }
         }
 
-        public void Envia_ficha (Ficha ficha)
+        public void Enviar_ficha (Ficha ficha)
         {
                 try
                 {

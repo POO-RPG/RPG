@@ -64,7 +64,7 @@ public class Consumidor_Ficha extends Thread
                         {
                                 try
                                 {
-                                        c.Envia_ficha(ficha);
+                                        c.Enviar_ficha(ficha);
                                 }
                                 catch (Exception e)
                                 {

@@ -5,6 +5,8 @@
 package rpg;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.HashMap;
 import java.util.Map;
 import javax.swing.JList;
@@ -18,9 +20,26 @@ public class RPG_globais
 
         static private JList lista_jogadores;
         static private Map<String, Ficha> fichas = new HashMap<String, Ficha>();
-        static private ArrayList<String> jogadores = new ArrayList<String>();
         static private Ficha minha_ficha = new Ficha();
         static private Fila<Ficha> fila_fichas = new Fila<Ficha>(1000);
+
+        public synchronized  static void Atualiza_lista_jogadores()
+        {
+                ArrayList<String> nomes = new ArrayList<String>();
+                for(Ficha f: fichas.values())
+                        nomes.add(f.getNome_jogador());
+
+                Collections.sort(nomes, new Comparator() {
+
+                        public int compare (Object arg0, Object arg1)
+                        {
+                                String s1 = (String) arg0, s2 = (String) arg1;
+                                return s1.compareToIgnoreCase(s2);
+                        }
+                });
+
+                lista_jogadores.setListData(nomes.toArray());
+        }
 
         public synchronized static void setfichas (Map<String, Ficha> rfichas)
         {
@@ -40,16 +59,6 @@ public class RPG_globais
         public synchronized static JList getLista_jogadores ()
         {
                 return lista_jogadores;
-        }
-
-        public synchronized static void setJogadores (ArrayList<String> rjogadores)
-        {
-                jogadores = rjogadores;
-        }
-
-        public synchronized static ArrayList<String> getJogadores ()
-        {
-                return jogadores;
         }
 
         public synchronized static void setMinha_ficha (Ficha minha_ficha)

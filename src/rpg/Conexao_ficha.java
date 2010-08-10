@@ -48,12 +48,10 @@ public class Conexao_ficha extends Thread implements Envia_ficha
         public void run ()
         {
                 Ficha ficha;
-                ArrayList<String> jogadores = RPG_globais.getJogadores();
                 boolean ok = true;
 
                 while (ok)
                 {
-                        ArrayList<String> nomes = new ArrayList<String>();
                         try
                         {
                                 ficha = (Ficha) in.readObject();
@@ -61,10 +59,7 @@ public class Conexao_ficha extends Thread implements Envia_ficha
 
                                 RPG_globais.getfichas().put(ficha.getNome_jogador(), ficha);
 
-                                for(Ficha f: RPG_globais.getfichas().values())
-                                        nomes.add(f.getNome_jogador());
-
-                                RPG_globais.getLista_jogadores().setListData(nomes.toArray());
+                                RPG_globais.Atualiza_lista_jogadores();
 
                         }
                         catch (Exception e)

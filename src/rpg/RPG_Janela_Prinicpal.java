@@ -558,6 +558,7 @@ public class RPG_Janela_Prinicpal extends FrameView
         public void bt_travar_todas_fichas ()
         {
                 String s;
+                RPG_globais.Atualiza_lista_jogadores();
                 s = String.format("\n\nMinha Ficha:\nNome: %s Personagem: %s\n\n", RPG_globais.getMinha_ficha().getNome_jogador(), RPG_globais.getMinha_ficha().getNome_personagem());
                 for(Ficha f: RPG_globais.getfichas().values())
                         s += String.format("Nome: |%s| Personagem: |%s|\n",f.getNome_jogador(), f.getNome_personagem());

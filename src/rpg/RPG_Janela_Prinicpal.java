@@ -557,8 +557,12 @@ public class RPG_Janela_Prinicpal extends FrameView
         @Action
         public void bt_travar_todas_fichas ()
         {
-                tes = concatena(tes, JOptionPane.showInputDialog("digite o nome"));
-                lista_jogadores.setListData(tes);
+                String s;
+                s = String.format("\n\nMinha Ficha:\nNome: %s Personagem: %s\n\n", RPG_globais.getMinha_ficha().getNome_jogador(), RPG_globais.getMinha_ficha().getNome_personagem());
+                for(Ficha f: RPG_globais.getfichas().values())
+                        s += String.format("Nome: |%s| Personagem: |%s|\n",f.getNome_jogador(), f.getNome_personagem());
+
+                JOptionPane.showMessageDialog(null, s);
         }
 
         //Método para colocar uma string no final de um vetor de strings

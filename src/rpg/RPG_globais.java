@@ -5,6 +5,8 @@
 package rpg;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 import javax.swing.JList;
 
 /**
@@ -15,17 +17,17 @@ public class RPG_globais
 {
 
         static private JList lista_jogadores;
-        static private ArrayList<Ficha> fichas = new ArrayList<Ficha>();
+        static private Map<String, Ficha> fichas = new HashMap<String, Ficha>();
         static private ArrayList<String> jogadores = new ArrayList<String>();
         static private Ficha minha_ficha = new Ficha();
         static private Fila<Ficha> fila_fichas = new Fila<Ficha>(1000);
 
-        public synchronized static void setfichas (ArrayList<Ficha> rfichas)
+        public synchronized static void setfichas (Map<String, Ficha> rfichas)
         {
                 fichas = rfichas;
         }
 
-        public synchronized static ArrayList<Ficha> getfichas ()
+        public synchronized static Map<String, Ficha> getfichas ()
         {
                 return fichas;
         }

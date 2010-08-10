@@ -40,9 +40,8 @@ public class Servidor_Fichas extends Thread implements Envia_ficha
                 }
         }
 
-        public void Envia_ficha (Ficha ficha)
+        public void Enviar_ficha (Ficha ficha)
         {
-                ArrayList<Ficha> ff = RPG_globais.getfichas();
                 try
                 {
                         fila_ficha.insere(ficha);
@@ -80,9 +79,9 @@ public class Servidor_Fichas extends Thread implements Envia_ficha
                                 conexao_fichas.add(cficha);
 
                                 //Envia as fichas existentes para o novo cliente
-                                for (Ficha f : RPG_globais.getfichas())
+                                for (Ficha f : RPG_globais.getfichas().values())
                                 {
-                                        cficha.Envia_ficha(f);
+                                        cficha.Enviar_ficha(f);
                                 }
                         }
                         catch (Exception e)

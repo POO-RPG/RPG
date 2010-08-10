@@ -11,5 +11,5 @@ package rpg;
 public interface Envia_ficha
 {
 
-        void Envia_ficha (Ficha ficha);
+        void Enviar_ficha (Ficha ficha);
 }

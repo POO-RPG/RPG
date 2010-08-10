@@ -39,6 +39,7 @@ public class Conexao_ficha extends Thread implements Envia_ficha
                 try
                 {
                         out.writeObject(ficha);
+                        System.out.println("Enviando:\nNome: " + ficha.getNome_jogador() + " Personagem: " + ficha.getNome_personagem());
                 }
                 catch (Exception e)
                 {

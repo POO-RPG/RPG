@@ -58,7 +58,9 @@ public class Frame_Ficha extends javax.swing.JFrame
 
         this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 
-        }*/
+	 * }
+	 * @param ficha
+	 */
         public Frame_Ficha (Ficha ficha)
         {
                 travada = false;
@@ -996,62 +998,6 @@ public class Frame_Ficha extends javax.swing.JFrame
                 return nv;
         }
 
-        public void trava_ficha ()
-        {
-                List_Vantagens.setEnabled(false);
-                List_Desvantagens.setEnabled(false);
-                List_Itens.setEnabled(false);
-                List_Magias.setEnabled(false);
-                txt_A.setEnabled(false);
-                txt_Agua.setEnabled(false);
-                txt_Ar.setEnabled(false);
-                txt_Experiencia.setEnabled(false);
-                txt_Dinheiro.setEnabled(false);
-                txt_F.setEnabled(false);
-                txt_Fogo.setEnabled(false);
-                txt_Forca.setEnabled(false);
-                txt_H.setEnabled(false);
-                txt_Jogador.setEnabled(false);
-                txt_Luz.setEnabled(false);
-                txt_PM.setEnabled(false);
-                txt_PV.setEnabled(false);
-                txt_PdF.setEnabled(false);
-                txt_Personagem.setEnabled(false);
-                txt_PoderDeFogo.setEnabled(false);
-                txt_R.setEnabled(false);
-                txt_Terra.setEnabled(false);
-                txt_Trevas.setEnabled(false);
-                txt_area_Historia.setEnabled(false);
-        }
-
-        public void destrava_ficha ()
-        {
-                List_Vantagens.setEnabled(true);
-                List_Desvantagens.setEnabled(true);
-                List_Itens.setEnabled(true);
-                List_Magias.setEnabled(true);
-                txt_A.setEnabled(true);
-                txt_Agua.setEnabled(true);
-                txt_Ar.setEnabled(true);
-                txt_Experiencia.setEnabled(true);
-                txt_Dinheiro.setEnabled(true);
-                txt_F.setEnabled(true);
-                txt_Fogo.setEnabled(true);
-                txt_Forca.setEnabled(true);
-                txt_H.setEnabled(true);
-                txt_Jogador.setEnabled(true);
-                txt_Luz.setEnabled(true);
-                txt_PM.setEnabled(true);
-                txt_PV.setEnabled(true);
-                txt_PdF.setEnabled(true);
-                txt_Personagem.setEnabled(true);
-                txt_PoderDeFogo.setEnabled(true);
-                txt_R.setEnabled(true);
-                txt_Terra.setEnabled(true);
-                txt_Trevas.setEnabled(true);
-                txt_area_Historia.setEnabled(true);
-        }
-
         @Action
         public void BT_AtualizaFicha ()
         {
@@ -1208,5 +1154,61 @@ public class Frame_Ficha extends javax.swing.JFrame
                 txt_Terra.setText(null);
                 txt_Trevas.setText(null);
                 txt_area_Historia.setText(null);
+        }
+
+        public void trava_ficha ()
+        {
+                List_Vantagens.setEnabled(false);
+                List_Desvantagens.setEnabled(false);
+                List_Itens.setEnabled(false);
+                List_Magias.setEnabled(false);
+                txt_A.setEnabled(false);
+                txt_Agua.setEnabled(false);
+                txt_Ar.setEnabled(false);
+                txt_Experiencia.setEnabled(false);
+                txt_Dinheiro.setEnabled(false);
+                txt_F.setEnabled(false);
+                txt_Fogo.setEnabled(false);
+                txt_Forca.setEnabled(false);
+                txt_H.setEnabled(false);
+                txt_Jogador.setEnabled(false);
+                txt_Luz.setEnabled(false);
+                txt_PM.setEnabled(false);
+                txt_PV.setEnabled(false);
+                txt_PdF.setEnabled(false);
+                txt_Personagem.setEnabled(false);
+                txt_PoderDeFogo.setEnabled(false);
+                txt_R.setEnabled(false);
+                txt_Terra.setEnabled(false);
+                txt_Trevas.setEnabled(false);
+                txt_area_Historia.setEnabled(false);
+        }
+
+        public void destrava_ficha ()
+        {
+                List_Vantagens.setEnabled(true);
+                List_Desvantagens.setEnabled(true);
+                List_Itens.setEnabled(true);
+                List_Magias.setEnabled(true);
+                txt_A.setEnabled(true);
+                txt_Agua.setEnabled(true);
+                txt_Ar.setEnabled(true);
+                txt_Experiencia.setEnabled(true);
+                txt_Dinheiro.setEnabled(true);
+                txt_F.setEnabled(true);
+                txt_Fogo.setEnabled(true);
+                txt_Forca.setEnabled(true);
+                txt_H.setEnabled(true);
+                txt_Jogador.setEnabled(true);
+                txt_Luz.setEnabled(true);
+                txt_PM.setEnabled(true);
+                txt_PV.setEnabled(true);
+                txt_PdF.setEnabled(true);
+                txt_Personagem.setEnabled(true);
+                txt_PoderDeFogo.setEnabled(true);
+                txt_R.setEnabled(true);
+                txt_Terra.setEnabled(true);
+                txt_Trevas.setEnabled(true);
+                txt_area_Historia.setEnabled(true);
         }
 }

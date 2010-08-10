@@ -76,17 +76,4 @@ public class Conexao_ficha extends Thread implements Envia_ficha
                 }
         }
 
-        public Ficha get_ficha (String Nome_jogador)
-        {
-                for (int i = 0; i < RPG_globais.getfichas().size(); i++)
-                {
-                        if (RPG_globais.getfichas().get(i).getNome_jogador().equals(Nome_jogador))
-                        {
-                                return (RPG_globais.getfichas().get(i));
-                        }
-                }
-                JOptionPane.showMessageDialog(null, "Ficha não encontrada");
-
-                return (null);
-        }
 }

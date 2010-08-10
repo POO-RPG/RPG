@@ -25,11 +25,9 @@ public class Consumidor_Ficha extends Thread
         public void run ()
         {
                 Ficha ficha = null;
-                boolean adicionado = false;
 
                 while (true)
                 {
-                        adicionado = false;
                         try
                         {
                                 ficha = fila_ficha.retira();

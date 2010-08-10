@@ -536,11 +536,10 @@ public class RPG_Janela_Prinicpal extends FrameView
                 JFrame jan;
                 String jogador;
                 Ficha f = RPG_globais.getMinha_ficha();
-                ArrayList<Ficha> fs = RPG_globais.getfichas();
                 jogador = (String) RPG_globais.getLista_jogadores().getSelectedValue();
                 JOptionPane.showMessageDialog(null, jogador);
 
-                for (Ficha ff : fs)
+                for (Ficha ff : RPG_globais.getfichas().values())
                 {
                         if (jogador.equals(ff.getNome_jogador()))
                         {

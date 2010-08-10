@@ -81,7 +81,9 @@ public class Servidor_Fichas extends Thread implements Envia_ficha
                                 //Envia as fichas existentes para o novo cliente
                                 for (Ficha f : RPG_globais.getfichas().values())
                                 {
+					System.out.printf("Enviando %s\n", f.toString());
                                         cficha.Enviar_ficha(f);
+					System.out.printf("Enviada %s\n", f.toString());
                                 }
                         }
                         catch (Exception e)

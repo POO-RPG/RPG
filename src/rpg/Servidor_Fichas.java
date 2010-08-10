@@ -74,7 +74,7 @@ public class Servidor_Fichas extends Thread implements Envia_ficha
                         try
                         {
                                 socket = server_fichas.accept();
-                                cficha = new Conexao_ficha(socket);
+                                cficha = new Conexao_ficha(socket, true);
                                 cficha.start();
                                 conexao_fichas.add(cficha);
 

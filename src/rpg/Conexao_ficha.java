@@ -55,6 +55,7 @@ public class Conexao_ficha extends Thread implements Envia_ficha
                 {
                         try
                         {
+                                ficha = null;
                                 ficha = (Ficha) in.readObject();
                                 if (!mestrando)
                                 {

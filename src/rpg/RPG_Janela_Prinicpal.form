@@ -13,7 +13,6 @@
               <Group type="102" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="jScrollPane1" alignment="0" min="-2" pref="562" max="-2" attributes="0"/>
                       <Group type="102" alignment="1" attributes="0">
                           <Component id="txt_enviar" pref="479" max="32767" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
@@ -32,21 +31,15 @@
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
                           <Component id="bt_limpar" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <Component id="lbl_status" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Component id="jScrollPane1" alignment="0" min="-2" pref="562" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" attributes="0">
-                          <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                              <Component id="bt_ve_ficha" alignment="0" max="32767" attributes="1"/>
-                              <Component id="bt_trava_ficha" alignment="0" max="32767" attributes="1"/>
-                              <Component id="bt_editar_ficha" alignment="1" max="32767" attributes="1"/>
-                          </Group>
-                          <EmptySpace max="32767" attributes="0"/>
-                      </Group>
-                      <Component id="jScrollPane2" pref="196" max="32767" attributes="1"/>
+                      <Component id="jScrollPane2" pref="183" max="32767" attributes="1"/>
+                      <Component id="bt_ve_ficha" alignment="0" min="-2" pref="183" max="-2" attributes="1"/>
+                      <Component id="bt_editar_ficha" alignment="0" pref="183" max="32767" attributes="1"/>
                   </Group>
-                  <EmptySpace min="-2" pref="389" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="468" max="-2" attributes="0"/>
                   <Component id="jLabel1" max="32767" attributes="1"/>
                   <EmptySpace max="-2" attributes="0"/>
               </Group>
@@ -57,13 +50,13 @@
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace min="-2" pref="69" max="-2" attributes="0"/>
                   <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace pref="360" max="32767" attributes="0"/>
+                  <EmptySpace pref="283" max="32767" attributes="0"/>
               </Group>
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                      <Component id="jScrollPane1" min="-2" pref="261" max="-2" attributes="1"/>
                       <Component id="jScrollPane2" max="32767" attributes="1"/>
-                      <Component id="jScrollPane1" alignment="0" pref="261" max="32767" attributes="1"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
@@ -79,14 +72,9 @@
                       <Component id="txt_num_dados" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="bt_limpar" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="bt_rolar_dados" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="bt_trava_ficha" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="bt_editar_ficha" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace max="32767" attributes="0"/>
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="lbl_status" min="-2" max="-2" attributes="0"/>
-                      <Component id="bt_editar_ficha" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <EmptySpace min="-2" pref="63" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -217,29 +205,14 @@
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bt_ve_fichaActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="bt_trava_ficha">
-          <Properties>
-            <Property name="action" type="javax.swing.Action" editor="org.netbeans.modules.swingapp.ActionEditor">
-              <action class="rpg.RPG_Janela_Prinicpal" id="bt_travar_todas_fichas" methodName="bt_travar_todas_fichas"/>
-            </Property>
-            <Property name="text" type="java.lang.String" resourceKey="bt_trava_ficha.text"/>
-            <Property name="name" type="java.lang.String" value="bt_trava_ficha" noResource="true"/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JLabel" name="lbl_status">
-          <Properties>
-            <Property name="text" type="java.lang.String" resourceKey="lbl_status.text"/>
-            <Property name="name" type="java.lang.String" value="lbl_status" noResource="true"/>
-          </Properties>
-        </Component>
         <Component class="javax.swing.JButton" name="bt_editar_ficha">
           <Properties>
+            <Property name="action" type="javax.swing.Action" editor="org.netbeans.modules.swingapp.ActionEditor">
+              <action class="rpg.RPG_Janela_Prinicpal" id="bt_editar_ficha" methodName="bt_editar_ficha"/>
+            </Property>
             <Property name="text" type="java.lang.String" resourceKey="bt_editar_ficha.text"/>
             <Property name="name" type="java.lang.String" value="bt_editar_ficha" noResource="true"/>
           </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bt_editar_fichaActionPerformed"/>
-          </Events>
         </Component>
       </SubComponents>
     </Container>
@@ -330,11 +303,11 @@
       <Layout>
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
-              <Component id="statusPanelSeparator" alignment="0" pref="1177" max="32767" attributes="0"/>
+              <Component id="statusPanelSeparator" alignment="0" pref="1243" max="32767" attributes="0"/>
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="statusMessageLabel" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace pref="993" max="32767" attributes="0"/>
+                  <EmptySpace pref="1059" max="32767" attributes="0"/>
                   <Component id="progressBar" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="statusAnimationLabel" min="-2" max="-2" attributes="0"/>
@@ -407,6 +380,6 @@
     <AuxValue name="FormSettings_listenerGenerationStyle" type="java.lang.Integer" value="0"/>
     <AuxValue name="FormSettings_variablesLocal" type="java.lang.Boolean" value="false"/>
     <AuxValue name="FormSettings_variablesModifier" type="java.lang.Integer" value="2"/>
-    <AuxValue name="designerSize" type="java.awt.Dimension" value="-84,-19,0,5,115,114,0,18,106,97,118,97,46,97,119,116,46,68,105,109,101,110,115,105,111,110,65,-114,-39,-41,-84,95,68,20,2,0,2,73,0,6,104,101,105,103,104,116,73,0,5,119,105,100,116,104,120,112,0,0,1,-37,0,0,4,-103"/>
+    <AuxValue name="designerSize" type="java.awt.Dimension" value="-84,-19,0,5,115,114,0,18,106,97,118,97,46,97,119,116,46,68,105,109,101,110,115,105,111,110,65,-114,-39,-41,-84,95,68,20,2,0,2,73,0,6,104,101,105,103,104,116,73,0,5,119,105,100,116,104,120,112,0,0,1,-114,0,0,4,-37"/>
   </AuxValues>
 </Form>

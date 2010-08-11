@@ -46,7 +46,7 @@ public class RPG_Janela_Prinicpal extends FrameView
 
                 jogadores = new ArrayList<String>();
                 conexao_fichas = new ArrayList<Conexao_ficha>();
-                RPG_globais.setLista_jogadores(lista_jogadores);
+                RPG_globais.setLista_jogadores(lista_jogadores);               
 
         }
 
@@ -167,6 +167,7 @@ public class RPG_Janela_Prinicpal extends FrameView
                 bt_limpar = new javax.swing.JButton();
                 bt_ve_ficha = new javax.swing.JButton();
                 bt_editar_ficha = new javax.swing.JButton();
+                jLabel4 = new javax.swing.JLabel();
                 menuBar = new javax.swing.JMenuBar();
                 javax.swing.JMenu fileMenu = new javax.swing.JMenu();
                 menu_metrar = new javax.swing.JMenuItem();
@@ -253,6 +254,9 @@ public class RPG_Janela_Prinicpal extends FrameView
                 bt_editar_ficha.setText(resourceMap.getString("bt_editar_ficha.text")); // NOI18N
                 bt_editar_ficha.setName("bt_editar_ficha"); // NOI18N
 
+                jLabel4.setText(resourceMap.getString("jLabel4.text")); // NOI18N
+                jLabel4.setName("jLabel4"); // NOI18N
+
                 javax.swing.GroupLayout mainPanelLayout = new javax.swing.GroupLayout(mainPanel);
                 mainPanel.setLayout(mainPanelLayout);
                 mainPanelLayout.setHorizontalGroup(
@@ -265,7 +269,9 @@ public class RPG_Janela_Prinicpal extends FrameView
                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                                 .addComponent(bt_enviar))
                                         .addGroup(mainPanelLayout.createSequentialGroup()
-                                                .addComponent(jLabel2)
+                                                .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                        .addComponent(jLabel2)
+                                                        .addComponent(jLabel4))
                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                                 .addComponent(txt_modificador, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -289,29 +295,34 @@ public class RPG_Janela_Prinicpal extends FrameView
                 mainPanelLayout.setVerticalGroup(
                         mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(mainPanelLayout.createSequentialGroup()
-                                .addGap(69, 69, 69)
-                                .addComponent(jLabel1)
-                                .addContainerGap(283, Short.MAX_VALUE))
-                        .addGroup(mainPanelLayout.createSequentialGroup()
-                                .addContainerGap()
-                                .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 261, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(jScrollPane2))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                        .addComponent(txt_enviar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(bt_enviar)
-                                        .addComponent(bt_ve_ficha))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                        .addComponent(jLabel2)
-                                        .addComponent(txt_modificador, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(jLabel3)
-                                        .addComponent(txt_num_dados, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(bt_limpar)
-                                        .addComponent(bt_rolar_dados)
-                                        .addComponent(bt_editar_ficha))
-                                .addGap(27, 27, 27))
+                                .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addGroup(mainPanelLayout.createSequentialGroup()
+                                                .addGap(69, 69, 69)
+                                                .addComponent(jLabel1))
+                                        .addGroup(mainPanelLayout.createSequentialGroup()
+                                                .addContainerGap()
+                                                .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 261, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                        .addComponent(jScrollPane2))
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                                        .addComponent(txt_enviar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                        .addComponent(bt_enviar)
+                                                        .addComponent(bt_ve_ficha))
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                                        .addComponent(jLabel2)
+                                                        .addComponent(txt_modificador, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                        .addComponent(jLabel3)
+                                                        .addComponent(txt_num_dados, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                        .addComponent(bt_limpar)
+                                                        .addComponent(bt_rolar_dados)
+                                                        .addComponent(bt_editar_ficha))))
+                                .addContainerGap(23, Short.MAX_VALUE))
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, mainPanelLayout.createSequentialGroup()
+                                .addContainerGap(346, Short.MAX_VALUE)
+                                .addComponent(jLabel4)
+                                .addContainerGap())
                 );
 
                 menuBar.setName("menuBar"); // NOI18N
@@ -631,6 +642,7 @@ public class RPG_Janela_Prinicpal extends FrameView
         private javax.swing.JLabel jLabel1;
         private javax.swing.JLabel jLabel2;
         private javax.swing.JLabel jLabel3;
+        private javax.swing.JLabel jLabel4;
         private javax.swing.JScrollPane jScrollPane1;
         private javax.swing.JScrollPane jScrollPane2;
         private javax.swing.JList lista_jogadores;

@@ -1,8 +1,6 @@
 package rpg;
 
 import java.io.*;
-import java.util.*;
-import javax.swing.JOptionPane;
 import java.net.*;
 
 /**
@@ -15,12 +13,12 @@ public class Conexao_ficha extends Thread implements Envia_ficha
         private ObjectOutputStream out;
         private ObjectInputStream in;
         private Socket conexao_cliente;
-	private boolean mestrando;
+        private boolean mestrando;
 
         Conexao_ficha (Socket conexao_cliente, boolean mestrando)
         {
                 this.conexao_cliente = conexao_cliente;
-		this.mestrando = mestrando;
+                this.mestrando = mestrando;
 
                 try
                 {
@@ -58,12 +56,18 @@ public class Conexao_ficha extends Thread implements Envia_ficha
                         try
                         {
                                 ficha = (Ficha) in.readObject();
+                                if (!mestrando)
+                                {
+                                        System.out.printf("\nCliente recebeu: Nome: %s Personagem: %s\n", ficha.getNome_jogador(), ficha.getNome_personagem());
+                                }
 
-                                if(mestrando)
-					RPG_globais.getFila_fichas().insere(ficha);
+                                if (mestrando)
+                                {
+                                        RPG_globais.getFila_fichas().insere(ficha);
+                                        System.out.printf("\nMestre recebeu: Nome: %s Personagem: %s\n", ficha.getNome_jogador(), ficha.getNome_personagem());
+                                }
 
                                 RPG_globais.getfichas().put(ficha.getNome_jogador(), ficha);
-
                                 RPG_globais.Atualiza_lista_jogadores();
 
                         }
@@ -75,5 +79,4 @@ public class Conexao_ficha extends Thread implements Envia_ficha
                         }
                 }
         }
-
 }

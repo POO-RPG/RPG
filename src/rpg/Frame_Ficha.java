@@ -22,7 +22,6 @@ import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
-import javax.imageio.stream.FileImageInputStream;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import org.jdesktop.application.Action;
@@ -1274,7 +1273,7 @@ public class Frame_Ficha extends javax.swing.JFrame {
 
 			JOptionPane.showMessageDialog(this, "Ficha aberta!");
 		} catch (Exception e) {
-			JOptionPane.showMessageDialog(this, "Falha abrir a ficha!\nTalvez ela não exista!");
+			JOptionPane.showMessageDialog(this, "Falha ao abrir a ficha!\nTalvez ela não exista!");
 			e.printStackTrace();
 		}
 	}

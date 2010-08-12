@@ -29,7 +29,6 @@ public class Cliente
         private Socket s = null;
         private DataInputStream in;
         private DataOutputStream out = null;
-        private String m;
         private Escrevedor e;
         private int porta;
         private JTextArea txt_chat;

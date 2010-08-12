@@ -35,11 +35,6 @@ import javax.swing.JTextArea;
 
 public class Servidor_Chat extends Thread
 {
-
-        private static int cont_clientes = 0;
-        private String[] nome_clientes =
-        {
-        };
         private ServerSocket servidor;
         private Fila<Mensagem> f;
         private ArrayList<Conexao_Cliente> clientes;

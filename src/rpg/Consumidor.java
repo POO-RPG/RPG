@@ -19,7 +19,6 @@
 package rpg;
 
 import java.util.*;
-import javax.swing.JOptionPane;
 import javax.swing.JTextArea;
 
 public class Consumidor extends Thread

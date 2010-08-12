@@ -576,6 +576,8 @@ public class RPG_Janela_Prinicpal extends FrameView
                                 catch (NumberFormatException e)
                                 {
                                         JOptionPane.showMessageDialog(null, "A porta deve ser um número inteiro e positivo!");
+					mestrando = false;
+					return;
                                 }
                         }
                         mestre = new Servidor_Chat(porta, txt_chat);
@@ -604,7 +606,14 @@ public class RPG_Janela_Prinicpal extends FrameView
         @Action
         public void jogar ()
         {
-                cliente = new Cliente(txt_chat);
+		try
+		{
+			cliente = new Cliente(txt_chat);
+		}
+		catch(Exception e)
+		{
+			return;
+		}
                 menu_metrar.setEnabled(false);
                 menu_jogar.setEnabled(false);
 

@@ -57,7 +57,8 @@ public class Cliente
                 }
                 catch (NumberFormatException eeeeee)
                 {
-                        JOptionPane.showMessageDialog(null, "A porta deve ser um número inteiro e positivo!");
+                        JOptionPane.showMessageDialog(null, "Erro nos dados informados!");
+			throw new ExceptionInInitializerError();
                 }
                 catch (Exception eee)
                 {

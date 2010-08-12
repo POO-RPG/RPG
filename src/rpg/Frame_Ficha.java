@@ -1213,7 +1213,8 @@ public class Frame_Ficha extends javax.swing.JFrame {
 	@Action
 	public void Salvar_Ficha() {
 		try {
-			FileOutputStream fs = new FileOutputStream("ficha");
+			String file = JOptionPane.showInputDialog("Informe o caminho onde a ficha será salva");
+			FileOutputStream fs = new FileOutputStream(file);
 			ObjectOutputStream save_obj = new ObjectOutputStream(fs);
 			BT_AtualizaFicha();
 
@@ -1232,7 +1233,8 @@ public class Frame_Ficha extends javax.swing.JFrame {
 	public void Abrir_Ficha() {
 		Ficha f;
 		try {
-			FileInputStream fs = new FileInputStream("ficha");
+			String file = JOptionPane.showInputDialog("Qual o caminho para a ficha que desejas abrir?");
+			FileInputStream fs = new FileInputStream(file);
 			ObjectInputStream read_obj = new ObjectInputStream(fs);
 
 			f = (Ficha) read_obj.readObject();

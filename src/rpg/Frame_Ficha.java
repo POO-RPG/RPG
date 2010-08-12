@@ -1221,7 +1221,7 @@ public class Frame_Ficha extends javax.swing.JFrame {
 			save_obj.writeObject(RPG_globais.getMinha_ficha());
 			save_obj.close();
 
-			JOptionPane.showMessageDialog(this, "Ficha Salva!");
+			JOptionPane.showMessageDialog(this, "Ficha Salva no arquivo \"ficha\"!");
 		} catch (Exception e) {
 			JOptionPane.showMessageDialog(this, "Falha ao salvar a ficha!");
 			e.printStackTrace();

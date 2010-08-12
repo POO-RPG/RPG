@@ -1,15 +1,24 @@
 /*
- * Essa Classe é a responsável por gerenciar a conecxão com o cliente:
- *  - Responsável por recevber as mensagens do cliente e coloca-las na fila;
- *  - Enviar mensagens para o cliente;
- *  - Imprimir a mensagem de desconeção no servidor;
+ * =====================================================================================
+ *
+ *       ProjectName: 3D&T Online
+ *
+ *        Version:  1.0
+ *       Revision:  none
+ *       Compiler:  gcc
+ *
+ *         Author:  Anderson de França Queiroz , anderson.f.queiroz(.AT,)gmail dot com
+ *                  Felipe Jun Ichi Shimura , felipe-shimura(.AT,)hotmail dot com
+ *		    Tiago de França Queiroz , tiago.f.q(.AT,)gmail dot com
+ *        Company:  Universidade Federal do ABC - UFABC
+ *	  License: GPL 3.0
+ *
+ * =====================================================================================
  */
+
 package rpg;
 
-/**
- *
- * @author belimawr
- */
+
 import java.net.*;
 import java.io.*;
 import javax.swing.JTextArea;

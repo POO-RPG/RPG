@@ -1,4 +1,22 @@
 /*
+ * =====================================================================================
+ *
+ *       ProjectName: 3D&T Online
+ *
+ *        Version:  1.0
+ *       Revision:  none
+ *       Compiler:  gcc
+ *
+ *         Author:  Anderson de França Queiroz , anderson.f.queiroz(.AT,)gmail dot com
+ *                  Felipe Jun Ichi Shimura , felipe-shimura(.AT,)hotmail dot com
+ *		    Tiago de França Queiroz , tiago.f.q(.AT,)gmail dot com
+ *        Company:  Universidade Federal do ABC - UFABC
+ *	  License: GPL 3.0
+ *
+ * =====================================================================================
+ */
+
+/*
  * Essa Classe é a responsável por:
  *  - Ficar escutando a porta selecionada por novas conecxões;
  *  - Criar um objeto Conecxao_Cliente para cada nova conecxão;
@@ -15,10 +33,6 @@ import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import javax.swing.JTextArea;
 
-/**
- *
- * @author belimawr
- */
 public class Servidor_Chat extends Thread
 {
 

@@ -37,7 +37,6 @@ public class Conexao_ficha extends Thread implements Envia_ficha
                 try
                 {
                         out.writeObject(ficha);
-                        System.out.println("\nConexão enviando:\nNome: " + ficha.getNome_jogador() + " Personagem: " + ficha.getNome_personagem());
                 }
                 catch (Exception e)
                 {
@@ -57,15 +56,10 @@ public class Conexao_ficha extends Thread implements Envia_ficha
                         {
                                 ficha = null;
                                 ficha = (Ficha) in.readObject();
-                                if (!mestrando)
-                                {
-                                        System.out.printf("\nCliente recebeu: Nome: %s Personagem: %s\n", ficha.getNome_jogador(), ficha.getNome_personagem());
-                                }
 
                                 if (mestrando)
                                 {
                                         RPG_globais.getFila_fichas().insere(ficha);
-                                        System.out.printf("\nMestre recebeu: Nome: %s Personagem: %s\n", ficha.getNome_jogador(), ficha.getNome_personagem());
                                 }
 
                                 RPG_globais.getfichas().put(ficha.getNome_jogador(), ficha);

@@ -99,6 +99,9 @@ public class Frame_Ficha extends javax.swing.JFrame {
 
 		BT_Atualiza_Ficha.setEnabled(false);
 		BT_Limpa_Ficha.setEnabled(false);
+		BT_Salva_Ficha.setEnabled(false);
+		BT_Abre_Ficha.setEnabled(false);
+		
 		txt_Jogador.setEnabled(false);
 
 		this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);

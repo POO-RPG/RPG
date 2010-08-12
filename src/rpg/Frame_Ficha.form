@@ -38,7 +38,7 @@
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace min="-2" pref="8" max="-2" attributes="0"/>
-                              <Component id="jScrollPane1" pref="165" max="32767" attributes="1"/>
+                              <Component id="jScrollPane1" pref="151" max="32767" attributes="1"/>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" max="-2" attributes="0">
                                   <Component id="BT_Rm_Desvantagem" min="0" pref="0" max="32767" attributes="1"/>
@@ -48,15 +48,19 @@
                               </Group>
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Group type="102" attributes="0">
+                                      <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
+                                      <Component id="jLabel25" pref="438" max="32767" attributes="1"/>
+                                  </Group>
+                                  <Group type="102" alignment="0" attributes="0">
                                       <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="jScrollPane5" alignment="0" pref="412" max="32767" attributes="1"/>
-                                          <Component id="BT_Atualiza_Ficha" alignment="0" pref="412" max="32767" attributes="1"/>
+                                          <Group type="102" alignment="0" attributes="0">
+                                              <Component id="BT_Atualiza_Ficha" min="-2" pref="210" max="-2" attributes="1"/>
+                                              <EmptySpace max="32767" attributes="0"/>
+                                              <Component id="BT_Abre_Ficha" min="-2" pref="210" max="-2" attributes="1"/>
+                                          </Group>
+                                          <Component id="jScrollPane5" alignment="0" pref="426" max="32767" attributes="1"/>
                                       </Group>
-                                  </Group>
-                                  <Group type="102" attributes="0">
-                                      <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
-                                      <Component id="jLabel25" pref="424" max="32767" attributes="1"/>
                                   </Group>
                               </Group>
                           </Group>
@@ -167,21 +171,23 @@
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="1" attributes="0">
-                          <Component id="BT_Rm_Vantegem" alignment="0" pref="165" max="32767" attributes="1"/>
-                          <Component id="jLabel21" alignment="1" pref="165" max="32767" attributes="1"/>
+                          <Component id="BT_Rm_Vantegem" alignment="0" pref="151" max="32767" attributes="1"/>
+                          <Component id="jLabel21" alignment="1" pref="151" max="32767" attributes="1"/>
                           <Group type="102" alignment="0" attributes="0">
                               <Component id="jLabel26" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="txt_Dinheiro" min="0" pref="0" max="32767" attributes="0"/>
                           </Group>
-                          <Component id="BT_Add_Vantagem" alignment="0" pref="165" max="32767" attributes="1"/>
+                          <Component id="BT_Add_Vantagem" alignment="0" pref="151" max="32767" attributes="1"/>
                       </Group>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Component id="jLabel27" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="txt_Experiencia" min="-2" pref="69" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
-                      <Component id="BT_Limpa_Ficha" pref="412" max="32767" attributes="1"/>
+                      <Component id="BT_Limpa_Ficha" min="-2" pref="210" max="-2" attributes="1"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="BT_Salva_Ficha" min="-2" pref="210" max="-2" attributes="1"/>
                   </Group>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
@@ -346,6 +352,7 @@
                   <Component id="BT_Rm_Vantegem" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="BT_Atualiza_Ficha" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="BT_Rm_Desvantagem" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="BT_Abre_Ficha" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
@@ -363,7 +370,10 @@
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="7" max="-2" attributes="0"/>
-                      <Component id="BT_Limpa_Ficha" min="-2" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="BT_Limpa_Ficha" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="BT_Salva_Ficha" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
                   </Group>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
@@ -922,6 +932,24 @@
         </Property>
         <Property name="text" type="java.lang.String" resourceKey="BT_Limpa_Ficha.text"/>
         <Property name="name" type="java.lang.String" value="BT_Limpa_Ficha" noResource="true"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="BT_Abre_Ficha">
+      <Properties>
+        <Property name="action" type="javax.swing.Action" editor="org.netbeans.modules.swingapp.ActionEditor">
+          <action class="rpg.Frame_Ficha" id="Abrir_Ficha" methodName="Abrir_Ficha"/>
+        </Property>
+        <Property name="text" type="java.lang.String" resourceKey="BT_Abre_Ficha.text"/>
+        <Property name="name" type="java.lang.String" value="BT_Abre_Ficha" noResource="true"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="BT_Salva_Ficha">
+      <Properties>
+        <Property name="action" type="javax.swing.Action" editor="org.netbeans.modules.swingapp.ActionEditor">
+          <action class="rpg.Frame_Ficha" id="Salvar_Ficha" methodName="Salvar_Ficha"/>
+        </Property>
+        <Property name="text" type="java.lang.String" resourceKey="BT_Salva_Ficha.text"/>
+        <Property name="name" type="java.lang.String" value="BT_Salva_Ficha" noResource="true"/>
       </Properties>
     </Component>
   </SubComponents>
